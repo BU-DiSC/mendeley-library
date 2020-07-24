@@ -7,7 +7,7 @@
 }
 
 @article{Abadi2006,
- author = {Abadi, Daniel J. and Madden, Samuel and Ferreira, Miguel},
+ author = {Abadi, Daniel J and Madden, Samuel and Ferreira, Miguel},
  doi = {10.1145/1142473.1142548},
  journal = {SIGMOD},
  link = {http://doi.acm.org/10.1145/1142473.1142548},
@@ -16,7 +16,7 @@
 }
 
 @article{Abadi2007,
- author = {Abadi, Daniel J. and Marcus, Adam and Madden, Sammuel R. and Hollenbach, Kate},
+ author = {Abadi, Daniel J and Marcus, Adam and Madden, Sammuel R and Hollenbach, Kate},
  journal = {VLDB},
  link = {http://dl.acm.org/citation.cfm?id=1325900},
  title = {{Scalable semantic web data management using vertical partitioning}},
@@ -24,8 +24,8 @@
 }
 
 @article{Abadi2007a,
- author = {Abadi, Daniel J. and Myers, Daniel S. and DeWitt, David J. and Madden, Sammuel R.},
- file = {::},
+ author = {Abadi, Daniel J and Myers, Daniel S and DeWitt, David J and Madden, Sammuel R},
+ file = {:Users/mathan/Documents/Mendeley//Abadi et al.{\_}2007{\_}Materialization Strategies in a Column-Oriented DBMS.pdf:pdf},
  journal = {ICDE},
  link = {http://ieeexplore.ieee.org/xpls/abs{\_}all.jsp?arnumber=4221695},
  title = {{Materialization Strategies in a Column-Oriented DBMS}},
@@ -34,8 +34,8 @@
 
 @phdthesis{Abadi2008,
  abstract = {There are two obvious ways to map a two-dimension relational database table onto a one-dimensional storage interface: store the table row-by-row, or store the table column-by-column. Historically, database system implementations and research have focused on the row-by row data layout, since it performs best on the most common application for database systems: business transactional data processing. However, there are a set of emerging applications for database systems for which the row-by-row layout performs poorly. These applications are more analytical in nature, whose goal is to read through the data to gain new insight and use it to drive decision making and planning. In this dissertation, we study the problem of poor performance of row-by-row data layout for these emerging applications, and evaluate the column-by-column data layout opportunity as a solution to this problem. There have been a variety of proposals in the literature for how to build a database system on top of column-by-column layout. These proposals have different levels of implementation effort, and have different performance characteristics. If one wanted to build a new database system that utilizes the column-by-column data layout, it is unclear which proposal to follow. This dissertation provides (to the best of our knowledge) the only detailed study of multiple implementation approaches of such systems, categorizing the different approaches into three broad categories, and evaluating the tradeoffs between approaches. We conclude that building a query executor specifically designed for the column-by-column query layout is essential to achieve good performance. Consequently, we describe the implementation of C-Store, a new database system with a storage layer and query executor built for column-by-column data layout. We introduce three new query execution techniques that significantly improve performance. First, we look at the problem of integrating compression and execution so that the query executor is capable of directly operating on compressed data. This improves performance by improving I/O (less data needs to be read off disk), and CPU (the data need not be decompressed). We describe our solution to the problem of executor extensibilityhow can new compression techniques be added to the system without having to rewrite the operator code? Second, we analyze the problem of tuple construction (stitching together attributes from multiple columns into a row-oriented "tuple"). Tuple construction is required when operators need to access multiple attributes from the same tuple; however, if done at the wrong point in a query plan, a significant performance penalty is paid. We introduce an analytical model and some heuristics to use that help decide when in a query plan tuple construction should occur. Third, we introduce a new join technique, the "invisible join" that improves performance of a specific type of join that is common in the applications for which column-by-column data layout is a good idea. Finally, we benchmark performance of the complete C-Store database system against other column-oriented database system implementation approaches, and against row-oriented databases. We benchmark two applications. The first application is a typical analytical application for which column-by-column data layout is known to outperform row-by-row data layout. The second application is another emerging application, the Semantic Web, for which column-oriented database systems are not currently used. We find that on the first application, the complete C-Store system performed 10 to 18 times faster than alternative column-store implementation approaches, and 6 to 12 times faster than a commercial database system that uses a row-by-row data layout. On the Semantic Web application, we find that C-Store outperforms other state-of-the-art data management techniques by an order of magnitude, and outperforms other common data management techniques by almost two orders of magnitude. Benchmark queries, which used to take multiple minutes to execute, can now be answered in several seconds. (Copies available exclusively from MIT Libraries, Rm. 14-0551, Cambridge, MA 02139-4307. Ph. 617-253-5668; Fax 617-253-1690.)},
- author = {Abadi, Daniel J.},
- file = {::},
+ author = {Abadi, Daniel J},
+ file = {:Users/mathan/Documents/Mendeley//Abadi{\_}2008{\_}Query execution in column-oriented database systems.pdf:pdf},
  link = {http://dspace.mit.edu/handle/1721.1/43043},
  publisher = {Massachusetts Institute of Technology},
  school = {Massachusetts Institute of Technology},
@@ -44,9 +44,9 @@
 }
 
 @article{Abadi2009,
- author = {Abadi, Daniel J. and Boncz, Peter A. and Harizopoulos, Stavros},
+ author = {Abadi, Daniel J and Boncz, Peter A and Harizopoulos, Stavros},
  doi = {10.14778/1687553.1687625},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Abadi, Boncz, Harizopoulos{\_}2009{\_}Column-oriented Database Systems.pdf:pdf},
  issn = {21508097},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=1687553.1687625},
@@ -58,7 +58,7 @@
 }
 
 @article{Abadi2013,
- author = {Abadi, Daniel J. and Boncz, Peter A. and Harizopoulos, Stavros and Idreos, Stratos and Madden, Samuel},
+ author = {Abadi, Daniel J and Boncz, Peter A and Harizopoulos, Stavros and Idreos, Stratos and Madden, Samuel},
  doi = {10.1561/1900000024},
  journal = {Found. Trends Databases},
  link = {http://dx.doi.org/10.1561/1900000024},
@@ -81,7 +81,7 @@
 }
 
 @article{Abouzied2013,
- author = {Abouzied, Azza and Abadi, Daniel J. and Silberschatz, Avi},
+ author = {Abouzied, Azza and Abadi, Daniel J and Silberschatz, Avi},
  doi = {10.1145/2452376.2452377},
  journal = {EDBT},
  link = {http://doi.acm.org/10.1145/2452376.2452377},
@@ -142,7 +142,7 @@
 
 @article{Agarwal2012,
  author = {Agarwal, Sameer and Iyer, Anand P. and Panda, Aurojit and Madden, Sammuel R. and Mozafari, Barzan and Stoica, Ion},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Agarwal et al.{\_}2012{\_}Blink and it's done interactive queries on very large data.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2367502.2367533},
@@ -221,7 +221,7 @@
 
 @article{Agrawal2008a,
  author = {Agrawal, Jagrati and Diao, Yanlei and Gyllstrom, Daniel and Immerman, Neil},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Agrawal et al.{\_}2008{\_}Efficient pattern matching over event streams.pdf:pdf},
  journal = {SIGMOD},
  keyword = {event streams,pattern matching,query optimization,stream processing,work sharing},
  link = {http://dl.acm.org/citation.cfm?id=1376616.1376634},
@@ -278,7 +278,7 @@
 
 @article{Ailamaki1999,
  author = {Ailamaki, Anastasia and DeWitt, David J. and Hill, Mark D. and Wood, David A.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Ailamaki et al.{\_}1999{\_}DBMSs on a modern processor Where does time go.pdf:pdf},
  journal = {VLDB},
  link = {http://128.105.2.28/pub/techreports/1999/TR1394.pdf},
  title = {{DBMSs on a modern processor: Where does time go?}},
@@ -394,7 +394,6 @@
 @article{Alagiannis2014,
  author = {Alagiannis, Ioannis and Idreos, Stratos and Ailamaki, Anastasia},
  doi = {10.1145/2588555.2610502},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!H20.pdf:pdf},
  isbn = {9781450323765},
  journal = {SIGMOD},
  keyword = {adaptive hybrids,adaptive storage,dynamic operators},
@@ -572,7 +571,7 @@
 }
 
 @article{Andersen2009,
- author = {Andersen, David G. and Franklin, Jason and Kaminsky, Michael and Phanishayee, Amar and Tan, Lawrence and Vasudevan, Vijay},
+ author = {Andersen, David G and Franklin, Jason and Kaminsky, Michael and Phanishayee, Amar and Tan, Lawrence and Vasudevan, Vijay},
  doi = {10.1145/1629575.1629577},
  journal = {SOSP},
  link = {http://doi.acm.org/10.1145/1629575.1629577},
@@ -599,7 +598,7 @@
 @article{Antoshenkov1993,
  author = {Antoshenkov, Gennady},
  doi = {10.1109/ICDE.1993.344026},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Antoshenkov{\_}1993{\_}Dynamic Query Optimization in RdbVMS.pdf:pdf},
  journal = {ICDE},
  link = {http://dx.doi.org/10.1109/ICDE.1993.344026},
  title = {{Dynamic Query Optimization in Rdb/VMS}},
@@ -619,7 +618,7 @@
 @article{Antoshenkov1996,
  author = {Antoshenkov, Gennady and Ziauddin, Mohamed},
  doi = {10.1007/s007780050026},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Antoshenkov, Ziauddin{\_}1996{\_}Query Processing and Optimization in Oracle Rdb.pdf:pdf},
  journal = {VLDBJ},
  link = {http://dx.doi.org/10.1007/s007780050026},
  number = {4},
@@ -689,7 +688,7 @@
 
 @article{Apaydin2008,
  author = {Apaydin, Tan and Ferhatosmanoglu, Hakan and Canahuate, Guadalupe and Tosun, Ali Şaman},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Apaydin et al.{\_}2008{\_}Dynamic data organization for bitmap indices.pdf:pdf},
  isbn = {978-963-9799-28-8},
  journal = {InfoScale},
  keyword = {bitmaps},
@@ -723,7 +722,7 @@
 
 @article{Appuswamy2017a,
  author = {Appuswamy, Raja and Borovica-Gajic, Renata and Graefe, Goetz and Ailamaki, Anastasia},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Five-Minute Rule - Thirty Years Later.pdf:pdf},
+ file = {::},
  journal = {ADMS},
  title = {{The Five minute Rule Thirty Years Later and its Impact on the Storage Hierarchy}},
  year = {2017}
@@ -732,7 +731,7 @@
 @article{Apweiler2004,
  abstract = {To provide the scientific community with a single, centralized, authoritative resource for protein sequences and functional information, the Swiss-Prot, TrEMBL and PIR protein database activities have united to form the Universal Protein Knowledgebase (UniProt) consortium. Our mission is to provide a comprehensive, fully classified, richly and accurately annotated protein sequence knowledgebase, with extensive cross-references and query interfaces. The central database will have two sections, corresponding to the familiar Swiss-Prot (fully manually curated entries) and TrEMBL (enriched with automated classification, annotation and extensive cross-references). For convenient sequence searches, UniProt also provides several non-redundant sequence databases. The UniProt NREF (UniRef) databases provide representative subsets of the knowledgebase suitable for efficient searching. The comprehensive UniProt Archive (UniParc) is updated daily from many public source databases. The UniProt databases can be accessed online (http://www.uniprot.org) or downloaded in several formats (ftp://ftp.uniprot.org/pub). The scientific community is encouraged to submit data for inclusion in UniProt.},
  author = {Apweiler, Rolf and Bairoch, Amos and Wu, Cathy H. and Barker, Winona C. and Boeckmann, Brigitte and Ferro, Serenella and Gasteiger, Elisabeth and Huang, Hongzhan and Lopez, Rodrigo and Magrane, Michele and Martin, Maria J. and Natale, Darren A. and O'Donovan, Claire and Redaschi, Nicole and Yeh, Lai-Su L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Apweiler et al.{\_}2004{\_}UniProt the Universal Protein knowledgebase.pdf:pdf},
  journal = {Nucleic acids research},
  keyword = {Animals,Computational Biology,Databases,Humans,Internet,Protein,Protein Conformation,Proteins,Proteins: chemistry,Proteins: classification,Proteins: metabolism,Proteome,Proteomics,Terminology as Topic},
  link = {http://nar.oxfordjournals.org/cgi/content/long/32/suppl{\_}1/D115},
@@ -773,7 +772,7 @@
 @article{Armstrong2013,
  author = {Armstrong, Timothy G. and Ponnekanti, Vamsi and Borthakur, Dhruba and Callaghan, Mark},
  doi = {10.1145/2463676.2465296},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Armstrong et al.{\_}2013{\_}LinkBench a Database Benchmark Based on the Facebook Social Graph.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keyword = {database benchmarks,database workload analysis,hbase,mysql,social networks},
@@ -803,7 +802,7 @@
 @article{Arulraj2016,
  author = {Arulraj, Joy and Pavlo, Andrew and Menon, Prashanth},
  doi = {10.1145/2882903.2915231},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Arulraj, Pavlo, Menon - 2016 - Bridging the Archipelago between Row-Stores and Column-Stores for Hybrid Workloads.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Arulraj, Pavlo, Menon{\_}2016{\_}Bridging the Archipelago between Row-Stores and Column-Stores for Hybrid Workloads.pdf:pdf},
  isbn = {9781450335317},
  journal = {SIGMOD},
  link = {https://www.cs.cmu.edu/{~}jarulraj/papers/2016.tile.sigmod.pdf http://dx.doi.org/10.1145/2882903.2915231 http://dl.acm.org/citation.cfm?doid=2882903.2915231},
@@ -832,7 +831,7 @@
 
 @article{Arumugam2010,
  author = {Arumugam, Subramanian and Dobra, Alin and Jermaine, Christopher M. and Pansare, Niketan and Perez, Luis},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Arumugam et al.{\_}2010{\_}The DataPath System A Data-centric Analytic Processing Engine for Large Data Warehouses.pdf:pdf},
  journal = {SIGMOD},
  keyword = {algorithms},
  link = {http://dl.acm.org/citation.cfm?id=1807167.1807224},
@@ -869,7 +868,7 @@
 
 @article{Athanassoulis2011,
  author = {Athanassoulis, Manos and Chen, Shimin and Ailamaki, Anastasia and Gibbons, Phillip B. and Stoica, Radu},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Athanassoulis et al. - 2011 - MaSM Efficient Online Updates in Data Warehouses.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Athanassoulis et al.{\_}2011{\_}MaSM Efficient Online Updates in Data Warehouses.pdf:pdf},
  journal = {SIGMOD},
  keyword = {SSDs,data warehouses,materialized sort merge,online updates},
  link = {http://dl.acm.org/citation.cfm?id=1989323.1989414},
@@ -885,7 +884,7 @@
  year = {2012}
 }
 
-@article{Athanassoulis2013a,
+@article{Athanassoulis2013,
  author = {Athanassoulis, Manos and Bhattacharjee, Bishwaranjan and Canim, Mustafa and Ross, Kenneth A.},
  journal = {NVMW},
  title = {{Querying Persistent Graphs using Solid State Storage}},
@@ -906,7 +905,7 @@
 @phdthesis{Athanassoulis2014a,
  author = {Athanassoulis, Manos},
  doi = {http://dx.doi.org/10.5075/epfl-thesis-6032},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Athanassoulis{\_}2014{\_}Solid-State Storage and Work Sharing for Efficient Scaleup Data Analytics.pdf:pdf},
  link = {http://infoscience.epfl.ch/record/197103},
  school = {EPFL},
  title = {{Solid-State Storage and Work Sharing for Efficient Scaleup Data Analytics}},
@@ -932,7 +931,6 @@
 
 @article{Athanassoulis2016a,
  author = {Athanassoulis, Manos and Yan, Zheng and Idreos, Stratos},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!UpBit.pdf:pdf},
  journal = {SIGMOD},
  link = {https://dl.acm.org/citation.cfm?id=2915964},
  title = {{UpBit: Scalable In-Memory Updatable Bitmap Indexing}},
@@ -941,7 +939,6 @@
 
 @article{Athanassoulis2016b,
  author = {Athanassoulis, Manos and Idreos, Stratos},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Design Tradeoffs of Data Access Methods.pdf:pdf},
  journal = {SIGMOD},
  title = {{Design Tradeoffs of Data Access Methods}},
  year = {2016}
@@ -977,7 +974,7 @@
 @article{Avnur2000,
  author = {Avnur, Ron and Hellerstein, Joseph M.},
  doi = {10.1145/335191.335420},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Avnur, Hellerstein{\_}2000{\_}Eddies Continuously Adaptive Query Processing.pdf:pdf},
  isbn = {1-58113-217-4},
  issn = {01635808},
  journal = {SIGMOD Rec.},
@@ -1026,7 +1023,7 @@
 @article{Babu2005,
  author = {Babu, Shivnath and Bizarro, Pedro and DeWitt, David J.},
  doi = {10.1145/1066157.1066171},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Babu, Bizarro, DeWitt{\_}2005{\_}Proactive re-optimization.pdf:pdf},
  isbn = {1595930604},
  journal = {SIGMOD},
  link = {http://dl.acm.org/citation.cfm?id=1066157.1066171},
@@ -1140,7 +1137,7 @@
 @article{Barroso1998,
  author = {Barroso, Luiz Andr{\'{e}} and Gharachorloo, Kourosh and Bugnion, Edouard},
  doi = {10.1109/ISCA.1998.694758},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Barroso, Gharachorloo, Bugnion{\_}1998{\_}Memory System Characterization of Commercial Workloads.pdf:pdf},
  journal = {ISCA},
  link = {http://dx.doi.org/10.1109/ISCA.1998.694758},
  title = {{Memory System Characterization of Commercial Workloads}},
@@ -1240,7 +1237,7 @@
 @article{Bausch2012,
  author = {Bausch, Daniel and Petrov, Ilia and Buchmann, Alejandro P.},
  doi = {10.1145/2236584.2236588},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bausch, Petrov, Buchmann{\_}2012{\_}Making cost-based query optimization asymmetry-aware.pdf:pdf},
  isbn = {9781450314459},
  journal = {DAMON},
  link = {http://dl.acm.org/citation.cfm?id=2236584.2236588},
@@ -1281,7 +1278,7 @@
 @article{Bayer1977,
  author = {Bayer, Rudolf and Unterauer, Karl},
  doi = {10.1145/320521.320530},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bayer, Unterauer{\_}1977{\_}Prefix B-trees.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  keyword = {B -trees,key compression,multiway search trees},
@@ -1352,6 +1349,28 @@
  year = {2011}
 }
 
+@article{Ben-Tal1998,
+ author = {Ben-Tal, Aharon and Nemirovski, Arkadi},
+ doi = {10.1287/moor.23.4.769},
+ journal = {Mathematics of Operations Research},
+ number = {4},
+ pages = {769--805},
+ title = {{Robust Convex Optimization}},
+ volume = {23},
+ year = {1998}
+}
+
+@article{Ben-Tal2013,
+ author = {Ben-Tal, Aharon and den Hertog, Dick and Waegenaere, Anja De and Melenberg, Bertrand and Rennen, Gijs},
+ doi = {10.1287/mnsc.1120.1641},
+ journal = {Management Science},
+ number = {2},
+ pages = {341--357},
+ title = {{Robust Solutions of Optimization Problems Affected by Uncertain Probabilities}},
+ volume = {59},
+ year = {2013}
+}
+
 @article{Bender2000,
  author = {Bender, Michael A. and Demaine, Erik D. and Farach-Colton, Martin},
  doi = {10.1109/SFCS.2000.892128},
@@ -1392,7 +1411,7 @@
 
 @article{Bender2012,
  author = {Bender, Michael A. and Farach-Colton, Martin and Johnson, Rob and Kraner, Russell and Kuszmaul, Bradley C. and Medjedovic, Dzejla and Montes, Pablo and Shetty, Pradeep and Spillane, Richard P. and Zadok, Erez},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bender et al.{\_}2012{\_}Don't Thrash How to Cache Your Hash on Flash.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2350229.2350275},
  number = {11},
@@ -1425,7 +1444,7 @@
 @article{Bentley1979,
  author = {Bentley, Jon Louis},
  doi = {10.1016/0020-0190(79)90117-0},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Bentley{\_}1979{\_}Decomposable Searching Problems.pdf:pdf},
  journal = {Information Processing Letters},
  link = {https://doi.org/10.1016/0020-0190(79)90117-0},
  number = {5},
@@ -1438,7 +1457,7 @@
 @article{Bentley1980,
  author = {Bentley, Jon Louis and Saxe, James B.},
  doi = {10.1016/0196-6774(80)90015-2},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Bentley, Saxe{\_}1980{\_}Decomposable Searching Problems I Static-to-Dynamic Transformation.pdf:pdf},
  journal = {Journal of Algorithms},
  link = {https://doi.org/10.1016/0196-6774(80)90015-2},
  number = {4},
@@ -1450,7 +1469,7 @@
 
 @article{Berenson1995,
  author = {Berenson, Hal and Bernstein, Philip A. and Gray, Jim and Melton, Jim and O'Neil, Elizabeth J. and O'Neil, Patrick E.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Berenson et al.{\_}1995{\_}A critique of ANSI SQL isolation levels.pdf:pdf},
  journal = {SIGMOD Rec.},
  link = {http://dl.acm.org/citation.cfm?id=568271.223785},
  number = {2},
@@ -1499,7 +1518,7 @@
 @article{Bertsimas2010,
  author = {Bertsimas, Dimitris and Nohadani, Omid and Teo, Kwong Meng},
  doi = {10.1287/opre.1090.0715},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Robust Optimization for Unconstrained Simulation-based Problems.pdf:pdf},
+ file = {::},
  journal = {Operations Research},
  link = {https://doi.org/10.1287/opre.1090.0715 http://www.mit.edu/{~}dbertsim/papers/Robust Optimization/Robust nonconvex optimization for simulation based problems.pdf},
  number = {1},
@@ -1772,7 +1791,7 @@
 
 @article{Boncz1999,
  author = {Boncz, Peter A. and Manegold, Stefan and Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Boncz, Manegold, Kersten{\_}1999{\_}Database architecture optimized for the new bottleneck Memory access.pdf:pdf},
  journal = {VLDB},
  link = {http://www.vldb.org/conf/1999/P5.pdf},
  title = {{Database architecture optimized for the new bottleneck: Memory access}},
@@ -1790,7 +1809,7 @@
 
 @article{Boncz2005,
  author = {Boncz, Peter A. and Zukowski, Marcin and Nes, Niels J.},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/MonetDB$\backslash$:X100.pdf:pdf},
+ file = {::},
  journal = {Proceedings of the CIDR},
  title = {{MonetDB/X100: Hyper-Pipelining Query Execution}},
  year = {2005}
@@ -1870,7 +1889,7 @@
 
 @article{Borthakur2013,
  author = {Borthakur, Dhruba},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Borthakur{\_}2013{\_}Petabyte scale databases and storage systems at Facebook.pdf:pdf},
  journal = {SIGMOD},
  keyword = {bigdata,facebook},
  link = {http://dl.acm.org/citation.cfm?id=2463676.2463713},
@@ -1911,7 +1930,7 @@
 
 @article{Bouganim2009,
  author = {Bouganim, Luc and J{\'{o}}nsson, Bj{\"{o}}rn TH{\'{o}}r and Bonnet, Philippe},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bouganim, J{\'{o}}nsson, Bonnet{\_}2009{\_}uFLIP Understanding Flash IO Patterns.pdf:pdf},
  journal = {Proceedings of the CIDR},
  title = {{uFLIP: Understanding Flash IO Patterns}},
  year = {2009}
@@ -1994,7 +2013,7 @@
 @article{Bronson2010,
  author = {Bronson, Nathan G. and Casper, Jared and Chafi, Hassan and Olukotun, Kunle},
  doi = {10.1145/1837853.1693488},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bronson et al.{\_}2010{\_}A practical concurrent binary search tree.pdf:pdf},
  isbn = {978-1-60558-877-3},
  issn = {03621340},
  journal = {SIGPLAN Not.},
@@ -2124,7 +2143,7 @@
 
 @article{Burr2008,
  author = {Burr, Geoffrey W. and Kurdi, B{\"{u}}lent N. and Scott, J. Campbell and Lam, Chung Hon and Gopalakrishnan, Kailash and Shenoy, Rohit S.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Burr et al.{\_}2008{\_}Overview of Candidate Device Technologies for Storage-Class Memory.pdf:pdf},
  journal = {IBM Journal of Research and Development},
  link = {http://ieeexplore.ieee.org/xpls/abs{\_}all.jsp?arnumber=5388605},
  month = {jul},
@@ -2209,7 +2228,7 @@
 @article{Canahuate2009,
  author = {Canahuate, Guadalupe and Apaydin, Tan and Sacan, Ahmet and Ferhatosmanoglu, Hakan},
  doi = {10.1145/1516360.1516430},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Canahuate et al.{\_}2009{\_}Secondary bitmap indexes with vertical and horizontal partitioning.pdf:pdf},
  isbn = {9781605584225},
  journal = {EDBT},
  keyword = {bitmaps},
@@ -2221,7 +2240,7 @@
 
 @article{Candea2009,
  author = {Candea, George and Polyzotis, Neoklis and Vingralek, Radek},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Candea, Polyzotis, Vingralek{\_}2009{\_}A scalable, predictable join operator for highly concurrent data warehouses.pdf:pdf},
  journal = {PVLDB},
  keyword = {work sharing},
  link = {http://dl.acm.org/citation.cfm?id=1687627.1687659},
@@ -2235,7 +2254,7 @@
 
 @article{Candea2011,
  author = {Candea, George and Polyzotis, Neoklis and Vingralek, Radek},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Candea, Polyzotis, Vingralek{\_}2011{\_}Predictable Performance and High Query Concurrency for Data Analytics.pdf:pdf},
  journal = {VLDBJ},
  keyword = {Concurrency,Join,Sharing,Warehouse,work sharing},
  link = {http://dl.acm.org/citation.cfm?id=1969331.1969355},
@@ -2351,7 +2370,7 @@
 @article{Cattell2011,
  author = {Cattell, Rick},
  doi = {10.1145/1978915.1978919},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Cattell{\_}2011{\_}Scalable SQL and NoSQL data stores.pdf:pdf},
  issn = {01635808},
  journal = {SIGMOD Rec.},
  link = {http://dl.acm.org/citation.cfm?id=1978915.1978919},
@@ -2366,7 +2385,7 @@
 @article{Caulfield2009,
  author = {Caulfield, Adrian M. and Grupp, Laura M. and Swanson, Steven},
  doi = {10.1145/2528521.1508270},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Caulfield, Grupp, Swanson{\_}2009{\_}Gordon using flash memory to build fast, power-efficient clusters for data-intensive applications.pdf:pdf},
  isbn = {978-1-60558-406-5},
  issn = {01635964},
  journal = {SIGARCH Comp. Arch. News},
@@ -2383,7 +2402,7 @@
 @article{Caulfield2010a,
  author = {Caulfield, Adrian M. and Coburn, Joel and Mollov, Todor I. and De, Arup and Akel, Ameen and He, Jiahua and Jagatheesan, Arun and Gupta, Rajesh K. and Snavely, Allan and Swanson, Steven},
  doi = {10.1109/SC.2010.56},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Caulfield et al.{\_}2010{\_}Understanding the Impact of Emerging Non-Volatile Memories on High-Performance, IO-Intensive Computing.pdf:pdf},
  isbn = {978-1-4244-7557-5},
  journal = {SC},
  link = {http://dl.acm.org/citation.cfm?id=1884643.1884660},
@@ -2393,7 +2412,7 @@
 
 @article{Caulfield2010b,
  author = {Caulfield, Adrian M. and De, Arup and Coburn, Joel and Mollov, Todor I. and Gupta, Rajesh K. and Swanson, Steven},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Caulfield et al.{\_}2010{\_}Moneta A High-Performance Storage Array Architecture for Next-Generation, Non-volatile Memories.pdf:pdf},
  journal = {MICRO},
  keyword = {non-volatile memories,phase change memories,software IO optimizations,storage systems},
  link = {http://dl.acm.org/citation.cfm?id=1934902.1934984},
@@ -2403,7 +2422,7 @@
 
 @article{Caulfield2012,
  author = {Caulfield, Adrian M. and Mollov, Todor I. and Eisner, Louis Alex and De, Arup and Coburn, Joel and Swanson, Steven},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Caulfield et al.{\_}2012{\_}Providing safe, user space access to fast, solid state disks.pdf:pdf},
  journal = {SIGARCH Comp. Arch. News},
  keyword = {I/O performance,file systems,non-volatile memory,storage systems,virtualization},
  link = {http://dl.acm.org/citation.cfm?id=2189750.2151017},
@@ -2429,7 +2448,7 @@
  booktitle = {Readings in Database Systems},
  edition = {3rd.},
  editor = {Stonebraker, Michael and Hellerstein, Joseph M.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Chamberlin et al.{\_}1998{\_}A History and Evaluation of System R.pdf:pdf},
  isbn = {1-55860-523-1},
  keyword = {access path selection,authorization,compilation,database management systems,locking,recovery,relational model},
  link = {http://dl.acm.org/citation.cfm?id=302090.302103},
@@ -2517,7 +2536,7 @@
 
 @article{Chandrasekaran2003,
  author = {Chandrasekaran, Sirish and Shah, Mehul A. and Cooper, Owen and Deshpande, Amol and Franklin, Michael J. and Hellerstein, Joseph M. and Hong, Wei and Krishnamurthy, Sailesh and Madden, Sammuel R. and Reiss, Fred},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Chandrasekaran et al.{\_}2003{\_}TelegraphCQ continuous dataflow processing.pdf:pdf},
  journal = {SIGMOD},
  keyword = {stream processing,work sharing},
  link = {http://dl.acm.org/citation.cfm?id=872757.872857},
@@ -2638,6 +2657,32 @@
  year = {2004}
 }
 
+@article{Chaudhuri2004a,
+ author = {Chaudhuri, Surajit and Dageville, Beno$\backslash${\^{}}$\backslash$it and Lohman, Guy M},
+ doi = {10.1016/B978-012088469-8.50116-9},
+ journal = {VLDB},
+ title = {{Self-Managing Technology in Database Management Systems}},
+ year = {2004}
+}
+
+@article{Chaudhuri2005,
+ author = {Chaudhuri, Surajit and Weikum, Gerhard},
+ doi = {10.1145/1066157.1066305},
+ journal = {SIGMOD},
+ title = {{Foundations of automated database tuning}},
+ year = {2005}
+}
+
+@article{Chaudhuri2006,
+ author = {Chaudhuri, Surajit and Weikum, Gerhard},
+ doi = {10.1109/ICDE.2006.72},
+ file = {:Users/mathan/Documents/Mendeley/Chaudhuri, Weikum{\_}2006{\_}Foundations of Automated Database Tuning.pdf:pdf},
+ journal = {ICDE},
+ link = {http://vldbarc.org/archives/website/2006/slides/T1.pdf},
+ title = {{Foundations of Automated Database Tuning}},
+ year = {2006}
+}
+
 @article{Chaudhuri2007,
  author = {Chaudhuri, Surajit and Narasayya, Vivek R},
  journal = {VLDB},
@@ -2679,7 +2724,7 @@
 @article{Chazelle1985,
  author = {Chazelle, Bernard and Guibas, Leonidas J.},
  doi = {10.1007/BFb0015734},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Chazelle, Guibas{\_}1985{\_}Fractional Cascading A Data Structuring Technique with Geometric Applications.pdf:pdf},
  journal = {ICALP},
  link = {http://dx.doi.org/10.1007/BFb0015734},
  title = {{Fractional Cascading: A Data Structuring Technique with Geometric Applications}},
@@ -2735,7 +2780,7 @@
 
 @article{Chen2000,
  author = {Chen, Jianjun and DeWitt, David J. and Tian, Feng and Wang, Yuan},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Chen et al.{\_}2000{\_}NiagaraCQ a scalable continuous query system for Internet databases.pdf:pdf},
  journal = {SIGMOD Rec.},
  keyword = {stream processing,work sharing},
  link = {http://dl.acm.org/citation.cfm?id=335191.335432},
@@ -2795,7 +2840,7 @@
 
 @article{Chen2010,
  author = {Chen, Shimin and Gibbons, Phillip B. and Nath, Suman},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Chen, Gibbons, Nath{\_}2010{\_}PR-Join A Non-Blocking Join Achieving Higher Early Result Rate with Statistical Guarantees.pdf:pdf},
  journal = {SIGMOD},
  keyword = {data warehouse,fast early result,finite data stream,non-blocking join,online aggregation,pr-join,statistical guarantee},
  link = {http://dl.acm.org/citation.cfm?id=1807167.1807186},
@@ -2917,6 +2962,13 @@
  year = {2010}
 }
 
+@article{Chohan2010,
+ author = {Chohan, Navraj and Castillo, Claris and Spreitzer, Mike and Steinder, Malgorzata and Tantawi, Asser N and Krintz, Chandra},
+ journal = {HotCloud},
+ title = {{See Spot Run: Using Spot Instances for MapReduce Workflows}},
+ year = {2010}
+}
+
 @article{Choi2009,
  author = {Choi, Hyun-Jin and Lim, Seung-Ho and Park, Kyu Ho},
  doi = {10.1145/1480439.1480443},
@@ -2986,7 +3038,7 @@
 
 @article{Cisco2018,
  author = {Cisco},
- file = {:Users/subhadeep/Downloads/white-paper-c11-738085.pdf:pdf},
+ file = {::},
  journal = {White Paper},
  link = {https://www.cisco.com/c/en/us/solutions/collateral/service-provider/global-cloud-index-gci/white-paper-c11-738085.html{\#}{\_}Toc503317525},
  title = {{Cisco Global Cloud Index: Forecast and Methodology, 2016–2021}},
@@ -3337,7 +3389,6 @@
 @article{Dayan2017,
  author = {Dayan, Niv and Athanassoulis, Manos and Idreos, Stratos},
  doi = {10.1145/3035918.3064054},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Monkey.pdf:pdf},
  journal = {SIGMOD},
  link = {http://doi.acm.org/10.1145/3035918.3064054},
  title = {{Monkey: Optimal Navigable Key-Value Store}},
@@ -3356,7 +3407,6 @@
 @article{Dayan2018a,
  author = {Dayan, Niv and Athanassoulis, Manos and Idreos, Stratos},
  doi = {10.1145/3276980},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Optimal Bloom Filters and Adaptive Merging for LSM-Trees.pdf:pdf},
  journal = {TODS},
  link = {https://doi.org/10.1145/3276980},
  number = {4},
@@ -3377,7 +3427,7 @@
 @article{DeCandia2007,
  author = {DeCandia, Giuseppe and Hastorun, Deniz and Jampani, Madan and Kakulapati, Gunavardhan and Lakshman, Avinash and Pilchin, Alex and Sivasubramanian, Swaminathan and Vosshall, Peter and Vogels, Werner},
  doi = {10.1145/1323293.1294281},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//DeCandia et al.{\_}2007{\_}Dynamo Amazon's Highly Available Key-value Store.pdf:pdf},
  isbn = {978-1-59593-591-5},
  issn = {01635980},
  journal = {SIGOPS Op. Sys. Rev.},
@@ -3459,7 +3509,7 @@
 
 @article{Debnath2010,
  author = {Debnath, Biplob and Sengupta, Sudipta and Li, Jin},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Debnath, Sengupta, Li{\_}2010{\_}FlashStore high throughput persistent key-value store.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=1920841.1921015},
@@ -3560,7 +3610,7 @@
 @article{Deshpande2004,
  author = {Deshpande, Amol},
  doi = {10.1145/974121.974129},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Deshpande{\_}2004{\_}An initial study of overheads of eddies.pdf:pdf},
  issn = {01635808},
  journal = {SIGMOD Rec.},
  keyword = {work sharing},
@@ -3716,7 +3766,7 @@
 @article{Do2011,
  author = {Do, Jaeyoung and Zhang, Donghui and Patel, Jignesh M. and DeWitt, David J. and Naughton, Jeffrey F. and Halverson, Alan},
  doi = {10.1145/1989323.1989442},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Do et al.{\_}2011{\_}Turbocharging DBMS buffer pool using SSDs.pdf:pdf},
  isbn = {9781450306614},
  journal = {SIGMOD},
  keyword = {buffer pool,flash SSD},
@@ -3728,7 +3778,7 @@
 @article{Do2013,
  author = {Do, Jaeyoung and Kee, Yang-Suk and Patel, Jignesh M. and Park, Chanik and Park, Kwanghyun and DeWitt, David J.},
  doi = {10.1145/2463676.2465295},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Do et al.{\_}2013{\_}Query processing on smart SSDs opportunities and challenges.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keyword = {smart ssd},
@@ -3762,7 +3812,6 @@
 
 @article{Dong2017,
  author = {Dong, Siying and Callaghan, Mark and Galanis, Leonidas and Borthakur, Dhruba and Savor, Tony and Strum, Michael},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Optimizing Space Amplification in RocksDB.pdf:pdf},
  journal = {Proceedings of the CIDR},
  link = {http://cidrdb.org/cidr2017/papers/p82-dong-cidr17.pdf},
  title = {{Optimizing Space Amplification in RocksDB}},
@@ -3790,7 +3839,7 @@
 @article{Doulkeridis2014,
  author = {Doulkeridis, Christos and N{\o}rv{\aa}g, Kjetil},
  doi = {10.1007/s00778-013-0319-9},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Doulkeridis, N{\o}rv{\aa}g{\_}2014{\_}A survey of large-scale analytical query processing in MapReduce.pdf:pdf},
  issn = {1066-8888},
  journal = {VLDBJ},
  keyword = {Big Data,Data analysis,Large-scale,MapReduce,Query processing,Survey,survey},
@@ -3830,7 +3879,7 @@
 
 @article{Duvenaud2013,
  author = {Duvenaud, David K. and Lloyd, James Robert and Grosse, Roger B. and Tenenbaum, Joshua B. and Ghahramani, Zoubin},
- journal = {CoRR},
+ journal = {ICML},
  link = {http://jmlr.org/proceedings/papers/v28/duvenaud13.html},
  title = {{Structure Discovery in Nonparametric Regression through Compositional Kernel Search}},
  volume = {28},
@@ -3839,7 +3888,7 @@
 
 @article{Duvenaud2013,
  author = {Duvenaud, David K. and Lloyd, James Robert and Grosse, Roger B. and Tenenbaum, Joshua B. and Ghahramani, Zoubin},
- journal = {ICML},
+ journal = {CoRR},
  link = {http://jmlr.org/proceedings/papers/v28/duvenaud13.html},
  title = {{Structure Discovery in Nonparametric Regression through Compositional Kernel Search}},
  volume = {28},
@@ -3894,7 +3943,7 @@
 @article{El-Helw2011,
  author = {El-Helw, Amr and Ross, Kenneth A. and Bhattacharjee, Bishwaranjan and Lang, Christian A. and Mihaila, George A.},
  doi = {10.1145/2064676.2064689},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//El-Helw et al.{\_}2011{\_}Column-Oriented Query Processing for Row Stores.pdf:pdf},
  isbn = {9781450309639},
  journal = {DOLAP},
  keyword = {column-oriented,query processing,ssd},
@@ -4047,7 +4096,7 @@
 }
 
 @article{Fan2014,
- author = {Fan, Bin and Andersen, David G. and Kaminsky, Michael and Mitzenmacher, Michael},
+ author = {Fan, Bin and Andersen, David G and Kaminsky, Michael and Mitzenmacher, Michael},
  doi = {10.1145/2674005.2674994},
  journal = {CoNEXT},
  link = {http://doi.acm.org/10.1145/2674005.2674994},
@@ -4191,7 +4240,7 @@
 @article{Finkelstein1982,
  author = {Finkelstein, Sheldon},
  doi = {10.1145/582353.582400},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Finkelstein{\_}1982{\_}Common expression analysis in database applications.pdf:pdf},
  isbn = {0897910737},
  journal = {SIGMOD},
  link = {http://dl.acm.org/citation.cfm?id=582353.582400},
@@ -4374,7 +4423,7 @@
 @article{Fusco2011,
  author = {Fusco, Francesco and Vlachos, Michail and Stoecklin, Marc Ph.},
  doi = {10.1007/s00778-011-0242-x},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Fusco, Vlachos, Stoecklin{\_}2011{\_}Real-time creation of bitmap indexes on streaming network data.pdf:pdf},
  issn = {1066-8888},
  journal = {VLDBJ},
  keyword = {Bitmap index,Data archive,Data stream,Locality sensitive hashing,bitmaps},
@@ -4438,6 +4487,14 @@
  journal = {SIGMOD},
  title = {{FITing-Tree: A Data-aware Index Structure}},
  year = {2019}
+}
+
+@article{Galante2012,
+ author = {Galante, Guilherme and Bona, Luis Carlos Erpen De},
+ doi = {10.1109/UCC.2012.30},
+ journal = {UCC},
+ title = {{A Survey on Cloud Computing Elasticity}},
+ year = {2012}
 }
 
 @article{Ganguly1996,
@@ -4584,7 +4641,7 @@
 @article{Ghazal2013,
  author = {Ghazal, Ahmad and Rabl, Tilmann and Hu, Minqing and Raab, Francois and Poess, Meikel and Crolotte, Alain and Jacobsen, Hans-Arno},
  doi = {10.1145/2463676.2463712},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Ghazal et al.{\_}2013{\_}BigBench towards an industry standard benchmark for big data analytics.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keyword = {benchmarking,big data,map reduce},
@@ -4613,7 +4670,7 @@
 
 @article{Giannikis2012,
  author = {Giannikis, Georgios and Alonso, Gustavo and Kossmann, Donald},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Giannikis, Alonso, Kossmann{\_}2012{\_}SharedDB Killing One Thousand Queries with One Stone.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2168651.2168654},
  number = {6},
@@ -4626,7 +4683,7 @@
 @article{Giannikis2013,
  author = {Giannikis, Georgios and Makreshanski, Darko and Alonso, Gustavo and Kossmann, Donald},
  doi = {10.1145/2463676.2463678},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Giannikis et al.{\_}2013{\_}Workload optimization using SharedDB.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keyword = {main memory,shared query processing},
@@ -4780,6 +4837,14 @@
  year = {2007}
 }
 
+@article{Gotze2020,
+ author = {G{\"{o}}tze, Philipp and Tharanatha, Arun Kumar and Sattler, Kai-Uwe},
+ doi = {10.1145/3399666.3399900},
+ journal = {DAMON},
+ title = {{Data structure primitives on persistent memory: an evaluation}},
+ year = {2020}
+}
+
 @article{Govindaraju2012,
  author = {Govindaraju, Venkatraman and Ho, Chen-Han and Nowatzki, Tony and Chhugani, Jatin and Satish, Nadathur and Sankaralingam, Karthikeyan and Kim, Changkyu},
  doi = {10.1109/MM.2012.51},
@@ -4858,7 +4923,7 @@
 
 @article{Graefe2006,
  author = {Graefe, Goetz},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe{\_}2006{\_}B-tree indexes, interpolation search, and skew.pdf:pdf},
  journal = {DAMON},
  link = {http://dl.acm.org/citation.cfm?id=1140402.1140409},
  title = {{B-tree indexes, interpolation search, and skew}},
@@ -4867,7 +4932,7 @@
 
 @article{Graefe2006a,
  author = {Graefe, Goetz},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe{\_}2006{\_}B-tree indexes for high update rates.pdf:pdf},
  journal = {SIGMOD Rec.},
  link = {http://dl.acm.org/citation.cfm?id=1121995.1122002},
  number = {1},
@@ -4880,7 +4945,7 @@
 
 @article{Graefe2007,
  author = {Graefe, Goetz},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Five-Minute Rule - Twenty Years Later.pdf:pdf},
+ file = {::},
  journal = {DAMON},
  link = {http://doi.acm.org/10.1145/1363189.1363198},
  title = {{The five-minute rule twenty years later}},
@@ -4900,7 +4965,7 @@
 
 @article{Graefe2010a,
  author = {Graefe, Goetz and Kuno, Harumi},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe, Kuno{\_}2010{\_}Self-selecting, self-tuning, incrementally optimized indexes.pdf:pdf},
  journal = {EDBT},
  keyword = {adaptive,autonomic,database index,query execution},
  link = {http://dl.acm.org/citation.cfm?id=1739041.1739087},
@@ -4926,7 +4991,7 @@
 
 @article{Graefe2011,
  author = {Graefe, Goetz},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/Modern B-Tree Techniques.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Graefe{\_}2011{\_}Modern B-Tree Techniques.pdf:pdf},
  journal = {Found. Trends Databases},
  link = {http://dx.doi.org/10.1561/1900000028},
  number = {4},
@@ -4939,7 +5004,7 @@
 @article{Graefe2012,
  author = {Graefe, Goetz and Kimura, Hideaki and Kuno, Harumi},
  doi = {10.1145/2338626.2338630},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe, Kimura, Kuno{\_}2012{\_}Foster b-trees.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  keyword = {Databases,Foster B-trees,indexes,latching,locking},
@@ -4953,7 +5018,7 @@
 
 @article{Graefe2012a,
  author = {Graefe, Goetz and Halim, Felix and Idreos, Stratos and Kuno, Harumi and Manegold, Stefan},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe et al.{\_}2012{\_}Concurrency control for adaptive indexing.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2180918},
  number = {7},
@@ -4984,6 +5049,13 @@
  title = {{In-Memory Performance for Big Data}},
  volume = {8},
  year = {2014}
+}
+
+@article{GrandViewResearch2019,
+ author = {Research, Grand View},
+ journal = {White Paper},
+ title = {{Private Cloud Server Market Size, Share {{\&}} Trend Analysis Report By Hosting Type (User Hosting, Provider Hosting), By Organization Type (SME, Large Enterprise), By Region, And Segment Forecasts, 2019 - 2025}},
+ year = {2019}
 }
 
 @article{Gray1986,
@@ -5085,14 +5157,14 @@
 }
 
 @article{Greenplum2010,
- author = {Greenplum},
+ author = {Greenplum and Exadata, Oracle and {Sybase IQ}},
  journal = {http://www.greenplum.com/},
  title = {{Online reference}},
  year = {2010}
 }
 
 @article{Greenplum2010,
- author = {Greenplum and Exadata, Oracle and {Sybase IQ}},
+ author = {Greenplum},
  journal = {http://www.greenplum.com/},
  title = {{Online reference}},
  year = {2010}
@@ -5248,6 +5320,14 @@
  year = {2014}
 }
 
+@article{Gupta2015,
+ author = {Gupta, Anurag and Agarwal, Deepak and Tan, Derek and Kulesza, Jakub and Pathak, Rahul and Stefani, Stefano and Srinivasan, Vidhya},
+ doi = {10.1145/2723372.2742795},
+ journal = {SIGMOD},
+ title = {{Amazon Redshift and the Case for Simpler Data Warehouses}},
+ year = {2015}
+}
+
 @article{Guttman1984,
  author = {Guttman, Antonin},
  doi = {10.1145/602259.602266},
@@ -5313,7 +5393,7 @@
 @article{Haeupler2015,
  author = {Haeupler, Bernhard and Sen, Siddhartha and Tarjan, Robert Endre},
  doi = {10.1145/2689412},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Haeupler, Sen, Tarjan{\_}2015{\_}Rank-Balanced Trees.pdf:pdf},
  journal = {TALG},
  number = {4},
  pages = {30:1----30:26},
@@ -5386,6 +5466,13 @@
  year = {2012}
 }
 
+@article{Hamilton2007,
+ author = {Hamilton, James R},
+ journal = {Proceedings of the CIDR},
+ title = {{An Architecture for Modular Data Centers}},
+ year = {2007}
+}
+
 @article{Hanington2008,
  abstract = {While search engines are the most popular way to find information on the web, they are generally not used to query relational databases (RDBs). This paper describes a technique for making the data in an RDB accessible to standard search engines. The technique involves using a URL to express queries and creating a wrapper that can then process the URL-query and generate web pages that contain the answer to the query as well as links to additional data. By following these links, a crawler is able to index the RDB along with all the URL-queries. Once the content and their corresponding URL-queries have been indexed, a user may submit keyword queries through a standard search engine and receive up-to-date database information. The system was then tested to determine if it could return results that were similar to those submitted using SQL. We also looked at whether a standard search engine such as Google could actually index the database content appropriately.},
  author = {Hanington, Brian and Brazile, Robert and Swigger, Kathleen},
@@ -5456,7 +5543,7 @@
 }
 
 @article{Harizopoulos2006,
- author = {Harizopoulos, Stavros and Liang, Velen and Abadi, Daniel J. and Madden, Samuel},
+ author = {Harizopoulos, Stavros and Liang, Velen and Abadi, Daniel J and Madden, Samuel},
  journal = {VLDB},
  link = {http://dl.acm.org/citation.cfm?id=1182635.1164170},
  title = {{Performance tradeoffs in read-optimized databases}},
@@ -5467,7 +5554,7 @@
  author = {Hartline, Jason D. and Hong, Edwin S. and Mohr, Alexander E. and Pentney, William R. and Rocke, Emily},
  doi = {10.1007/s00453-004-1140-z},
  editor = {Bose, Prosenjit and Morin, Pat},
- file = {::;:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Hartline et al. - 2002 - Characterizing History Independent Data Structures.pdf:pdf},
+ file = {::},
  journal = {ISAAC},
  number = {1},
  publisher = {Springer},
@@ -5514,6 +5601,17 @@
  title = {{Performance Analysis of Alternative Database Machine Architectures}},
  volume = {8},
  year = {1982}
+}
+
+@article{Hayes2008,
+ author = {Hayes, Brian},
+ doi = {10.1145/1364782.1364786},
+ journal = {CACM},
+ number = {7},
+ pages = {9--11},
+ title = {{Cloud computing}},
+ volume = {51},
+ year = {2008}
 }
 
 @article{Haynes2016,
@@ -5580,7 +5678,7 @@
 @article{Helland2016,
  author = {Helland, Pat},
  doi = {10.1145/2844112},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/Immutability Changes Everything - CACM.pdf:pdf},
+ file = {::},
  journal = {CACM},
  link = {http://doi.acm.org/10.1145/2844112},
  number = {1},
@@ -5661,7 +5759,7 @@
 @article{Hellerstein2007,
  author = {Hellerstein, Joseph M. and Stonebraker, Michael and Hamilton, James R},
  doi = {10.1561/1900000002},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/Redbook and References/Architecture of a Database System.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Hellerstein, Stonebraker, Hamilton{\_}2007{\_}Architecture of a Database System.pdf:pdf},
  journal = {Found. Trends Databases},
  link = {http://dx.doi.org/10.1561/1900000002},
  number = {2},
@@ -5696,6 +5794,13 @@
  link = {http://doi.acm.org/10.1145/3183713.3196911},
  title = {{Column Sketches: A Scan Accelerator for Rapid and Robust Predicate Evaluation}},
  year = {2018}
+}
+
+@article{Herbst2013,
+ author = {Herbst, Nikolas Roman and Kounev, Samuel and Reussner, Ralf H},
+ journal = {ICAC},
+ title = {{Elasticity in Cloud Computing: What It Is, and What It Is Not}},
+ year = {2013}
 }
 
 @book{Hey2009,
@@ -5733,7 +5838,7 @@
 
 @article{Hoffart2011,
  author = {Hoffart, Johannes and Suchanek, Fabian M. and Berberich, Klaus and Lewis-Kelham, Edwin and de Melo, Gerard and Weikum, Gerhard},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Hoffart et al.{\_}2011{\_}YAGO2 exploring and querying world knowledge in time, space, context, and many languages.pdf:pdf},
  journal = {WWW},
  keyword = {geo-spatial,knowledge base,multilingual,ontology,temporal,textual},
  link = {http://dl.acm.org/citation.cfm?id=1963192.1963296},
@@ -5778,7 +5883,7 @@
 @article{Hong2009,
  author = {Hong, Mingsheng and Riedewald, Mirek and Koch, Christoph and Gehrke, Johannes and Demers, Alan},
  doi = {10.1145/1516360.1516376},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Hong et al.{\_}2009{\_}Rule-based Multi-Query Optimization.pdf:pdf},
  isbn = {9781605584225},
  journal = {EDBT},
  keyword = {stream processing,work sharing},
@@ -5799,7 +5904,7 @@
 @article{Hose2011,
  author = {Hose, Katja and Vlachou, Akrivi},
  doi = {10.1007/s00778-011-0246-6},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Hose, Vlachou{\_}2011{\_}A survey of skyline processing in highly distributed environments.pdf:pdf},
  issn = {1066-8888},
  journal = {VLDBJ},
  keyword = {Distributed systems,P2P,Skyline processing,survey},
@@ -5860,7 +5965,7 @@
 }
 
 @article{Huang2011,
- author = {Huang, Jiewen and Abadi, Daniel J. and Ren, Kun},
+ author = {Huang, Jiewen and Abadi, Daniel J and Ren, Kun},
  journal = {PVLDB},
  link = {http://dblp.uni-trier.de/db/journals/pvldb/pvldb4.html{\#}HuangAR11},
  number = {11},
@@ -5996,7 +6101,7 @@
 @article{Idreos2008,
  author = {Idreos, Stratos and Liarou, Erietta and Koubarakis, Manolis},
  doi = {10.1145/1353343.1353415},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Idreos, Liarou, Koubarakis{\_}2008{\_}Continuous multi-way joins over distributed hash tables.pdf:pdf},
  isbn = {9781595939265},
  journal = {EDBT},
  link = {http://dl.acm.org/citation.cfm?id=1353343.1353415},
@@ -6009,7 +6114,7 @@
 @article{Idreos2009,
  author = {Idreos, Stratos and Kersten, Martin L. and Manegold, Stefan},
  doi = {10.1145/1559845.1559878},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Idreos, Kersten, Manegold{\_}2009{\_}Self-organizing Tuple Reconstruction in Column-Stores.pdf:pdf},
  isbn = {9781605585512},
  journal = {SIGMOD},
  keyword = {database cracking,self-organization},
@@ -6036,7 +6141,7 @@
 
 @article{Idreos2011,
  author = {Idreos, Stratos and Manegold, Stefan and Kuno, Harumi and Graefe, Goetz},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Idreos et al.{\_}2011{\_}Merging What's Cracked, Cracking What's Merged Adaptive Indexing in Main-Memory Column-Stores.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2002938.2002944},
  number = {9},
@@ -6102,6 +6207,13 @@
  year = {2015}
 }
 
+@article{Idreos2016,
+ author = {Idreos, Stratos and Athanassoulis, Manos and Dayan, Niv and Guo, Demi and Kester, Michael S. and Maas, Lukas M. and Zoumpatianos, Kostas},
+ journal = {BIRTE},
+ title = {{Past and Future Steps for Adaptive Storage Data Systems: From Shallow to Deep Adaptivity}},
+ year = {2016}
+}
+
 @article{Idreos2017,
  archiveprefix = {arXiv},
  arxivid = {1706.05714},
@@ -6152,13 +6264,6 @@
  author = {Idreos, Stratos and Kraska, Tim},
  journal = {SIGMOD},
  title = {{From Auto-tuning One Size Fits All to Self-designed and Learned Data-intensive Systems}},
- year = {2019}
-}
-
-@article{Idreos2019b,
- author = {Idreos, Stratos and Dayan, Niv and Qin, Wilson and Akmanalp, Mali and Hilgard, Sophie and Ross, Andrew and Lennon, James and Jain, Varun and Gupta, Harshita and Li, David and Zhu, Zichen},
- journal = {CIDR},
- title = {{Design Continuums and the Path Toward Self-Designing Key-Value Stores that Know and Learn}},
  year = {2019}
 }
 
@@ -6215,6 +6320,13 @@
  year = {1998}
 }
 
+@article{Intel2011,
+ author = {Intel},
+ journal = {White Paper},
+ title = {{Best Practices for Building an Enterprise Private Cloud}},
+ year = {2011}
+}
+
 @article{Intel2016,
  author = {Intel},
  journal = {https://www.intel.com/content/www/us/en/architecture-and-technology/intel-optane-technology.html},
@@ -6265,7 +6377,7 @@
 @article{Ivanova2009,
  author = {Ivanova, Milena G. and Kersten, Martin L. and Nes, Niels J. and Gon{\c{c}}alves, Romulo A. P.},
  doi = {10.1145/1559845.1559879},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Ivanova et al. - 2009 - An architecture for recycling intermediates in a column-store.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Ivanova et al.{\_}2009{\_}An architecture for recycling intermediates in a column-store.pdf:pdf},
  isbn = {9781605585512},
  issn = {03625915},
  journal = {SIGMOD},
@@ -6305,7 +6417,7 @@
 
 @article{Jagadish1997,
  author = {Jagadish, H. V. and Narayan, P. P. S. and Seshadri, Sridhar and Sudarshan, S. and Kanneganti, Rama},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Jagadish et al.{\_}1997{\_}Incremental Organization for Data Recording and Warehousing.pdf:pdf},
  journal = {VLDB},
  link = {http://dl.acm.org/citation.cfm?id=645923.671013},
  title = {{Incremental Organization for Data Recording and Warehousing}},
@@ -6466,7 +6578,7 @@
 @article{Jin2011,
  author = {Jin, Rize and Kwon, Se Jin and Chung, Tae-Sun},
  doi = {10.1145/2103380.2103390},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Jin, Kwon, Chung{\_}2011{\_}FlashB-tree A Novel B-tree Inex Scheme for Solid State Drives.pdf:pdf},
  isbn = {9781450310871},
  journal = {RACS},
  keyword = {B-tree,FlashB-tree,index manager,online transition,solid state drive},
@@ -6562,7 +6674,7 @@
 
 @article{Johnson2009a,
  author = {Johnson, Ryan and Pandis, Ippokratis and Hardavellas, Nikos and Ailamaki, Anastasia and Falsafi, Babak},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Johnson et al.{\_}2009{\_}Shore-MT a scalable storage manager for the multicore era.pdf:pdf},
  journal = {EDBT},
  link = {http://dl.acm.org/citation.cfm?id=1516360.1516365},
  title = {{Shore-MT: a scalable storage manager for the multicore era}},
@@ -6621,7 +6733,7 @@
 @article{Jorgensen2011,
  author = {Jorgensen, Martin V. and Rasmussen, Ren{\'{e}} B. and {\v{S}}altenis, Simonas and Schjonning, Carsten},
  doi = {10.1145/2076623.2076629},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Jorgensen et al.{\_}2011{\_}FB-tree a B-tree for flash-based SSDs.pdf:pdf},
  isbn = {9781450306270},
  journal = {Proceedings of the Symposium on International Database Engineering {\&} Applications (IDEAS)},
  keyword = {B+-tree,SSDs,buffer manager,storage manager},
@@ -6726,7 +6838,7 @@
 
 @article{Kang2012,
  author = {Kang, Woon-Hak and Lee, Sang-Won and Moon, Bongki},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Kang, Lee, Moon{\_}2012{\_}Flash-based extended cache for higher throughput and faster recovery.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2350229.2350274},
@@ -6806,7 +6918,7 @@
 @article{Karp1990,
  author = {Karp, Alan H. and Flatt, Horace P.},
  doi = {10.1145/78607.78614},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Karp, Flatt{\_}1990{\_}Measuring parallel processor performance.pdf:pdf},
  issn = {00010782},
  journal = {CACM},
  keyword = {parallel performance},
@@ -6942,7 +7054,7 @@
 @article{Keim2001,
  author = {Keim, Daniel A.},
  doi = {10.1145/381641.381656},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Keim{\_}2001{\_}Visual exploration of large data sets.pdf:pdf},
  issn = {00010782},
  journal = {CACM},
  link = {http://dl.acm.org/ft{\_}gateway.cfm?id=381656{\&}type=html},
@@ -7039,7 +7151,7 @@
 @article{Kersten2010,
  address = {Edinburgh, UK},
  author = {Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Kersten{\_}2010{\_}At the column-store shoreline.pdf:pdf},
  journal = {DIR Workshop},
  title = {{At the column-store shoreline}},
  year = {2010}
@@ -7058,7 +7170,6 @@
 
 @article{Kersten2015,
  author = {Kersten, Martin L},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Big Data Space Fungus.pdf:pdf},
  journal = {Proceedings of the CIDR, Gong show talk},
  link = {https://www.monetdbsolutions.com/sites/default/files/CIDR2015Kersten.pdf},
  title = {{Big Data Space Fungus}},
@@ -7412,7 +7523,7 @@
 @article{Koltsidas2011,
  author = {Koltsidas, Ioannis and Viglas, Stratis D.},
  doi = {10.1145/1989323.1989455},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Koltsidas, Viglas{\_}2011{\_}Data management over flash memory.pdf:pdf},
  isbn = {9781450306614},
  journal = {SIGMOD},
  keyword = {flash memory,solid state drives,storage},
@@ -7558,7 +7669,7 @@ Indexes},
 
 @article{Krishnamurthy2004,
  author = {Krishnamurthy, Sailesh and Franklin, Michael J. and Hellerstein, Joseph M. and Jacobson, Garrett},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Krishnamurthy et al.{\_}2004{\_}The case for precision sharing.pdf:pdf},
  journal = {VLDB},
  keyword = {work sharing},
  link = {http://dl.acm.org/citation.cfm?id=1316689.1316773},
@@ -7584,7 +7695,7 @@ Indexes},
 
 @article{Kruger2011,
  author = {Kr{\"{u}}ger, Jens and Kim, Changkyu and Grund, Martin and Satish, Nadathur and Schwalb, David and Chhugani, Jatin and Plattner, Hasso and Dubey, Pradeep and Zeier, Alexander and Krueger, Jens and Kim, Changkyu and Grund, Martin and Satish, Nadathur and Schwalb, David and Chhugani, Jatin and Plattner, Hasso and Dubey, Pradeep and Zeier, Alexander},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Krueger et al. - 2011 - Fast updates on read-optimized databases using multi-core CPUs.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Kr{\"{u}}ger et al.{\_}2011{\_}Fast updates on read-optimized databases using multi-core CPUs.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2047485.2047491 http://www.vldb.org/pvldb/vol5/p061{\_}jenskrueger{\_}vldb2012.pdf},
@@ -7638,7 +7749,7 @@ Indexes},
 
 @article{Kuszmaul2014,
  author = {Kuszmaul, Bradley C.},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/A Comparison of Fractal Trees to Log-Structured Merge (LSM) Trees.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Kuszmaul{\_}2014{\_}A Comparison of Fractal Trees to Log-Structured Merge (LSM) Trees.pdf:pdf},
  journal = {Tokutek White Paper},
  title = {{A Comparison of Fractal Trees to Log-Structured Merge (LSM) Trees}},
  year = {2014}
@@ -7690,7 +7801,7 @@ Indexes},
 
 @article{Lakshman2010,
  author = {Lakshman, Avinash and Malik, Prashant},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lakshman, Malik{\_}2010{\_}Cassandra - A Decentralized Structured Storage System.pdf:pdf},
  journal = {SIGOPS Op. Sys. Rev.},
  link = {http://dl.acm.org/citation.cfm?id=1773912.1773922},
  number = {2},
@@ -7711,7 +7822,7 @@ Indexes},
 
 @article{Lamb2012,
  author = {Lamb, Andrew and Fuller, Matt and Varadarajan, Ramakrishna},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Lamb, Fuller, Varadarajan - 2012 - The Vertica Analytic Database C-Store 7 Years Later.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Lamb, Fuller, Varadarajan{\_}2012{\_}The Vertica Analytic Database C-Store 7 Years Later.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2367518},
  number = {12},
@@ -7757,7 +7868,7 @@ Indexes},
 @article{Lang2016,
  author = {Lang, Harald and M{\"{u}}hlbauer, Tobias and Funke, Florian and Boncz, Peter A. and Neumann, Thomas and Kemper, Alfons},
  doi = {10.1145/2882903.2882925},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lang et al.{\_}2016{\_}Data Blocks Hybrid OLTP and OLAP on Compressed Storage using both Vectorization and Compilation.pdf:pdf},
  journal = {SIGMOD},
  link = {http://oai.cwi.nl/oai/asset/24382/24382B.pdf http://dx.doi.org/10.1145/2882903.2882925},
  title = {{Data Blocks: Hybrid OLTP and OLAP on Compressed Storage using both Vectorization and Compilation}},
@@ -7933,7 +8044,7 @@ Indexes},
 
 @article{Lee2008a,
  author = {Lee, Sang-Won and Moon, Bongki and Park, Chanik and Kim, Jae-Myung and Kim, Sang-Woo},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lee et al.{\_}2008{\_}A case for flash memory ssd in enterprise database applications.pdf:pdf},
  journal = {SIGMOD},
  keyword = {flash-memory database server,flash-memory ssd},
  link = {http://dl.acm.org/citation.cfm?id=1376616.1376723},
@@ -8022,7 +8133,7 @@ Indexes},
 @article{Leis2013,
  author = {Leis, Viktor and Kemper, Alfon and Neumann, Thomas},
  doi = {10.1109/ICDE.2013.6544812},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/The Adaptive Radix Tree.pdf:pdf},
+ file = {::},
  journal = {ICDE},
  link = {http://dl.acm.org/citation.cfm?id=2511193},
  title = {{The Adaptive Radix Tree: ARTful Indexing for Main-Memory Databases}},
@@ -8140,7 +8251,7 @@ Indexes},
 
 @article{Li2010,
  author = {Li, Yinan and He, Bingsheng and Yang, Jun and Luo, Qiong and Yi, Ke and Yang, Robin Jun},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Li et al.{\_}2010{\_}Tree Indexing on Solid State Drives.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=1920841.1920990},
  number = {1-2},
@@ -8248,7 +8359,7 @@ Indexes},
 
 @article{Liarou2012,
  author = {Liarou, Erietta and Idreos, Stratos and Manegold, Stefan and Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Liarou et al.{\_}2012{\_}MonetDBDataCell Online Analytics in a Streaming Column-Store.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  number = {12},
@@ -8321,8 +8432,8 @@ Indexes},
 }
 
 @article{Lim2011,
- author = {Lim, Hyeontaek and Fan, Bin and Andersen, David G. and Kaminsky, Michael},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Lim et al. - 2011 - SILT A Memory-Efficient, High-Performance Key-Value Store.pdf:pdf},
+ author = {Lim, Hyeontaek and Fan, Bin and Andersen, David G and Kaminsky, Michael},
+ file = {:Users/mathan/Documents/Mendeley//Lim et al.{\_}2011{\_}SILT A Memory-Efficient, High-Performance Key-Value Store.pdf:pdf},
  journal = {SOSP},
  keyword = {algorithms,design,flash,measurement,memory efficiency,performance},
  link = {http://dl.acm.org/citation.cfm?id=2043556.2043558},
@@ -8339,7 +8450,7 @@ Indexes},
 }
 
 @article{Lim2016,
- author = {Lim, Hyeontaek and Andersen, David G. and Kaminsky, Michael},
+ author = {Lim, Hyeontaek and Andersen, David G and Kaminsky, Michael},
  journal = {FAST},
  link = {https://www.usenix.org/conference/fast16/technical-sessions/presentation/lim},
  title = {{Towards Accurate and Fast Evaluation of Multi-Stage Log-structured Designs}},
@@ -8425,7 +8536,7 @@ Indexes},
 
 @article{Litwin1986,
  author = {Litwin, Witold and Lomet, David B.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Litwin, Lomet{\_}1986{\_}The Bounded Disorder Access Method.pdf:pdf},
  journal = {ICDE},
  link = {http://dl.acm.org/citation.cfm?id=645471.655390},
  title = {{The Bounded Disorder Access Method}},
@@ -8434,7 +8545,7 @@ Indexes},
 
 @article{Liu2008,
  author = {Liu, Zhen and Parthasarathy, Srinivasan and Ranganathan, Anand and Yang, Hao},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Liu et al.{\_}2008{\_}Near-optimal algorithms for shared filter evaluation in data stream systems.pdf:pdf},
  journal = {SIGMOD},
  keyword = {greedy algorithm,query optimization,randomized algorithm,shared filter ordering,stream processing,work sharing},
  link = {http://dl.acm.org/citation.cfm?id=1376616.1376633},
@@ -8546,7 +8657,7 @@ Indexes},
 @article{Lomet1988,
  author = {Lomet, David B.},
  doi = {10.1145/49346.50067},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lomet{\_}1988{\_}A simple bounded disorder file organization with good performance.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  link = {http://dl.acm.org/citation.cfm?id=49346.50067},
@@ -8572,7 +8683,7 @@ Indexes},
 @article{Lomet2001,
  author = {Lomet, David B.},
  doi = {10.1145/603867.603878},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lomet{\_}2001{\_}The evolution of effective B-tree.pdf:pdf},
  issn = {01635808},
  journal = {SIGMOD Rec.},
  link = {http://dl.acm.org/citation.cfm?id=603867.603878},
@@ -8623,7 +8734,7 @@ Indexes},
 @article{Lu2011,
  abstract = {A Bloom Filter (BF) is a data structure based on probability to compactly represent/record a set of elements (keys). It has wide applications on efficiently identifying a key that has been seen before with minimum amount of recording space used. BF is heavily used in chunking based data de-duplication. Traditionally, a BF is implemented as in-RAM data structure; hence its size is limited by the available RAM space on the machine. For certain applications like data de-duplication that require a big BF beyond the size of available RAM space, it becomes necessary to store a BF into a secondary storage device. Since BF operations are inherently random in nature, magnetic disk provides worse performance for the random read and write operations. It will not be a good fit for storing the large BF. Flash memory based Solid State Drive (SSD) has been considered as an emerging storage device that has superior performance and can potentially replace disks as the preferred secondary storage devices. However, several special characteristics of flash memory make designing a flash memory based BF very challenging. In this paper, our goal is to design an efficient flash memory based BF that is fully aware of these physical characteristics. To this end, we propose a Forest-structured BF design (FBF). FBF uses a combination of RAM and flash memory to design a BF. BF is stored on the flash, while RAM helps to mitigate the impact of slow write performance of flash memory. In addition, in-flash BF is organized in a forest-like structure in order to improve the lookup performance. Our experimental results show that FBF design achieves 2 times faster processing speed with 50{\%} less number of flash write operations when compared with the existing flash memory based BF designs.},
  author = {Lu, Guanlin and Debnath, Biplob and Du, David H. C.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lu, Debnath, Du{\_}2011{\_}A Forest-structured Bloom Filter with flash memory.pdf:pdf},
  journal = {MSST},
  link = {http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=5937232},
  title = {{A Forest-structured Bloom Filter with flash memory}},
@@ -8631,7 +8742,7 @@ Indexes},
 }
 
 @article{Lu2016,
- author = {Lu, Lanyue and Pillai, Thanumalayan Sankaranarayana and Arpaci-Dusseau, Andrea C. and Arpaci-Dusseau, Remzi H.},
+ author = {Lu, Lanyue and Pillai, Thanumalayan Sankaranarayana and Arpaci-Dusseau, Andrea C and Arpaci-Dusseau, Remzi H},
  journal = {FAST},
  link = {https://www.usenix.org/conference/fast16/technical-sessions/presentation/lu},
  title = {{WiscKey: Separating Keys from Values in SSD-conscious Storage}},
@@ -8705,11 +8816,40 @@ Indexes},
  year = {2019}
 }
 
+@article{Luo2019a,
+ author = {Luo, Chen and Carey, Michael J},
+ journal = {Proc. VLDB Endow.},
+ number = {4},
+ pages = {449--462},
+ title = {{On Performance Stability in LSM-based Storage Systems}},
+ volume = {13},
+ year = {2019}
+}
+
+@article{Luo2019b,
+ author = {Luo, Chen and Carey, Michael J},
+ doi = {10.14778/3303753.3303759},
+ journal = {Proc. VLDB Endow.},
+ number = {5},
+ pages = {531--543},
+ title = {{Efficient Data Ingestion and Query Processing for LSM-Based Storage Systems}},
+ volume = {12},
+ year = {2019}
+}
+
 @article{Luo2020,
  author = {Luo, Siqiang and Chatterjee, Subarna and Ketsetsidis, Rafael and Dayan, Niv and Qin, Wilson and Idreos, Stratos},
  doi = {10.1145/3318464.3389731},
  journal = {SIGMOD},
  title = {{Rosetta: A Robust Space-Time Optimized Range Filter for Key-Value Stores}},
+ year = {2020}
+}
+
+@article{Luo2020a,
+ author = {Luo, Chen},
+ doi = {10.1145/3318464.3384399},
+ journal = {SIGMOD},
+ title = {{Breaking Down Memory Walls in LSM-based Storage Systems}},
  year = {2020}
 }
 
@@ -8781,7 +8921,7 @@ Indexes},
 
 @article{Madden2002,
  author = {Madden, Sammuel R. and Shah, Mehul A. and Hellerstein, Joseph M. and Raman, Vijayshankar},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Madden et al.{\_}2002{\_}Continuously adaptive continuous queries over streams.pdf:pdf},
  journal = {SIGMOD},
  keyword = {stream processing,work sharing},
  link = {http://dl.acm.org/citation.cfm?id=564691.564698},
@@ -8845,7 +8985,7 @@ Indexes},
 @article{Majumder2008,
  address = {Vancouver, Canada},
  author = {Majumder, Anirban and Rastogi, Rajeev and Vanama, Sriram},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Majumder, Rastogi, Vanama{\_}2008{\_}Scalable regular expression matching on data streams.pdf:pdf},
  journal = {SIGMOD},
  keyword = {data streams,deep packet inspection,regular expression matching,stream processing,work sharing},
  link = {http://dl.acm.org/citation.cfm?id=1376616.1376635},
@@ -8933,7 +9073,7 @@ Indexes},
 @article{Manegold2002,
  abstract = {Accurate prediction of operator execution time is a prerequisite for database query optimization. Although extensively studied for conventional disk-based DBMSs, cost modeling in main-memory DBMSs is still an open issue. Recent database research has demonstrated that memory access is more and more becoming a significant-- if not the major--cost component of database operations. If used properly, fast but small cache memories--usually organized in cascading hierarchy between CPU and main memory--can help to reduce memory access costs. However, they make the cost estimation problem more complex. In this article, we propose a generic technique to create accurate cost functions for database operations. We identify a few basic memory access patterns and provide cost functions that estimate their access costs for each level of the memory hierarchy. The cost functions are parameterized to accommodate various hardware characteristics appropriately. Combining the basic patterns, we can describe the memory access patterns of database operations. The cost functions of database operations can automatically be derived by combining the basic patterns' cost functions accordingly. To validate our approach, we performed experiments using our DBMS prototype Monet. The results presented here confirm the accuracy of our cost models for different operations. Aside from being useful for query optimization, our models provide insight to tune algorithms not only in a main-memory DBMS, but also in a disk-based DBMS with a large main-memory buffer cache.},
  author = {Manegold, Stefan and Boncz, Peter A. and Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Manegold, Boncz, Kersten{\_}2002{\_}Generic Database Cost Models for Hierarchical Memory Systems.pdf:pdf},
  journal = {VLDB},
  link = {http://dl.acm.org/citation.cfm?id=1287369.1287387},
  title = {{Generic Database Cost Models for Hierarchical Memory Systems}},
@@ -8970,7 +9110,7 @@ Indexes},
 @article{Manegold2009,
  author = {Manegold, Stefan and Kersten, Martin L. and Boncz, Peter A.},
  doi = {10.14778/1687553.1687618},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Manegold, Kersten, Boncz{\_}2009{\_}Database architecture evolution.pdf:pdf},
  issn = {21508097},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=1687553.1687618},
@@ -9107,7 +9247,7 @@ Indexes},
 @article{Matsliach1993,
  author = {Matsliach, Gabriel},
  doi = {10.1145/151284.151289},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Matsliach{\_}1993{\_}Performance analysis of file organizations that use multibucket data leaves with partial expansions.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  keyword = {bounded disorder files,multibucket data leaves,partial expansion,performance analysis,search structures},
@@ -9315,7 +9455,7 @@ Indexes},
 @article{Milojicic2016,
  author = {Milojicic, Dejan S and Roscoe, Timothy},
  doi = {10.1109/MC.2016.19},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Milojicic, Roscoe{\_}2016{\_}Outlook on Operating Systems.pdf:pdf},
  journal = {IEEE Computer},
  number = {1},
  pages = {43--51},
@@ -9516,7 +9656,7 @@ Indexes},
 @article{Mozafari2015,
  author = {Mozafari, Barzan and Goh, Eugene Zhen Ye and Yoon, Dong Young},
  doi = {10.1145/2723372.2749454},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!CliffGuard.pdf:pdf},
+ file = {::},
  journal = {SIGMOD},
  link = {http://doi.acm.org/10.1145/2723372.2749454},
  title = {{CliffGuard: A Principled Framework for Finding Robust Database Designs}},
@@ -9795,7 +9935,7 @@ Indexes},
 @article{O'Neil1993,
  author = {O'Neil, Elizabeth J. and O'Neil, Patrick E. and Weikum, Gerhard},
  doi = {10.1145/170035.170081},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/O'Neil, O'Neil, Weikum - 1993 - The LRU-K page replacement algorithm for database disk buffering.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//O'Neil, O'Neil, Weikum{\_}1993{\_}The LRU-K page replacement algorithm for database disk buffering.pdf:pdf},
  journal = {SIGMOD},
  link = {http://dl.acm.org/citation.cfm?id=170035.170081 http://doi.acm.org/10.1145/170035.170081},
  title = {{The LRU-K page replacement algorithm for database disk buffering}},
@@ -9819,7 +9959,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 - O'Neil, Patrick E )},
  author = {O'Neil, Patrick E.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//O'Neil{\_}1992{\_}The SB-Tree An Index-Sequential Structure for High-Performance Sequential Access.pdf:pdf},
  journal = {Acta Informatica},
  link = {http://dl.acm.org/citation.cfm?id=137015},
  number = {3},
@@ -9842,7 +9982,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{ONeil1997,
  author = {O'Neil, Patrick E. and Quass, Dallan},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//O'Neil, Quass{\_}1997{\_}Improved query performance with variant indexes.pdf:pdf},
  journal = {SIGMOD Rec.},
  link = {http://dl.acm.org/citation.cfm?id=253262.253268},
  number = {2},
@@ -9865,7 +10005,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @techreport{ONeil2009,
  author = {O'Neil, Patrick E. and O'Neil, Elizabeth J. and Chen, Xuedong},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//O'Neil, O'Neil, Chen{\_}2009{\_}Star Schema Benchmark.pdf:pdf},
  institution = {UMass/Boston},
  link = {http://www.percona.com/docs/wiki/{\_}media/benchmark:ssb:starschemab.pdf},
  title = {{Star Schema Benchmark}},
@@ -9902,9 +10042,18 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  year = {2017}
 }
 
+@article{Olma2020,
+ author = {Olma, Matthaios and Karpathiotakis, Manos and Alagiannis, Ioannis and Athanassoulis, Manos and Ailamaki, Anastasia},
+ journal = {VLDBJ},
+ number = {1},
+ title = {{Adaptive partitioning and indexing for in situ query processing}},
+ volume = {29},
+ year = {2020}
+}
+
 @article{Olson1999,
  author = {Olson, Michael A. and Bostic, Keith and Seltzer, Margo I.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Olson, Bostic, Seltzer{\_}1999{\_}Berkeley DB.pdf:pdf},
  journal = {ATC},
  link = {http://www.usenix.org/events/usenix99/olson.html},
  title = {{Berkeley DB}},
@@ -10046,13 +10195,6 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Pagh2001,
  author = {Pagh, Rasmus and Rodler, Flemming Friche},
- journal = {ESA},
- title = {{Cuckoo Hashing}},
- year = {2001}
-}
-
-@article{Pagh2001,
- author = {Pagh, Rasmus and Rodler, Flemming Friche},
  doi = {10.1016/j.jalgor.2003.12.002},
  issn = {01966774},
  journal = {ESA},
@@ -10063,6 +10205,13 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  publisher = {Academic Press, Inc.},
  title = {{Cuckoo Hashing}},
  volume = {51},
+ year = {2001}
+}
+
+@article{Pagh2001,
+ author = {Pagh, Rasmus and Rodler, Flemming Friche},
+ journal = {ESA},
+ title = {{Cuckoo Hashing}},
  year = {2001}
 }
 
@@ -10290,7 +10439,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Pavlo2011,
  author = {Pavlo, Andrew and Jones, Evan P. C. and Zdonik, Stanley},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Pavlo, Jones, Zdonik{\_}2011{\_}On predictive modeling for optimizing transaction execution in parallel OLTP systems.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2078324.2078325},
@@ -10360,7 +10509,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Perl1978,
  author = {Perl, Yehoshua and Itai, Alon and Avni, Haim},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Perl, Itai, Avni{\_}1978{\_}Interpolation Search---A log logN Search.pdf:pdf},
  journal = {CACM},
  keyword = {average number of accesses,binary search,database,interpolation search,retrieval,searching,uniform distribution},
  link = {http://dl.acm.org/citation.cfm?id=359545.359557},
@@ -10596,7 +10745,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Psaroudakis2013,
  author = {Psaroudakis, Iraklis and Athanassoulis, Manos and Ailamaki, Anastasia},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Psaroudakis, Athanassoulis, Ailamaki - 2013 - Sharing Data and Work Across Concurrent Analytical Queries.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Psaroudakis, Athanassoulis, Ailamaki{\_}2013{\_}Sharing Data and Work Across Concurrent Analytical Queries.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2536360.2536364},
  number = {9},
@@ -10647,7 +10796,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Qiao2008,
  author = {Qiao, Lin and Raman, Vijayshankar and Reiss, Frederick and Haas, Peter J. and Lohman, Guy M.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Qiao et al.{\_}2008{\_}Main-memory Scan Sharing for Multi-core CPUs.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=1453856.1453924},
  number = {1},
@@ -10694,7 +10843,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Raducanu2013,
  author = {Raducanu, Bogdan and Boncz, Peter A. and Zukowski, Marcin},
  doi = {10.1145/2463676.2465292},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Raducanu, Boncz, Zukowski{\_}2013{\_}Micro adaptivity in Vectorwise.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keyword = {adaptive,query processing,self tuning},
@@ -10723,7 +10872,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Ramakrishna1988,
  author = {Ramakrishna, M. V. and Mukhopadhyay, P.},
  doi = {10.1145/308386.308424},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Ramakrishna, Mukhopadhyay - 1988 - Analysis of bounded disorder file organization.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Ramakrishna, Mukhopadhyay{\_}1988{\_}Analysis of bounded disorder file organization.pdf:pdf},
  isbn = {0897912632},
  journal = {PODS},
  link = {http://dl.acm.org/citation.cfm?id=308386.308424},
@@ -10733,7 +10882,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @book{Ramakrishnan2002,
  author = {Ramakrishnan, Raghu and Gehrke, Johannes},
- file = {::;::},
+ file = {:Users/mathan/Documents/Mendeley//Ramakrishnan, Gehrke{\_}2002{\_}Database Management Systems.pdf:pdf;:Users/mathan/Documents/Mendeley//Ramakrishnan, Gehrke{\_}2002{\_}Database Management Systems.pdf:pdf},
  publisher = {McGraw-Hill Higher Education, 3rd edition},
  title = {{Database Management Systems}},
  year = {2002}
@@ -10807,7 +10956,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Rao1998,
  author = {Rao, Jun and Ross, Kenneth A.},
  doi = {10.1145/276305.276309},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Rao, Ross{\_}1998{\_}Reusing invariants.pdf:pdf},
  isbn = {0-89791-995-5},
  issn = {01635808},
  journal = {SIGMOD Rec.},
@@ -10894,7 +11043,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Regola2012,
  author = {Regola, Nathan and Cieslak, David A. and Chawla, Nitesh V.},
  doi = {10.1145/2379436.2379437},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Regola, Cieslak, Chawla{\_}2012{\_}The constraints of magnetic versus flash disk capabilities in big data analysis.pdf:pdf},
  isbn = {9781450314442},
  journal = {ASBD},
  keyword = {query performance,solid state disk},
@@ -11035,7 +11184,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Roh2010,
  author = {Roh, Hongchan and Lee, Daewook and Park, Sanghyun},
  doi = {10.1145/1871437.1871617},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Roh, Lee, Park{\_}2010{\_}Yet another write-optimized DBMS layer for flash-based solid state storage.pdf:pdf},
  isbn = {9781450300995},
  journal = {CIKM},
  keyword = {database,flash memory,icl,incremental logging,ssd,write performance},
@@ -11116,7 +11265,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Roussopoulos1982,
  author = {Roussopoulos, Nicholas},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Roussopoulos{\_}1982{\_}View indexing in relational databases.pdf:pdf},
  journal = {TODS},
  keyword = {index selection},
  link = {http://dl.acm.org/citation.cfm?id=319702.319729},
@@ -11129,7 +11278,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Roy2000,
  author = {Roy, Prasan and Seshadri, Sridhar and Sudarshan, S. and Bhobe, Siddhesh},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Roy et al.{\_}2000{\_}Efficient and Extensible Algorithms for Multi Query Optimization.pdf:pdf},
  journal = {SIGMOD Rec.},
  keyword = {work sharing},
  link = {http://dl.acm.org/citation.cfm?id=335191.335419},
@@ -11222,7 +11371,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Sacco1986,
  author = {Sacco, Giovanni Maria and Schkolnick, Mario},
  doi = {10.1145/7239.7336},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Sacco, Schkolnick{\_}1986{\_}Buffer management in relational database systems.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  link = {http://dl.acm.org/citation.cfm?id=7239.7336},
@@ -11503,7 +11652,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Schuhknecht2018,
  author = {Schuhknecht, Felix Martin and Dittrich, Jens and Linden, Laurent},
  doi = {10.1109/ICDE.2018.00066},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Schuhknecht, Dittrich, Linden - Unknown - Adaptive Adaptive Indexing.pdf:pdf},
+ file = {::},
  journal = {ICDE},
  title = {{Adaptive Adaptive Indexing}},
  year = {2018}
@@ -11579,7 +11728,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Sellis1988,
  author = {Sellis, Timos K.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Sellis{\_}1988{\_}Multiple-Query Optimization.pdf:pdf},
  journal = {TODS},
  link = {http://dl.acm.org/citation.cfm?id=42201.42203},
  number = {1},
@@ -11656,7 +11805,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Severance1976,
  author = {Severance, Dennis G. and Lohman, Guy M.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Severance, Lohman{\_}1976{\_}Differential files their application to the maintenance of large databases.pdf:pdf},
  journal = {TODS},
  keyword = {backup and recovery,data sharing,database maaintenance,differential files},
  link = {http://dl.acm.org/citation.cfm?id=320473.320484},
@@ -11669,7 +11818,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Sewall2011,
  author = {Sewall, Jason and Chhugani, Jatin and Kim, Changkyu and Satish, Nadathur and Dubey, Pradeep},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Sewall et al.{\_}2011{\_}PALM Parallel Architecture-Friendly Latch-Free Modifications to B Trees on Many-Core Processors.pdf:pdf},
  journal = {PVLDB},
  link = {http://www.vldb.org/pvldb/vol4/p795-sewall.pdf},
  number = {11},
@@ -11716,6 +11865,14 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  year = {2014}
 }
 
+@article{Shanbhag2020,
+ author = {Shanbhag, Anil and Tatbul, Nesime and Cohen, David and Madden, Samuel},
+ doi = {10.1145/3399666.3399933},
+ journal = {DAMON},
+ title = {{Large-scale in-memory analytics on Intel$\backslash$({{\^{{}}}}$\backslash$mbox{{\textregistered}}$\backslash$) Optane$\backslash$({{\^{{}}}}$\backslash$mbox$\backslash$texttrademark$\backslash$) DC persistent memory}},
+ year = {2020}
+}
+
 @article{Shao2014,
  author = {Shao, Yakun Sophia and Reagen, Brandon and Wei, Gu-Yeon and Brooks, David},
  journal = {ISCA},
@@ -11750,6 +11907,13 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  journal = {Oracle White Paper},
  title = {{Bitmap Index vs. B-tree Index: Which and When?}},
  year = {2005}
+}
+
+@article{Shasha2002,
+ author = {Shasha, Dennis E and Bonnet, Philippe},
+ journal = {VLDB},
+ title = {{Database Tuning: Principles, Experiments, and Troubleshooting Techniques}},
+ year = {2002}
 }
 
 @article{Shatdal1994,
@@ -11843,7 +12007,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Sidirourgos2013,
  author = {Sidirourgos, Lefteris and Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Sidirourgos, Kersten{\_}2013{\_}Column Imprints A Secondary Index Structure.pdf:pdf},
  journal = {SIGMOD},
  keyword = {columnar databases,secondary index},
  link = {http://dl.acm.org/citation.cfm?id=2463676.2465306},
@@ -11899,7 +12063,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Simitsis2009,
  author = {Simitsis, Alkis and Wilkinson, Kevin and Castellanos, Malu and Dayal, Umeshwar},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Simitsis et al.{\_}2009{\_}QoX-driven ETL design reducing the cost of ETL consulting engagements.pdf:pdf},
  journal = {SIGMOD},
  keyword = {data warehouses,etl,metrics,modeling,qox,quality},
  link = {http://dl.acm.org/citation.cfm?id=1559845.1559954},
@@ -12115,8 +12279,8 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 }
 
 @article{Stonebraker2005,
- author = {Stonebraker, Michael and Abadi, Daniel J. and Batkin, Adam and Chen, Xuedong and Cherniack, Mitch and Ferreira, Miguel and Lau, Edmond and Lin, Amerson and Madden, Sammuel R. and O'Neil, Elizabeth J. and O'Neil, Patrick E. and Rasin, Alex and Tran, Nga and Zdonik, Stan},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!C-Store.pdf:pdf},
+ author = {Stonebraker, Michael and Abadi, Daniel J and Batkin, Adam and Chen, Xuedong and Cherniack, Mitch and Ferreira, Miguel and Lau, Edmond and Lin, Amerson and Madden, Sammuel R and O'Neil, Elizabeth J and O'Neil, Patrick E and Rasin, Alex and Tran, Nga and Zdonik, Stan},
+ file = {:Users/mathan/Documents/Mendeley//Stonebraker et al.{\_}2005{\_}C-Store A Column-oriented DBMS.pdf:pdf},
  journal = {VLDB},
  link = {http://dl.acm.org/citation.cfm?id=1083592.1083658},
  title = {{C-Store: A Column-oriented DBMS}},
@@ -12174,7 +12338,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Suchanek2013,
  author = {Suchanek, Fabian M. and Hoffart, Johannes and Kuzey, Erdal and Lewis-kelham, Edwin},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Suchanek et al.{\_}2013{\_}YAGO2s Modular High-Quality Information Extraction with an Application to Flight Planning.pdf:pdf},
  title = {{YAGO2s : Modular High-Quality Information Extraction with an Application to Flight Planning}},
  year = {2013}
 }
@@ -12380,7 +12544,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  address = {London},
  author = {The Mendeley Support Team},
  booktitle = {Mendeley Desktop},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/The Mendeley Support Team - 2011 - Getting Started with Mendeley.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//The Mendeley Support Team{\_}2011{\_}Getting Started with Mendeley.pdf:pdf},
  keyword = {Mendeley,how-to,user manual},
  link = {http://www.mendeley.com},
  pages = {1--16},
@@ -12392,7 +12556,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Thonangi2012,
  author = {Thonangi, Risi and Babu, Shivnath and Yang, Jun},
  doi = {10.1145/2396761.2398437},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Thonangi, Babu, Yang{\_}2012{\_}A Practical Concurrent Index for Solid-State Drives.pdf:pdf},
  isbn = {9781450311564},
  journal = {CIKM},
  keyword = {concurrency control,performance evaluation,ssd indexes},
@@ -12490,7 +12654,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Tryfonopoulos2005,
  author = {Tryfonopoulos, Christos and Idreos, Stratos and Koubarakis, Manolis},
  doi = {10.1145/1076034.1076090},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Tryfonopoulos, Idreos, Koubarakis{\_}2005{\_}Publishsubscribe functionality in IR environments using structured overlay networks.pdf:pdf},
  isbn = {1595930345},
  journal = {SIGIR},
  keyword = {P2P overlay networks,distributed hash tables,publish/subscribe protocols},
@@ -12544,7 +12708,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Tsirogiannis2009,
  author = {Tsirogiannis, Dimitris and Harizopoulos, Stavros and Shah, Mehul A. and Wiener, Janet L. and Graefe, Goetz},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Query Processing Techniques for Solid State Drives.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Tsirogiannis et al.{\_}2009{\_}Query processing techniques for solid state drives.pdf:pdf},
  journal = {SIGMOD},
  keyword = {columnar storage,flash memory,join index,late materialization,semi-join reduction,ssd},
  link = {http://dl.acm.org/citation.cfm?id=1559845.1559854},
@@ -12574,7 +12738,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Tzoumas2010,
  author = {Tzoumas, Kostas and Deshpande, Amol and Jensen, Christian S.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Tzoumas, Deshpande, Jensen{\_}2010{\_}Sharing-Aware Horizontal Partitioning for Exploiting Correlations During Query Processing.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  keyword = {work sharing},
@@ -12589,7 +12753,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Unterbrunner2009,
  author = {Unterbrunner, Philipp and Giannikis, Georgios and Alonso, Gustavo and Fauser, Dietmar and Kossmann, Donald},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Unterbrunner et al.{\_}2009{\_}Predictable Performance for Unpredictable Workloads.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=1687627.1687707},
  number = {1},
@@ -12634,7 +12798,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{VanLeeuwen1980,
  author = {van Leeuwen, Jan and Wood, Derick},
  doi = {10.1016/S0020-0190(80)90073-3},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/van Leeuwen, Wood{\_}1980{\_}Dynamization of Decomposable Searching Problems.pdf:pdf},
  journal = {Information Processing Letters},
  link = {https://doi.org/10.1016/S0020-0190(80)90073-3},
  number = {2},
@@ -12659,6 +12823,14 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  journal = {SIGMOD},
  title = {{Efficiently Searching In-Memory Sorted Arrays: Revenge of the Interpolation Search?}},
  year = {2019}
+}
+
+@article{Vandiver2018,
+ author = {Vandiver, Ben and Prasad, Shreya and Rana, Pratibha and Zik, Eden and Saeidi, Amin and Parimal, Pratyush and Pantela, Styliani and Dave, Jaimin},
+ doi = {10.1145/3183713.3196938},
+ journal = {SIGMOD},
+ title = {{Eon Mode: Bringing the Vertica Columnar Database to the Cloud}},
+ year = {2018}
 }
 
 @article{Venkataraman2011,
@@ -12747,7 +12919,7 @@ External Memory Algorithms and Data Structures
 - Vitter, Jeffrey Scott )},
  author = {Vitter, Jeffrey Scott},
  doi = {10.1145/384192.384193},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Vitter{\_}2001{\_}External Memory Algorithms and Data Structures.pdf:pdf},
  issn = {03600300},
  journal = {Comp. Surv.},
  keyword = {B-tree,I/O,batched,block,disk,dynamic,extendible hashing,external memory,hierarchical memory,multidimensional access methods,multilevel memory,online,out-of-core,secondary storage,sorting},
@@ -12785,7 +12957,7 @@ External Memory Algorithms and Data Structures
 
 @techreport{Wang2012,
  author = {Wang, Daniel Liwei and Becla, Jacek and Lim, Kian-Tat and Park, Menlo},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Wang et al.{\_}2012{\_}Report from the 6th Workshop on Extremely Large Databases.pdf:pdf},
  keyword = {analytics,big data,database,exascale,extreme-scale,petascale,xldb},
  title = {{Report from the 6th Workshop on Extremely Large Databases}},
  year = {2012}
@@ -13005,6 +13177,14 @@ External Memory Algorithms and Data Structures
  title = {{Source Code}}
 }
 
+@article{Wolski2017,
+ author = {Wolski, Rich and Brevik, John and Chard, Ryan and Chard, Kyle},
+ doi = {10.1145/3126908.3126953},
+ journal = {SC},
+ title = {{Probabilistic guarantees of execution duration for Amazon spot instances}},
+ year = {2017}
+}
+
 @article{Wong1980,
  author = {Wong, C K and Easton, Malcolm C},
  doi = {10.1137/0209009},
@@ -13141,7 +13321,7 @@ External Memory Algorithms and Data Structures
  abstract = {As scientific instruments and computer simulations produce more and more data, the task of locating the essential information to gain insight becomes increasingly difficult. FastBit is an efficient software tool to address this challenge. In this article, we present a summary of the key underlying technologies, namely bitmap compression, encoding, and binning. Together these techniques enable FastBit to answer structured (SQL) queries orders of magnitude faster than popular database systems. To illustrate how FastBit is used in applications, we present three examples involving a high-energy physics experiment, a combustion simulation, and an accelerator simulation. In each case, FastBit significantly reduces the response time and enables interactive exploration on terabytes of data.},
  author = {Wu, Kesheng and Ahern, S and Bethel, E W and Chen, J and Childs, H and Cormier-Michel, E and Geddes, C and Gu, J and Hagen, H and Hamann, B and Koegler, W and Lauret, J and Meredith, J and Messmer, P and Otoo, Ekow J. and Perevoztchikov, V and Poskanzer, A and R{\"{u}}bel, O and Shoshani, Arie and Sim, A and Stockinger, Kurt and Weber, G and Zhang, W-M},
  doi = {10.1088/1742-6596/180/1/012053},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Wu et al.{\_}2009{\_}FastBit interactively searching massive data.pdf:pdf},
  isbn = {doi:10.1088/1742-6596/180/1/012053},
  issn = {1742-6596},
  journal = {Journal of Physics: Conference Series},
@@ -13159,7 +13339,7 @@ External Memory Algorithms and Data Structures
 @article{Wu2010,
  author = {Wu, Kesheng and Shoshani, Arie and Stockinger, Kurt},
  doi = {10.1145/1670243.1670245},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Wu, Shoshani, Stockinger{\_}2010{\_}Analyses of multi-level and multi-component compressed bitmap indexes.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  keyword = {Multi-component bitmap index,bitmaps,compression,multi-level bitmap index,performance analysis},
@@ -13202,7 +13382,7 @@ External Memory Algorithms and Data Structures
 
 @article{Wu2012,
  author = {Wu, Lili and Sumbaly, Roshan and Riccomini, Chris and Koo, Gordon},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Wu et al.{\_}2012{\_}Avatara OLAP for web-scale analytics products.pdf:pdf},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2367525},
  number = {12},
@@ -13313,6 +13493,14 @@ External Memory Algorithms and Data Structures
  journal = {ICDE},
  title = {{Anna: A KVS for Any Scale}},
  year = {2018}
+}
+
+@article{Wu2020,
+ author = {Wu, Yinjun and Park, Kwanghyun and Sen, Rathijit and Kroth, Brian and Do, Jaeyoung},
+ doi = {10.1145/3399666.3399898},
+ journal = {DAMON},
+ title = {{Lessons learned from the early performance evaluation of Intel optane DC persistent memory in DBMS}},
+ year = {2020}
 }
 
 @article{Wulf1995,
@@ -13473,7 +13661,7 @@ External Memory Algorithms and Data Structures
 @article{Yao1982,
  author = {Yao, Andrew C.},
  doi = {10.1145/800070.802185},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Yao{\_}1982{\_}Space-Time Tradeoff for Answering Range Queries (Extended Abstract).pdf:pdf},
  journal = {STOC},
  link = {http://doi.acm.org/10.1145/800070.802185},
  title = {{Space-Time Tradeoff for Answering Range Queries (Extended Abstract)}},
@@ -13615,7 +13803,7 @@ External Memory Algorithms and Data Structures
 
 @article{Zhang2011,
  author = {Zhang, Ning and Tatemura, Junichi and Patel, Jignesh M. and Hacig{\"{u}}m{\"{u}}ş, Hakan},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Zhang et al.{\_}2011{\_}Towards cost-effective storage provisioning for DBMSs.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  link = {http://dl.acm.org/citation.cfm?id=2095686.2095687},
@@ -13636,7 +13824,7 @@ External Memory Algorithms and Data Structures
 }
 
 @article{Zhang2016,
- author = {Zhang, Huanchen and Andersen, David G. and Pavlo, Andrew and Kaminsky, Michael and Ma, Lin and Shen, Rui},
+ author = {Zhang, Huanchen and Andersen, David G and Pavlo, Andrew and Kaminsky, Michael and Ma, Lin and Shen, Rui},
  doi = {10.1145/2882903.2915222},
  journal = {SIGMOD},
  link = {http://doi.acm.org/10.1145/2882903.2915222},
@@ -13761,7 +13949,7 @@ External Memory Algorithms and Data Structures
 @article{Zhou2007a,
  author = {Zhou, Jingren and Larson, Per-Ake and Freytag, Johann-Christoph and Lehner, Wolfgang},
  doi = {10.1145/1247480.1247540},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Zhou et al.{\_}2007{\_}Efficient exploitation of similar subexpressions for query processing.pdf:pdf},
  isbn = {9781595936868},
  journal = {SIGMOD},
  keyword = {query optimization,query processing,similar subexpressions,work sharing},
@@ -13878,7 +14066,7 @@ External Memory Algorithms and Data Structures
 
 @article{Zukowski2007,
  author = {Zukowski, Marcin and H{\'{e}}man, S{\'{a}}ndor and Nes, Niels J. and Boncz, Peter A.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Zukowski et al.{\_}2007{\_}Cooperative Scans Dynamic Bandwidth Sharing in a DBMS.pdf:pdf},
  journal = {VLDB},
  link = {http://dl.acm.org/citation.cfm?id=1325851.1325934},
  title = {{Cooperative Scans: Dynamic Bandwidth Sharing in a DBMS}},

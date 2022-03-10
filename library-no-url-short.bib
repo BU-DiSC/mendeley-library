@@ -21,7 +21,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 }
 
 @article{Abadi2007,
- author = {Abadi, Daniel J and Marcus, Adam and Madden, Sammuel R and Hollenbach, Kate},
+ author = {Abadi, Daniel J. and Marcus, Adam and Madden, Samuel R. and Hollenbach, Kate},
  journal = {VLDB},
  title = {{Scalable semantic web data management using vertical partitioning}},
  //url = {http://dl.acm.org/citation.cfm?id=1325900},
@@ -29,8 +29,8 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 }
 
 @article{Abadi2007a,
- author = {Abadi, Daniel J and Myers, Daniel S and DeWitt, David J and Madden, Sammuel R},
- file = {::},
+ author = {Abadi, Daniel J. and Myers, Daniel S. and DeWitt, David J. and Madden, Samuel R.},
+ file = {:Users/mathan/Documents/Mendeley//Abadi et al.{\_}2007{\_}Materialization Strategies in a Column-Oriented DBMS.pdf:pdf},
  journal = {ICDE},
  title = {{Materialization Strategies in a Column-Oriented DBMS}},
  //url = {http://ieeexplore.ieee.org/xpls/abs{\_}all.jsp?arnumber=4221695},
@@ -40,7 +40,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @phdthesis{Abadi2008,
  abstract = {There are two obvious ways to map a two-dimension relational database table onto a one-dimensional storage interface: store the table row-by-row, or store the table column-by-column. Historically, database system implementations and research have focused on the row-by row data layout, since it performs best on the most common application for database systems: business transactional data processing. However, there are a set of emerging applications for database systems for which the row-by-row layout performs poorly. These applications are more analytical in nature, whose goal is to read through the data to gain new insight and use it to drive decision making and planning. In this dissertation, we study the problem of poor performance of row-by-row data layout for these emerging applications, and evaluate the column-by-column data layout opportunity as a solution to this problem. There have been a variety of proposals in the literature for how to build a database system on top of column-by-column layout. These proposals have different levels of implementation effort, and have different performance characteristics. If one wanted to build a new database system that utilizes the column-by-column data layout, it is unclear which proposal to follow. This dissertation provides (to the best of our knowledge) the only detailed study of multiple implementation approaches of such systems, categorizing the different approaches into three broad categories, and evaluating the tradeoffs between approaches. We conclude that building a query executor specifically designed for the column-by-column query layout is essential to achieve good performance. Consequently, we describe the implementation of C-Store, a new database system with a storage layer and query executor built for column-by-column data layout. We introduce three new query execution techniques that significantly improve performance. First, we look at the problem of integrating compression and execution so that the query executor is capable of directly operating on compressed data. This improves performance by improving I/O (less data needs to be read off disk), and CPU (the data need not be decompressed). We describe our solution to the problem of executor extensibilityhow can new compression techniques be added to the system without having to rewrite the operator code? Second, we analyze the problem of tuple construction (stitching together attributes from multiple columns into a row-oriented "tuple"). Tuple construction is required when operators need to access multiple attributes from the same tuple; however, if done at the wrong point in a query plan, a significant performance penalty is paid. We introduce an analytical model and some heuristics to use that help decide when in a query plan tuple construction should occur. Third, we introduce a new join technique, the "invisible join" that improves performance of a specific type of join that is common in the applications for which column-by-column data layout is a good idea. Finally, we benchmark performance of the complete C-Store database system against other column-oriented database system implementation approaches, and against row-oriented databases. We benchmark two applications. The first application is a typical analytical application for which column-by-column data layout is known to outperform row-by-row data layout. The second application is another emerging application, the Semantic Web, for which column-oriented database systems are not currently used. We find that on the first application, the complete C-Store system performed 10 to 18 times faster than alternative column-store implementation approaches, and 6 to 12 times faster than a commercial database system that uses a row-by-row data layout. On the Semantic Web application, we find that C-Store outperforms other state-of-the-art data management techniques by an order of magnitude, and outperforms other common data management techniques by almost two orders of magnitude. Benchmark queries, which used to take multiple minutes to execute, can now be answered in several seconds. (Copies available exclusively from MIT Libraries, Rm. 14-0551, Cambridge, MA 02139-4307. Ph. 617-253-5668; Fax 617-253-1690.)},
  author = {Abadi, Daniel J},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Abadi{\_}2008{\_}Query execution in column-oriented database systems.pdf:pdf},
  publisher = {Massachusetts Institute of Technology},
  school = {Massachusetts Institute of Technology},
  title = {{Query execution in column-oriented database systems}},
@@ -51,7 +51,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Abadi2009,
  author = {Abadi, Daniel J and Boncz, Peter A and Harizopoulos, Stavros},
  //doi = {10.14778/1687553.1687625},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Abadi, Boncz, Harizopoulos{\_}2009{\_}Column-oriented Database Systems.pdf:pdf},
  issn = {21508097},
  journal = {PVLDB},
  number = {2},
@@ -72,6 +72,18 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  //url = {http://dx.doi.org/10.1561/1900000024},
  volume = {5},
  year = {2013}
+}
+
+@article{Abadi2019,
+ author = {Abadi, Daniel and Ailamaki, Anastasia and Andersen, David G and Bailis, Peter and Balazinska, Magdalena and Bernstein, Philip A and Boncz, Peter A and Chaudhuri, Surajit and Cheung, Alvin and Doan, AnHai and Dong, Luna and Franklin, Michael J and Freire, Juliana and Halevy, Alon Y and Hellerstein, Joseph M and Idreos, Stratos and Kossmann, Donald and Kraska, Tim and Krishnamurthy, Sailesh and Markl, Volker and Melnik, Sergey and Milo, Tova and Mohan, C and Neumann, Thomas and Ooi, Beng Chin and Ozcan, Fatma and Patel, Jignesh M and Pavlo, Andrew and Popa, Raluca A and Ramakrishnan, Raghu and R{\'{e}}, Christopher and Stonebraker, Michael and Suciu, Dan},
+ //doi = {10.1145/3385658.3385668},
+ journal = {SIGMOD Rec.},
+ number = {4},
+ pages = {44--53},
+ title = {{The Seattle Report on Database Research}},
+ //url = {https://doi.org/10.1145/3385658.3385668},
+ volume = {48},
+ year = {2019}
 }
 
 @article{Abouzied2012,
@@ -174,8 +186,8 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 }
 
 @article{Agarwal2012,
- author = {Agarwal, Sameer and Iyer, Anand P. and Panda, Aurojit and Madden, Sammuel R. and Mozafari, Barzan and Stoica, Ion},
- file = {::},
+ author = {Agarwal, Sameer and Iyer, Anand P. and Panda, Aurojit and Madden, Samuel R. and Mozafari, Barzan and Stoica, Ion},
+ file = {:Users/mathan/Documents/Mendeley//Agarwal et al.{\_}2012{\_}Blink and it's done interactive queries on very large data.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  number = {12},
@@ -254,7 +266,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Agrawal2008a,
  author = {Agrawal, Jagrati and Diao, Yanlei and Gyllstrom, Daniel and Immerman, Neil},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Agrawal et al.{\_}2008{\_}Efficient pattern matching over event streams.pdf:pdf},
  journal = {SIGMOD},
  keywords = {event streams,pattern matching,query optimization,stream processing,work sharing},
  mendeley-tags = {stream processing,work sharing},
@@ -311,7 +323,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Ailamaki1999,
  author = {Ailamaki, Anastasia and DeWitt, David J. and Hill, Mark D. and Wood, David A.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Ailamaki et al.{\_}1999{\_}DBMSs on a modern processor Where does time go.pdf:pdf},
  journal = {VLDB},
  title = {{DBMSs on a modern processor: Where does time go?}},
  //url = {http://128.105.2.28/pub/techreports/1999/TR1394.pdf},
@@ -447,7 +459,6 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Alagiannis2014,
  author = {Alagiannis, Ioannis and Idreos, Stratos and Ailamaki, Anastasia},
  //doi = {10.1145/2588555.2610502},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!H20.pdf:pdf},
  isbn = {9781450323765},
  journal = {SIGMOD},
  keywords = {adaptive hybrids,adaptive storage,dynamic operators},
@@ -629,7 +640,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Ambrose2013,
  author = {Ambrose, Meg Leta and Ausloos, Jef},
  //doi = {10.5325/jinfopoli.3.2013.0001},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Ambrose, Ausloos - 2013 - The Right to Be Forgotten Across the Pond.pdf:pdf},
+ file = {::},
  journal = {Journal of Information Policy},
  pages = {1--23},
  title = {{The Right to Be Forgotten Across the Pond}},
@@ -718,7 +729,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Antoshenkov1993,
  author = {Antoshenkov, Gennady},
  //doi = {10.1109/ICDE.1993.344026},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Antoshenkov{\_}1993{\_}Dynamic Query Optimization in RdbVMS.pdf:pdf},
  journal = {ICDE},
  title = {{Dynamic Query Optimization in Rdb/VMS}},
  //url = {http://dx.doi.org/10.1109/ICDE.1993.344026},
@@ -738,7 +749,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Antoshenkov1996,
  author = {Antoshenkov, Gennady and Ziauddin, Mohamed},
  //doi = {10.1007/s007780050026},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Antoshenkov, Ziauddin{\_}1996{\_}Query Processing and Optimization in Oracle Rdb.pdf:pdf},
  journal = {VLDBJ},
  number = {4},
  pages = {229--237},
@@ -809,7 +820,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Apaydin2008,
  author = {Apaydin, Tan and Ferhatosmanoglu, Hakan and Canahuate, Guadalupe and Tosun, Ali Şaman},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Apaydin et al.{\_}2008{\_}Dynamic data organization for bitmap indices.pdf:pdf},
  isbn = {978-963-9799-28-8},
  journal = {InfoScale},
  keywords = {bitmaps},
@@ -850,7 +861,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Appuswamy2017a,
  author = {Appuswamy, Raja and Borovica-Gajic, Renata and Graefe, Goetz and Ailamaki, Anastasia},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Five-Minute Rule - Thirty Years Later.pdf:pdf},
+ file = {::},
  journal = {ADMS},
  title = {{The Five minute Rule Thirty Years Later and its Impact on the Storage Hierarchy}},
  year = {2017}
@@ -859,7 +870,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Apweiler2004,
  abstract = {To provide the scientific community with a single, centralized, authoritative resource for protein sequences and functional information, the Swiss-Prot, TrEMBL and PIR protein database activities have united to form the Universal Protein Knowledgebase (UniProt) consortium. Our mission is to provide a comprehensive, fully classified, richly and accurately annotated protein sequence knowledgebase, with extensive cross-references and query interfaces. The central database will have two sections, corresponding to the familiar Swiss-Prot (fully manually curated entries) and TrEMBL (enriched with automated classification, annotation and extensive cross-references). For convenient sequence searches, UniProt also provides several non-redundant sequence databases. The UniProt NREF (UniRef) databases provide representative subsets of the knowledgebase suitable for efficient searching. The comprehensive UniProt Archive (UniParc) is updated daily from many public source databases. The UniProt databases can be accessed online (http://www.uniprot.org) or downloaded in several formats (ftp://ftp.uniprot.org/pub). The scientific community is encouraged to submit data for inclusion in UniProt.},
  author = {Apweiler, Rolf and Bairoch, Amos and Wu, Cathy H. and Barker, Winona C. and Boeckmann, Brigitte and Ferro, Serenella and Gasteiger, Elisabeth and Huang, Hongzhan and Lopez, Rodrigo and Magrane, Michele and Martin, Maria J. and Natale, Darren A. and O'Donovan, Claire and Redaschi, Nicole and Yeh, Lai-Su L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Apweiler et al.{\_}2004{\_}UniProt the Universal Protein knowledgebase.pdf:pdf},
  journal = {Nucleic acids research},
  keywords = {Animals,Computational Biology,Databases,Humans,Internet,Protein,Protein Conformation,Proteins,Proteins: chemistry,Proteins: classification,Proteins: metabolism,Proteome,Proteomics,Terminology as Topic},
  number = {Database Issue},
@@ -900,7 +911,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Armstrong2013,
  author = {Armstrong, Timothy G. and Ponnekanti, Vamsi and Borthakur, Dhruba and Callaghan, Mark},
  //doi = {10.1145/2463676.2465296},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Armstrong et al.{\_}2013{\_}LinkBench a Database Benchmark Based on the Facebook Social Graph.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keywords = {database benchmarks,database workload analysis,hbase,mysql,social networks},
@@ -930,7 +941,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Arulraj2016,
  author = {Arulraj, Joy and Pavlo, Andrew and Menon, Prashanth},
  //doi = {10.1145/2882903.2915231},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Arulraj, Pavlo, Menon - 2016 - Bridging the Archipelago between Row-Stores and Column-Stores for Hybrid Workloads.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Arulraj, Pavlo, Menon{\_}2016{\_}Bridging the Archipelago between Row-Stores and Column-Stores for Hybrid Workloads.pdf:pdf},
  isbn = {9781450335317},
  journal = {SIGMOD},
  title = {{Bridging the Archipelago between Row-Stores and Column-Stores for Hybrid Workloads}},
@@ -959,7 +970,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Arumugam2010,
  author = {Arumugam, Subramanian and Dobra, Alin and Jermaine, Christopher M. and Pansare, Niketan and Perez, Luis},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Arumugam et al.{\_}2010{\_}The DataPath System A Data-centric Analytic Processing Engine for Large Data Warehouses.pdf:pdf},
  journal = {SIGMOD},
  keywords = {algorithms},
  title = {{The DataPath System: A Data-centric Analytic Processing Engine for Large Data Warehouses}},
@@ -996,7 +1007,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Athanassoulis2011,
  author = {Athanassoulis, Manos and Chen, Shimin and Ailamaki, Anastasia and Gibbons, Phillip B. and Stoica, Radu},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Athanassoulis et al. - 2011 - MaSM Efficient Online Updates in Data Warehouses.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Athanassoulis et al.{\_}2011{\_}MaSM Efficient Online Updates in Data Warehouses.pdf:pdf},
  journal = {SIGMOD},
  keywords = {SSDs,data warehouses,materialized sort merge,online updates},
  title = {{MaSM: Efficient Online Updates in Data Warehouses}},
@@ -1019,6 +1030,14 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2013}
 }
 
+@article{Athanassoulis2013b,
+ author = {Athanassoulis, Manos},
+ journal = {Proceedings of the CIDR},
+ title = {{Solid State Storage {\&} DBMS}},
+ //url = {http://cidrdb.org/cidr2013/Talks/CIDR13{\_}Gongshow04.pptx},
+ year = {2013}
+}
+
 @article{Athanassoulis2014,
  author = {Athanassoulis, Manos and Ailamaki, Anastasia},
  journal = {PVLDB},
@@ -1033,7 +1052,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @phdthesis{Athanassoulis2014a,
  author = {Athanassoulis, Manos},
  //doi = {http://dx.doi.org/10.5075/epfl-thesis-6032},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Athanassoulis{\_}2014{\_}Solid-State Storage and Work Sharing for Efficient Scaleup Data Analytics.pdf:pdf},
  school = {EPFL},
  title = {{Solid-State Storage and Work Sharing for Efficient Scaleup Data Analytics}},
  //url = {http://infoscience.epfl.ch/record/197103},
@@ -1059,7 +1078,6 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Athanassoulis2016a,
  author = {Athanassoulis, Manos and Yan, Zheng and Idreos, Stratos},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!UpBit.pdf:pdf},
  journal = {SIGMOD},
  title = {{UpBit: Scalable In-Memory Updatable Bitmap Indexing}},
  //url = {https://dl.acm.org/citation.cfm?id=2915964},
@@ -1068,7 +1086,6 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Athanassoulis2016b,
  author = {Athanassoulis, Manos and Idreos, Stratos},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Design Tradeoffs of Data Access Methods.pdf:pdf},
  journal = {SIGMOD},
  title = {{Design Tradeoffs of Data Access Methods}},
  year = {2016}
@@ -1094,6 +1111,13 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2021}
 }
 
+@article{Athanassoulis2022,
+ author = {Athanassoulis, Manos and Sarkar, Subhadeep and Papon, Tarikul Islam and Zhu, Zichen and Staratzis, Dimitris},
+ journal = {IEEE DEBULL},
+ title = {{Building Deletion-Compliant Data Systems}},
+ year = {2022}
+}
+
 @article{Atikoglu2012,
  author = {Atikoglu, Berk and Xu, Yuehai and Frachtenberg, Eitan and Jiang, Song and Paleczny, Mike},
  //doi = {10.1145/2254756.2254766},
@@ -1114,7 +1138,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Avnur2000,
  author = {Avnur, Ron and Hellerstein, Joseph M.},
  //doi = {10.1145/335191.335420},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Avnur, Hellerstein{\_}2000{\_}Eddies Continuously Adaptive Query Processing.pdf:pdf},
  isbn = {1-58113-217-4},
  issn = {01635808},
  journal = {SIGMOD Rec.},
@@ -1187,7 +1211,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Babu2005,
  author = {Babu, Shivnath and Bizarro, Pedro and DeWitt, David J.},
  //doi = {10.1145/1066157.1066171},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Babu, Bizarro, DeWitt{\_}2005{\_}Proactive re-optimization.pdf:pdf},
  isbn = {1595930604},
  journal = {SIGMOD},
  title = {{Proactive re-optimization}},
@@ -1286,6 +1310,15 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2020}
 }
 
+@article{Bandle2021,
+ author = {Bandle, Maximilian and Giceva, Jana and Neumann, Thomas},
+ //doi = {10.1145/3448016.3452831},
+ journal = {SIGMOD},
+ title = {{To Partition, or Not to Partition, That is the Join Question in a Real System}},
+ //url = {https://doi.org/10.1145/3448016.3452831},
+ year = {2021}
+}
+
 @article{Barbara1997,
  author = {Barbara, Daniel and Sullivan, Mark},
  //doi = {10.1145/262762.262764},
@@ -1309,6 +1342,18 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2012}
 }
 
+@article{Barber2014,
+ author = {Barber, Ronald and Lohman, Guy M and Pandis, Ippokratis and Raman, Vijayshankar and Sidle, Richard and Attaluri, Gopi K and Chainani, Naresh and Lightstone, Sam and Sharpe, David},
+ //doi = {10.14778/2735496.2735499},
+ journal = {PVLDB},
+ number = {4},
+ pages = {353--364},
+ title = {{Memory-Efficient Hash Joins}},
+ //url = {http://www.vldb.org/pvldb/vol8/p353-barber.pdf},
+ volume = {8},
+ year = {2014}
+}
+
 @article{Barber2015,
  author = {Barber, Ronald and Lohman, Guy M. and Raman, Vijayshankar and Sidle, Richard and Lightstone, Sam and Schiefer, Berni},
  journal = {ICDE},
@@ -1319,7 +1364,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Barroso1998,
  author = {Barroso, Luiz Andr{\'{e}} and Gharachorloo, Kourosh and Bugnion, Edouard},
  //doi = {10.1109/ISCA.1998.694758},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Barroso, Gharachorloo, Bugnion{\_}1998{\_}Memory System Characterization of Commercial Workloads.pdf:pdf},
  journal = {ISCA},
  title = {{Memory System Characterization of Commercial Workloads}},
  //url = {http://dx.doi.org/10.1109/ISCA.1998.694758},
@@ -1419,7 +1464,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Bausch2012,
  author = {Bausch, Daniel and Petrov, Ilia and Buchmann, Alejandro P.},
  //doi = {10.1145/2236584.2236588},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bausch, Petrov, Buchmann{\_}2012{\_}Making cost-based query optimization asymmetry-aware.pdf:pdf},
  isbn = {9781450314459},
  journal = {DAMON},
  title = {{Making cost-based query optimization asymmetry-aware}},
@@ -1460,7 +1505,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Bayer1977,
  author = {Bayer, Rudolf and Unterauer, Karl},
  //doi = {10.1145/320521.320530},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bayer, Unterauer{\_}1977{\_}Prefix B-trees.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  keywords = {B -trees,key compression,multiway search trees},
@@ -1594,7 +1639,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Bender2012,
  author = {Bender, Michael A. and Farach-Colton, Martin and Johnson, Rob and Kraner, Russell and Kuszmaul, Bradley C. and Medjedovic, Dzejla and Montes, Pablo and Shetty, Pradeep and Spillane, Richard P. and Zadok, Erez},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bender et al.{\_}2012{\_}Don't Thrash How to Cache Your Hash on Flash.pdf:pdf},
  journal = {PVLDB},
  number = {11},
  pages = {1627--1637},
@@ -1627,7 +1672,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Bentley1979,
  author = {Bentley, Jon Louis},
  //doi = {10.1016/0020-0190(79)90117-0},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Bentley{\_}1979{\_}Decomposable Searching Problems.pdf:pdf},
  journal = {Information Processing Letters},
  number = {5},
  pages = {244--251},
@@ -1640,7 +1685,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Bentley1980,
  author = {Bentley, Jon Louis and Saxe, James B.},
  //doi = {10.1016/0196-6774(80)90015-2},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Bentley, Saxe{\_}1980{\_}Decomposable Searching Problems I Static-to-Dynamic Transformation.pdf:pdf},
  journal = {Journal of Algorithms},
  number = {4},
  pages = {301--358},
@@ -1652,7 +1697,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Berenson1995,
  author = {Berenson, Hal and Bernstein, Philip A. and Gray, Jim and Melton, Jim and O'Neil, Elizabeth J. and O'Neil, Patrick E.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Berenson et al.{\_}1995{\_}A critique of ANSI SQL isolation levels.pdf:pdf},
  journal = {SIGMOD Rec.},
  number = {2},
  pages = {1--10},
@@ -1701,7 +1746,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Bertsimas2010,
  author = {Bertsimas, Dimitris and Nohadani, Omid and Teo, Kwong Meng},
  //doi = {10.1287/opre.1090.0715},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Robust Optimization for Unconstrained Simulation-based Problems.pdf:pdf},
+ file = {::},
  journal = {Operations Research},
  number = {1},
  pages = {161--178},
@@ -1893,6 +1938,15 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2011}
 }
 
+@article{Blanas2013,
+ author = {Blanas, Spyros and Patel, Jignesh M},
+ //doi = {10.1145/2523616.2523626},
+ journal = {ACM Symposium on Cloud Computing, SOCC '13, Santa Clara, CA, USA, October 1-3, 2013},
+ title = {{Memory footprint matters: efficient equi-join algorithms for main memory data processing}},
+ //url = {https://doi.org/10.1145/2523616.2523626},
+ year = {2013}
+}
+
 @article{Blanas2014,
  author = {Blanas, Spyros and Wu, Kesheng and Byna, Surendra and Dong, Bin and Shoshani, Arie},
  //doi = {10.1145/2588555.2612185},
@@ -1992,7 +2046,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Boncz1999,
  author = {Boncz, Peter A. and Manegold, Stefan and Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Boncz, Manegold, Kersten{\_}1999{\_}Database architecture optimized for the new bottleneck Memory access.pdf:pdf},
  journal = {VLDB},
  title = {{Database architecture optimized for the new bottleneck: Memory access}},
  //url = {http://www.vldb.org/conf/1999/P5.pdf},
@@ -2010,7 +2064,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Boncz2005,
  author = {Boncz, Peter A. and Zukowski, Marcin and Nes, Niels J.},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/MonetDB$\backslash$:X100.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley/Boncz, Zukowski, Nes{\_}2005{\_}MonetDBX100 Hyper-Pipelining Query Execution.pdf:pdf},
  journal = {Proceedings of the CIDR},
  title = {{MonetDB/X100: Hyper-Pipelining Query Execution}},
  year = {2005}
@@ -2100,9 +2154,30 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2015}
 }
 
+@article{Borovica-Gajic2017,
+ author = {Borovica-Gajic, Renata and Graefe, Goetz and Lee, Allison W},
+ //doi = {10.4230/DagRep.7.5.169},
+ journal = {Dagstuhl Reports},
+ number = {5},
+ pages = {169--180},
+ title = {{Robust Performance in Database Query Processing (Dagstuhl Seminar 17222)}},
+ //url = {https://doi.org/10.4230/DagRep.7.5.169},
+ volume = {7},
+ year = {2017}
+}
+
+@article{Borovica2012,
+ author = {Borovica, Renata and Alagiannis, Ioannis and Ailamaki, Anastasia},
+ //doi = {10.1145/2304510.2304522},
+ journal = {DBTest},
+ title = {{Automated physical designers: what you see is (not) what you get}},
+ //url = {https://doi.org/10.1145/2304510.2304522},
+ year = {2012}
+}
+
 @article{Borthakur2013,
  author = {Borthakur, Dhruba},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Borthakur{\_}2013{\_}Petabyte scale databases and storage systems at Facebook.pdf:pdf},
  journal = {SIGMOD},
  keywords = {bigdata,facebook},
  title = {{Petabyte scale databases and storage systems at Facebook}},
@@ -2143,7 +2218,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Bouganim2009,
  author = {Bouganim, Luc and J{\'{o}}nsson, Bj{\"{o}}rn TH{\'{o}}r and Bonnet, Philippe},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bouganim, J{\'{o}}nsson, Bonnet{\_}2009{\_}uFLIP Understanding Flash IO Patterns.pdf:pdf},
  journal = {Proceedings of the CIDR},
  title = {{uFLIP: Understanding Flash IO Patterns}},
  year = {2009}
@@ -2238,7 +2313,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Bronson2010,
  author = {Bronson, Nathan G. and Casper, Jared and Chafi, Hassan and Olukotun, Kunle},
  //doi = {10.1145/1837853.1693488},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Bronson et al.{\_}2010{\_}A practical concurrent binary search tree.pdf:pdf},
  isbn = {978-1-60558-877-3},
  issn = {03621340},
  journal = {SIGPLAN Not.},
@@ -2270,7 +2345,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Brown2007,
  author = {Brown, Richard and Masanet, Eric and Nordman, Bruce and Tschudi, Bill and Shehabi, Arman and Stanley, John and Koomey, Jonathan and Sartor, Dale and Chan, Peter and Loper, Joe and Capana, Steve and Hedman, Bruce and Duff, Rebecca and Haines, Evan and Sass, Danielle and Fanara, Andrew},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Brown et al.{\_}2007{\_}Report to Congress on Server and Data Center Energy Efficiency Public Law 109-431.pdf:pdf},
  journal = {Ernest Orlando Lawrence Berkeley National Laboratory},
  title = {{Report to Congress on Server and Data Center Energy Efficiency: Public Law 109-431}},
  volume = {LBNL-363E},
@@ -2394,7 +2469,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Burr2008,
  author = {Burr, Geoffrey W. and Kurdi, B{\"{u}}lent N. and Scott, J. Campbell and Lam, Chung Hon and Gopalakrishnan, Kailash and Shenoy, Rohit S.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Burr et al.{\_}2008{\_}Overview of Candidate Device Technologies for Storage-Class Memory.pdf:pdf},
  journal = {IBM Journal of Research and Development},
  month = {jul},
  number = {4},
@@ -2532,7 +2607,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Canahuate2009,
  author = {Canahuate, Guadalupe and Apaydin, Tan and Sacan, Ahmet and Ferhatosmanoglu, Hakan},
  //doi = {10.1145/1516360.1516430},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Canahuate et al.{\_}2009{\_}Secondary bitmap indexes with vertical and horizontal partitioning.pdf:pdf},
  isbn = {9781605584225},
  journal = {EDBT},
  keywords = {bitmaps},
@@ -2544,7 +2619,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Candea2009,
  author = {Candea, George and Polyzotis, Neoklis and Vingralek, Radek},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Candea, Polyzotis, Vingralek{\_}2009{\_}A scalable, predictable join operator for highly concurrent data warehouses.pdf:pdf},
  journal = {PVLDB},
  keywords = {work sharing},
  mendeley-tags = {work sharing},
@@ -2558,7 +2633,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Candea2011,
  author = {Candea, George and Polyzotis, Neoklis and Vingralek, Radek},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Candea, Polyzotis, Vingralek{\_}2011{\_}Predictable Performance and High Query Concurrency for Data Analytics.pdf:pdf},
  journal = {VLDBJ},
  keywords = {Concurrency,Join,Sharing,Warehouse,work sharing},
  mendeley-tags = {work sharing},
@@ -2712,7 +2787,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Cattell2011,
  author = {Cattell, Rick},
  //doi = {10.1145/1978915.1978919},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Cattell{\_}2011{\_}Scalable SQL and NoSQL data stores.pdf:pdf},
  issn = {01635808},
  journal = {SIGMOD Rec.},
  number = {4},
@@ -2727,7 +2802,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Caulfield2009,
  author = {Caulfield, Adrian M. and Grupp, Laura M. and Swanson, Steven},
  //doi = {10.1145/2528521.1508270},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Caulfield, Grupp, Swanson{\_}2009{\_}Gordon using flash memory to build fast, power-efficient clusters for data-intensive applications.pdf:pdf},
  isbn = {978-1-60558-406-5},
  issn = {01635964},
  journal = {SIGARCH Comp. Arch. News},
@@ -2744,7 +2819,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Caulfield2010a,
  author = {Caulfield, Adrian M. and Coburn, Joel and Mollov, Todor I. and De, Arup and Akel, Ameen and He, Jiahua and Jagatheesan, Arun and Gupta, Rajesh K. and Snavely, Allan and Swanson, Steven},
  //doi = {10.1109/SC.2010.56},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Caulfield et al.{\_}2010{\_}Understanding the Impact of Emerging Non-Volatile Memories on High-Performance, IO-Intensive Computing.pdf:pdf},
  isbn = {978-1-4244-7557-5},
  journal = {SC},
  title = {{Understanding the Impact of Emerging Non-Volatile Memories on High-Performance, IO-Intensive Computing}},
@@ -2754,7 +2829,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Caulfield2010b,
  author = {Caulfield, Adrian M. and De, Arup and Coburn, Joel and Mollov, Todor I. and Gupta, Rajesh K. and Swanson, Steven},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Caulfield et al.{\_}2010{\_}Moneta A High-Performance Storage Array Architecture for Next-Generation, Non-volatile Memories.pdf:pdf},
  journal = {MICRO},
  keywords = {non-volatile memories,phase change memories,software IO optimizations,storage systems},
  title = {{Moneta: A High-Performance Storage Array Architecture for Next-Generation, Non-volatile Memories}},
@@ -2764,7 +2839,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Caulfield2012,
  author = {Caulfield, Adrian M. and Mollov, Todor I. and Eisner, Louis Alex and De, Arup and Coburn, Joel and Swanson, Steven},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Caulfield et al.{\_}2012{\_}Providing safe, user space access to fast, solid state disks.pdf:pdf},
  journal = {SIGARCH Comp. Arch. News},
  keywords = {I/O performance,file systems,non-volatile memory,storage systems,virtualization},
  month = {apr},
@@ -2803,7 +2878,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  booktitle = {Readings in Database Systems},
  edition = {3rd.},
  editor = {Stonebraker, Michael and Hellerstein, Joseph M.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Chamberlin et al.{\_}1998{\_}A History and Evaluation of System R.pdf:pdf},
  isbn = {1-55860-523-1},
  keywords = {access path selection,authorization,compilation,database management systems,locking,recovery,relational model},
  pages = {54--68},
@@ -2898,8 +2973,8 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 }
 
 @article{Chandrasekaran2003,
- author = {Chandrasekaran, Sirish and Shah, Mehul A. and Cooper, Owen and Deshpande, Amol and Franklin, Michael J. and Hellerstein, Joseph M. and Hong, Wei and Krishnamurthy, Sailesh and Madden, Sammuel R. and Reiss, Fred},
- file = {::},
+ author = {Chandrasekaran, Sirish and Shah, Mehul A. and Cooper, Owen and Deshpande, Amol and Franklin, Michael J. and Hellerstein, Joseph M. and Hong, Wei and Krishnamurthy, Sailesh and Madden, Samuel R. and Reiss, Fred},
+ file = {:Users/mathan/Documents/Mendeley//Chandrasekaran et al.{\_}2003{\_}TelegraphCQ continuous dataflow processing.pdf:pdf},
  journal = {SIGMOD},
  keywords = {stream processing,work sharing},
  mendeley-tags = {stream processing,work sharing},
@@ -2964,6 +3039,17 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  journal = {WSDM},
  title = {{Putting Data in the Driver's Seat: Optimizing Earnings for On-Demand Ride-Hailing}},
  year = {2018}
+}
+
+@article{Chaudhuri1995,
+ author = {Chaudhuri, Surajit and Shim, Kyuseok},
+ journal = {IEEE DEBULL},
+ number = {3},
+ pages = {3--9},
+ title = {{An Overview of Cost-based Optimization of Queries with Aggregates}},
+ //url = {http://sites.computer.org/debull/95SEP-CD.pdf},
+ volume = {18},
+ year = {1995}
 }
 
 @article{Chaudhuri1997,
@@ -3059,7 +3145,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Chaudhuri2006,
  author = {Chaudhuri, Surajit and Weikum, Gerhard},
  //doi = {10.1109/ICDE.2006.72},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Chaudhuri, Weikum{\_}2006{\_}Foundations of Automated Database Tuning.pdf:pdf},
  journal = {ICDE},
  title = {{Foundations of Automated Database Tuning}},
  //url = {http://vldbarc.org/archives/website/2006/slides/T1.pdf},
@@ -3107,7 +3193,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Chazelle1985,
  author = {Chazelle, Bernard and Guibas, Leonidas J.},
  //doi = {10.1007/BFb0015734},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Chazelle, Guibas{\_}1985{\_}Fractional Cascading A Data Structuring Technique with Geometric Applications.pdf:pdf},
  journal = {ICALP},
  title = {{Fractional Cascading: A Data Structuring Technique with Geometric Applications}},
  //url = {http://dx.doi.org/10.1007/BFb0015734},
@@ -3163,7 +3249,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Chen2000,
  author = {Chen, Jianjun and DeWitt, David J. and Tian, Feng and Wang, Yuan},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Chen et al.{\_}2000{\_}NiagaraCQ a scalable continuous query system for Internet databases.pdf:pdf},
  journal = {SIGMOD Rec.},
  keywords = {stream processing,work sharing},
  mendeley-tags = {stream processing,work sharing},
@@ -3234,7 +3320,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Chen2010,
  author = {Chen, Shimin and Gibbons, Phillip B. and Nath, Suman},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Chen, Gibbons, Nath{\_}2010{\_}PR-Join A Non-Blocking Join Achieving Higher Early Result Rate with Statistical Guarantees.pdf:pdf},
  journal = {SIGMOD},
  keywords = {data warehouse,fast early result,finite data stream,non-blocking join,online aggregation,pr-join,statistical guarantee},
  title = {{PR-Join: A Non-Blocking Join Achieving Higher Early Result Rate with Statistical Guarantees}},
@@ -3466,7 +3552,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Cisco2018,
  author = {Cisco},
- file = {:Users/subhadeep/Downloads/white-paper-c11-738085.pdf:pdf},
+ file = {::},
  journal = {White Paper},
  title = {{Cisco Global Cloud Index: Forecast and Methodology, 2016–2021}},
  //url = {https://www.cisco.com/c/en/us/solutions/collateral/service-provider/global-cloud-index-gci/white-paper-c11-738085.html{\#}{\_}Toc503317525},
@@ -3625,6 +3711,15 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2012}
 }
 
+@book{Cormen2009,
+ author = {Cormen, Thomas H and Leiserson, Charles E and Rivest, Ronald L and Stein, Clifford},
+ isbn = {978-0-262-03384-8},
+ publisher = {MIT Press},
+ title = {{Introduction to Algorithms, 3rd Edition}},
+ //url = {http://mitpress.mit.edu/books/introduction-algorithms},
+ year = {2009}
+}
+
 @article{Cormode2001,
  author = {Cormode, Graham and Muthukrishnan, S and Sahinalp, S{\"{u}}leyman Cenk},
  //doi = {10.1007/3-540-48224-5_40},
@@ -3772,6 +3867,18 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  title = {{Scalable Write Allocation in the WAFL File System}},
  //url = {https://atg.netapp.com/wp-content/uploads/2017/08/sw-WAFL.pdf},
  year = {2017}
+}
+
+@article{Cutt2009,
+ author = {Cutt, Bryce and Lawrence, Ramon},
+ //doi = {10.1016/j.is.2009.02.003},
+ journal = {Inf. Syst.},
+ number = {6},
+ pages = {493--510},
+ title = {{Using intrinsic data skew to improve hash join performance}},
+ //url = {https://doi.org/10.1016/j.is.2009.02.003},
+ volume = {34},
+ year = {2009}
 }
 
 @article{Czech1992,
@@ -3936,7 +4043,6 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Dayan2017,
  author = {Dayan, Niv and Athanassoulis, Manos and Idreos, Stratos},
  //doi = {10.1145/3035918.3064054},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Monkey.pdf:pdf},
  journal = {SIGMOD},
  title = {{Monkey: Optimal Navigable Key-Value Store}},
  //url = {http://doi.acm.org/10.1145/3035918.3064054},
@@ -3955,7 +4061,6 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Dayan2018a,
  author = {Dayan, Niv and Athanassoulis, Manos and Idreos, Stratos},
  //doi = {10.1145/3276980},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Dayan, Athanassoulis, Idreos - 2018 - Optimal Bloom Filters and Adaptive Merging for LSM-Trees ∗.pdf:pdf},
  journal = {TODS},
  number = {4},
  pages = {16:1--16:48},
@@ -3979,6 +4084,17 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  journal = {SIGMOD},
  title = {{Chucky: A Succinct Cuckoo Filter for LSM-Tree}},
  //url = {https://doi.org/10.1145/3448016.3457273},
+ year = {2021}
+}
+
+@article{Dayan2021a,
+ author = {Dayan, Niv and Rochman, Yuval and Naiss, Iddo and Dashevsky, Shmuel and Rabinovich, Noam and Bortnikov, Edward and Maly, Igal and Frishman, Ofer and Zion, Itai Ben and Avraham and Twitto, Moshe and Beitler, Uri and Ginzburg, Evgeni and Mokryn, Mark},
+ journal = {PVLDB},
+ number = {12},
+ pages = {2932--2944},
+ title = {{The End of Moore's Law and the Rise of The Data Processor}},
+ //url = {http://www.vldb.org/pvldb/vol14/p2932-dayan.pdf},
+ volume = {14},
  year = {2021}
 }
 
@@ -4017,7 +4133,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Debnath2010,
  author = {Debnath, Biplob and Sengupta, Sudipta and Li, Jin},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Debnath, Sengupta, Li{\_}2010{\_}FlashStore high throughput persistent key-value store.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  number = {1-2},
@@ -4042,7 +4158,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{DeCandia2007,
  author = {DeCandia, Giuseppe and Hastorun, Deniz and Jampani, Madan and Kakulapati, Gunavardhan and Lakshman, Avinash and Pilchin, Alex and Sivasubramanian, Swaminathan and Vosshall, Peter and Vogels, Werner},
  //doi = {10.1145/1323293.1294281},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//DeCandia et al.{\_}2007{\_}Dynamo Amazon's Highly Available Key-value Store.pdf:pdf},
  isbn = {978-1-59593-591-5},
  issn = {01635980},
  journal = {SIGOPS Op. Sys. Rev.},
@@ -4163,7 +4279,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Deshpande2004,
  author = {Deshpande, Amol},
  //doi = {10.1145/974121.974129},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Deshpande{\_}2004{\_}An initial study of overheads of eddies.pdf:pdf},
  issn = {01635808},
  journal = {SIGMOD Rec.},
  keywords = {work sharing},
@@ -4377,6 +4493,15 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2020}
 }
 
+@article{Ding2021,
+ author = {Ding, Jialin and Minhas, Umar Farooq and Chandramouli, Badrish and Wang, Chi and Li, Yinan and Li, Ying and Kossmann, Donald and Gehrke, Johannes and Kraska, Tim},
+ //doi = {10.1145/3448016.3457270},
+ journal = {SIGMOD},
+ title = {{Instance-Optimized Data Layouts for Cloud Analytics Workloads}},
+ //url = {https://doi.org/10.1145/3448016.3457270},
+ year = {2021}
+}
+
 @book{Dittrich2000,
  author = {Dittrich, Klaus R and Geppert, Andreas},
  isbn = {1-55860-642-4},
@@ -4411,7 +4536,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Do2011,
  author = {Do, Jaeyoung and Zhang, Donghui and Patel, Jignesh M. and DeWitt, David J. and Naughton, Jeffrey F. and Halverson, Alan},
  //doi = {10.1145/1989323.1989442},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Do et al.{\_}2011{\_}Turbocharging DBMS buffer pool using SSDs.pdf:pdf},
  isbn = {9781450306614},
  journal = {SIGMOD},
  keywords = {buffer pool,flash SSD},
@@ -4423,7 +4548,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Do2013,
  author = {Do, Jaeyoung and Kee, Yang-Suk and Patel, Jignesh M. and Park, Chanik and Park, Kwanghyun and DeWitt, David J.},
  //doi = {10.1145/2463676.2465295},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Do et al.{\_}2013{\_}Query processing on smart SSDs opportunities and challenges.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keywords = {smart ssd},
@@ -4481,7 +4606,6 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Dong2017,
  author = {Dong, Siying and Callaghan, Mark and Galanis, Leonidas and Borthakur, Dhruba and Savor, Tony and Strum, Michael},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Optimizing Space Amplification in RocksDB.pdf:pdf},
  journal = {Proceedings of the CIDR},
  title = {{Optimizing Space Amplification in RocksDB}},
  //url = {http://cidrdb.org/cidr2017/papers/p82-dong-cidr17.pdf},
@@ -4529,7 +4653,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Doulkeridis2014,
  author = {Doulkeridis, Christos and N{\o}rv{\aa}g, Kjetil},
  //doi = {10.1007/s00778-013-0319-9},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Doulkeridis, N{\o}rv{\aa}g{\_}2014{\_}A survey of large-scale analytical query processing in MapReduce.pdf:pdf},
  issn = {1066-8888},
  journal = {VLDBJ},
  keywords = {Big Data,Data analysis,Large-scale,MapReduce,Query processing,Survey,survey},
@@ -4644,7 +4768,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{El-Helw2011,
  author = {El-Helw, Amr and Ross, Kenneth A. and Bhattacharjee, Bishwaranjan and Lang, Christian A. and Mihaila, George A.},
  //doi = {10.1145/2064676.2064689},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//El-Helw et al.{\_}2011{\_}Column-Oriented Query Processing for Row Stores.pdf:pdf},
  isbn = {9781450309639},
  journal = {DOLAP},
  keywords = {column-oriented,query processing,ssd},
@@ -4907,6 +5031,14 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2015}
 }
 
+@article{Farooqui2014,
+ author = {Farooqui, Mohd Zeeshan and Shoaib, Mohd and Khan, Mohammad Zunnun},
+ journal = {International Journal of Advanced Research in Computer Engineering {\&} Technology (IJARCET) Volume},
+ title = {{A comprehensive survey of page replacement algorithms}},
+ volume = {3},
+ year = {2014}
+}
+
 @article{Feinberg2019,
  author = {Feinberg, Donald and Adrian, Merv and Ronthal, Adam},
  journal = {https://www.gartner.com/document/3941821},
@@ -5004,7 +5136,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Finkelstein1982,
  author = {Finkelstein, Sheldon},
  //doi = {10.1145/582353.582400},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Finkelstein{\_}1982{\_}Common expression analysis in database applications.pdf:pdf},
  isbn = {0897910737},
  journal = {SIGMOD},
  title = {{Common expression analysis in database applications}},
@@ -5082,15 +5214,6 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  //url = {https://doi.org/10.1145/125187.125200},
  volume = {9},
  year = {1991}
-}
-
-@misc{Fragkoulis2020,
- author = {Fragkoulis, Marios and Carbone, Paris and Kalavri, Vasiliki and Katsifodimos, Asterios},
- booktitle = {CoRR},
- title = {{A Survey on the Evolution of Stream Processing Systems}},
- //url = {https://arxiv.org/abs/2008.00842},
- volume = {abs/2008},
- year = {2020}
 }
 
 @article{Francisco2011,
@@ -5220,7 +5343,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Fusco2011,
  author = {Fusco, Francesco and Vlachos, Michail and Stoecklin, Marc Ph.},
  //doi = {10.1007/s00778-011-0242-x},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Fusco, Vlachos, Stoecklin{\_}2011{\_}Real-time creation of bitmap indexes on streaming network data.pdf:pdf},
  issn = {1066-8888},
  journal = {VLDBJ},
  keywords = {Bitmap index,Data archive,Data stream,Locality sensitive hashing,bitmaps},
@@ -5445,7 +5568,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Ghazal2013,
  author = {Ghazal, Ahmad and Rabl, Tilmann and Hu, Minqing and Raab, Francois and Poess, Meikel and Crolotte, Alain and Jacobsen, Hans-Arno},
  //doi = {10.1145/2463676.2463712},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Ghazal et al.{\_}2013{\_}BigBench towards an industry standard benchmark for big data analytics.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keywords = {benchmarking,big data,map reduce},
@@ -5474,7 +5597,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Giannikis2012,
  author = {Giannikis, Georgios and Alonso, Gustavo and Kossmann, Donald},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Giannikis, Alonso, Kossmann{\_}2012{\_}SharedDB Killing One Thousand Queries with One Stone.pdf:pdf},
  journal = {PVLDB},
  number = {6},
  pages = {526--537},
@@ -5487,7 +5610,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Giannikis2013,
  author = {Giannikis, Georgios and Makreshanski, Darko and Alonso, Gustavo and Kossmann, Donald},
  //doi = {10.1145/2463676.2463678},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Giannikis et al.{\_}2013{\_}Workload optimization using SharedDB.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keywords = {main memory,shared query processing},
@@ -5756,7 +5879,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Graefe2006,
  author = {Graefe, Goetz},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe{\_}2006{\_}B-tree indexes, interpolation search, and skew.pdf:pdf},
  journal = {DAMON},
  title = {{B-tree indexes, interpolation search, and skew}},
  //url = {http://dl.acm.org/citation.cfm?id=1140402.1140409},
@@ -5765,7 +5888,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Graefe2006a,
  author = {Graefe, Goetz},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe{\_}2006{\_}B-tree indexes for high update rates.pdf:pdf},
  journal = {SIGMOD Rec.},
  number = {1},
  pages = {39--44},
@@ -5778,7 +5901,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Graefe2007,
  author = {Graefe, Goetz},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Five-Minute Rule - Twenty Years Later.pdf:pdf},
+ file = {::},
  journal = {DAMON},
  title = {{The five-minute rule twenty years later}},
  //url = {http://doi.acm.org/10.1145/1363189.1363198},
@@ -5798,7 +5921,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Graefe2010a,
  author = {Graefe, Goetz and Kuno, Harumi},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe, Kuno{\_}2010{\_}Self-selecting, self-tuning, incrementally optimized indexes.pdf:pdf},
  journal = {EDBT},
  keywords = {adaptive,autonomic,database index,query execution},
  title = {{Self-selecting, self-tuning, incrementally optimized indexes}},
@@ -5824,7 +5947,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Graefe2011,
  author = {Graefe, Goetz},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/Modern B-Tree Techniques.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Graefe{\_}2011{\_}Modern B-Tree Techniques.pdf:pdf},
  journal = {Found. Trends Databases},
  number = {4},
  pages = {203--402},
@@ -5846,7 +5969,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Graefe2012,
  author = {Graefe, Goetz and Kimura, Hideaki and Kuno, Harumi},
  //doi = {10.1145/2338626.2338630},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe, Kimura, Kuno{\_}2012{\_}Foster b-trees.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  keywords = {Databases,Foster B-trees,indexes,latching,locking},
@@ -5860,7 +5983,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Graefe2012a,
  author = {Graefe, Goetz and Halim, Felix and Idreos, Stratos and Kuno, Harumi and Manegold, Stefan},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Graefe et al.{\_}2012{\_}Concurrency control for adaptive indexing.pdf:pdf},
  journal = {PVLDB},
  number = {7},
  pages = {656--667},
@@ -5999,14 +6122,14 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 }
 
 @article{Greenplum2010,
- author = {Greenplum},
+ author = {Greenplum and Exadata, Oracle and {Sybase IQ}},
  journal = {http://www.greenplum.com/},
  title = {{Online reference}},
  year = {2010}
 }
 
 @article{Greenplum2010,
- author = {Greenplum and Exadata, Oracle and {Sybase IQ}},
+ author = {Greenplum},
  journal = {http://www.greenplum.com/},
  title = {{Online reference}},
  year = {2010}
@@ -6222,7 +6345,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Haas1997,
  author = {Haas, Laura M and Carey, Michael J and Livny, Miron and Shukla, Amit},
  //doi = {10.1007/s007780050043},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Haas et al.{\_}1997{\_}Seeking the Truth About ad hoc Join Costs.pdf:pdf},
  journal = {VLDBJ},
  number = {3},
  pages = {241--256},
@@ -6281,7 +6404,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Haeupler2015,
  author = {Haeupler, Bernhard and Sen, Siddhartha and Tarjan, Robert Endre},
  //doi = {10.1145/2689412},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Haeupler, Sen, Tarjan{\_}2015{\_}Rank-Balanced Trees.pdf:pdf},
  journal = {TALG},
  number = {4},
  pages = {30:1----30:26},
@@ -6459,7 +6582,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  author = {Hartline, Jason D. and Hong, Edwin S. and Mohr, Alexander E. and Pentney, William R. and Rocke, Emily},
  //doi = {10.1007/s00453-004-1140-z},
  editor = {Bose, Prosenjit and Morin, Pat},
- file = {::;:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Hartline et al. - 2002 - Characterizing History Independent Data Structures.pdf:pdf},
+ file = {::},
  journal = {ISAAC},
  number = {1},
  publisher = {Springer},
@@ -6472,7 +6595,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Hasan2019,
  author = {Hasan, Syed Saud and Sultan, Nazatul Haque and Barbhuiya, Ferdous Ahmed},
  //doi = {10.1145/3327962.3331457},
- journal = {Proceedings of the 7th International Workshop on Security in Cloud Computing, SCC@AsiaCCS 2019, Auckland, New Zealand, July 8, 2019},
+ journal = {SCC},
  title = {{Cloud Data Provenance using IPFS and Blockchain Technology}},
  //url = {https://doi.org/10.1145/3327962.3331457},
  year = {2019}
@@ -6599,7 +6722,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Helland2016,
  author = {Helland, Pat},
  //doi = {10.1145/2844112},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/Immutability Changes Everything - CACM.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley/Helland{\_}2016{\_}Immutability Changes Everything.pdf:pdf},
  journal = {CACM},
  number = {1},
  pages = {64--70},
@@ -6680,7 +6803,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Hellerstein2007,
  author = {Hellerstein, Joseph M. and Stonebraker, Michael and Hamilton, James R},
  //doi = {10.1561/1900000002},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/Redbook and References/Architecture of a Database System.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Hellerstein, Stonebraker, Hamilton{\_}2007{\_}Architecture of a Database System.pdf:pdf},
  journal = {Found. Trends Databases},
  number = {2},
  pages = {141--259},
@@ -6727,6 +6850,18 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  title = {{Column Sketches: A Scan Accelerator for Rapid and Robust Predicate Evaluation}},
  //url = {http://doi.acm.org/10.1145/3183713.3196911},
  year = {2018}
+}
+
+@article{Hentschel2020,
+ author = {Hentschel, Brian and Idreos, Stratos and Deeds, Kyle},
+ //doi = {10.14778/3436905.3436919},
+ journal = {PVLDB},
+ number = {4},
+ pages = {600--612},
+ title = {{Stacked Filters: Learning to Filter by Structure}},
+ //url = {http://www.vldb.org/pvldb/vol14/p600-hentschel.pdf},
+ volume = {14},
+ year = {2020}
 }
 
 @article{Herbst2013,
@@ -6790,7 +6925,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Hoffart2011,
  author = {Hoffart, Johannes and Suchanek, Fabian M. and Berberich, Klaus and Lewis-Kelham, Edwin and de Melo, Gerard and Weikum, Gerhard},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Hoffart et al.{\_}2011{\_}YAGO2 exploring and querying world knowledge in time, space, context, and many languages.pdf:pdf},
  journal = {WWW},
  keywords = {geo-spatial,knowledge base,multilingual,ontology,temporal,textual},
  title = {{YAGO2: exploring and querying world knowledge in time, space, context, and many languages}},
@@ -6846,7 +6981,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Hong2009,
  author = {Hong, Mingsheng and Riedewald, Mirek and Koch, Christoph and Gehrke, Johannes and Demers, Alan},
  //doi = {10.1145/1516360.1516376},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Hong et al.{\_}2009{\_}Rule-based Multi-Query Optimization.pdf:pdf},
  isbn = {9781605584225},
  journal = {EDBT},
  keywords = {stream processing,work sharing},
@@ -6884,7 +7019,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Hose2011,
  author = {Hose, Katja and Vlachou, Akrivi},
  //doi = {10.1007/s00778-011-0246-6},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Hose, Vlachou{\_}2011{\_}A survey of skyline processing in highly distributed environments.pdf:pdf},
  issn = {1066-8888},
  journal = {VLDBJ},
  keywords = {Distributed systems,P2P,Skyline processing,survey},
@@ -7052,6 +7187,13 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2012}
 }
 
+@article{IBM2012a,
+ author = {IBM},
+ journal = {https://www.ibm.com/docs/en/db2/9.7?topic=management-prefetching-data-into-buffer-pool},
+ title = {{Db2: Prefetching Data into The Bufferpool}},
+ year = {2012}
+}
+
 @article{IBM2013,
  author = {IBM},
  journal = {IBM Data Magazine},
@@ -7114,7 +7256,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Idreos2008,
  author = {Idreos, Stratos and Liarou, Erietta and Koubarakis, Manolis},
  //doi = {10.1145/1353343.1353415},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Idreos, Liarou, Koubarakis{\_}2008{\_}Continuous multi-way joins over distributed hash tables.pdf:pdf},
  isbn = {9781595939265},
  journal = {EDBT},
  month = {mar},
@@ -7127,7 +7269,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Idreos2009,
  author = {Idreos, Stratos and Kersten, Martin L. and Manegold, Stefan},
  //doi = {10.1145/1559845.1559878},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Idreos, Kersten, Manegold{\_}2009{\_}Self-organizing Tuple Reconstruction in Column-Stores.pdf:pdf},
  isbn = {9781605585512},
  journal = {SIGMOD},
  keywords = {database cracking,self-organization},
@@ -7154,7 +7296,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Idreos2011,
  author = {Idreos, Stratos and Manegold, Stefan and Kuno, Harumi and Graefe, Goetz},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Idreos et al.{\_}2011{\_}Merging What's Cracked, Cracking What's Merged Adaptive Indexing in Main-Memory Column-Stores.pdf:pdf},
  journal = {PVLDB},
  number = {9},
  pages = {586--597},
@@ -7289,6 +7431,17 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  keywords = {Adaptive data systems,Adaptive indexing,Adaptive storage},
  title = {{Past and Future Steps for Adaptive Storage Data Systems: From Shallow to Deep Adaptivity}},
  volume = {337},
+ year = {2019}
+}
+
+@article{Idreos2019e,
+ author = {Idreos, Stratos and Zoumpatianos, Kostas and Chatterjee, Subarna and Qin, Wilson and Wasay, Abdul and Hentschel, Brian and Kester, Mike S and Dayan, Niv and Guo, Demi and Kang, Minseo and Sun, Yiyou},
+ journal = {IEEE DEBULL},
+ number = {2},
+ pages = {47--58},
+ title = {{Learning Data Structure Alchemy}},
+ //url = {http://sites.computer.org/debull/A19june/p47.pdf},
+ volume = {42},
  year = {2019}
 }
 
@@ -7448,7 +7601,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Ivanova2009,
  author = {Ivanova, Milena G. and Kersten, Martin L. and Nes, Niels J. and Gon{\c{c}}alves, Romulo A. P.},
  //doi = {10.1145/1559845.1559879},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Ivanova et al. - 2009 - An architecture for recycling intermediates in a column-store.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Ivanova et al.{\_}2009{\_}An architecture for recycling intermediates in a column-store.pdf:pdf},
  isbn = {9781605585512},
  issn = {03625915},
  journal = {SIGMOD},
@@ -7471,7 +7624,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @book{Jacob2008a,
  author = {Jacob, Bruce and Ng, W. Spencer and Wang, T. David},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Jacob, Ng, Wang{\_}2008{\_}Memory Systems Cache, DRAM, Disk.pdf:pdf},
  publisher = {Morgan Kaufmann Publishers Inc.},
  title = {{Memory Systems: Cache, DRAM, Disk}},
  year = {2008}
@@ -7503,7 +7656,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Jagadish1997,
  author = {Jagadish, H. V. and Narayan, P. P. S. and Seshadri, Sridhar and Sudarshan, S. and Kanneganti, Rama},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Jagadish et al.{\_}1997{\_}Incremental Organization for Data Recording and Warehousing.pdf:pdf},
  journal = {VLDB},
  title = {{Incremental Organization for Data Recording and Warehousing}},
  //url = {http://dl.acm.org/citation.cfm?id=645923.671013},
@@ -7517,6 +7670,15 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  title = {{Organic Databases}},
  //url = {http://dx.doi.org/10.1007/978-3-642-25731-5{\_}5},
  year = {2011}
+}
+
+@article{Jahangiri2021,
+ author = {Jahangiri, Shiva and Carey, Michael J and Freytag, Johann-Christoph},
+ journal = {CoRR},
+ title = {{Design Trade-offs for a Robust Dynamic Hybrid Hash Join (Extended Version)}},
+ //url = {https://arxiv.org/abs/2112.02480},
+ volume = {abs/2112.0},
+ year = {2021}
 }
 
 @article{Jain2006,
@@ -7664,7 +7826,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Jin2011,
  author = {Jin, Rize and Kwon, Se Jin and Chung, Tae-Sun},
  //doi = {10.1145/2103380.2103390},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Jin, Kwon, Chung{\_}2011{\_}FlashB-tree A Novel B-tree Inex Scheme for Solid State Drives.pdf:pdf},
  isbn = {9781450310871},
  journal = {RACS},
  keywords = {B-tree,FlashB-tree,index manager,online transition,solid state drive},
@@ -7708,7 +7870,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Jindal2011,
  author = {Jindal, Alekh and Dittrich, Jens},
  //doi = {10.1007/978-3-642-33500-6_5},
- journal = {VLDB},
+ journal = {PVLDB},
  title = {{Relax and Let the Database Do the Partitioning Online}},
  year = {2011}
 }
@@ -7770,7 +7932,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Johnson2009a,
  author = {Johnson, Ryan and Pandis, Ippokratis and Hardavellas, Nikos and Ailamaki, Anastasia and Falsafi, Babak},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Johnson et al.{\_}2009{\_}Shore-MT a scalable storage manager for the multicore era.pdf:pdf},
  journal = {EDBT},
  title = {{Shore-MT: a scalable storage manager for the multicore era}},
  //url = {http://dl.acm.org/citation.cfm?id=1516360.1516365},
@@ -7829,7 +7991,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Jorgensen2011,
  author = {Jorgensen, Martin V. and Rasmussen, Ren{\'{e}} B. and {\v{S}}altenis, Simonas and Schjonning, Carsten},
  //doi = {10.1145/2076623.2076629},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Jorgensen et al.{\_}2011{\_}FB-tree a B-tree for flash-based SSDs.pdf:pdf},
  isbn = {9781450306270},
  journal = {Proceedings of the Symposium on International Database Engineering {\&} Applications (IDEAS)},
  keywords = {B+-tree,SSDs,buffer manager,storage manager},
@@ -7981,7 +8143,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Kang2012,
  author = {Kang, Woon-Hak and Lee, Sang-Won and Moon, Bongki},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Kang, Lee, Moon{\_}2012{\_}Flash-based extended cache for higher throughput and faster recovery.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  number = {11},
@@ -8008,6 +8170,15 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  author = {Kang, Daniel and Bailis, Peter and Zaharia, Matei},
  journal = {CIDR},
  title = {{Challenges and Opportunities in DNN-Based Video Analytics: A Demonstration of the BlazeIt Video Query Engine}},
+ year = {2019}
+}
+
+@article{Kang2019a,
+ author = {Kang, Yangwook and Pitchumani, Rekha and Mishra, Pratik and Kee, Yang-Suk and Londono, Francisco and Oh, Sangyoon and Lee, Jongyeol and Lee, Daniel D G},
+ //doi = {10.1145/3319647.3325831},
+ journal = {SYSTOR},
+ title = {{Towards building a high-performance, scale-in key-value storage system}},
+ //url = {https://doi.org/10.1145/3319647.3325831},
  year = {2019}
 }
 
@@ -8092,7 +8263,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Karp1990,
  author = {Karp, Alan H. and Flatt, Horace P.},
  //doi = {10.1145/78607.78614},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Karp, Flatt{\_}1990{\_}Measuring parallel processor performance.pdf:pdf},
  issn = {00010782},
  journal = {CACM},
  keywords = {parallel performance},
@@ -8225,10 +8396,28 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2002}
 }
 
+@article{Kedzierski2010,
+ author = {Kedzierski, Kamil and Moret{\'{o}}, Miquel and Cazorla, Francisco J and Valero, Mateo},
+ //doi = {10.1109/IPDPS.2010.5470352},
+ journal = {IPDPS},
+ title = {{Adapting cache partitioning algorithms to pseudo-LRU replacement policies}},
+ //url = {https://doi.org/10.1109/IPDPS.2010.5470352},
+ year = {2010}
+}
+
+@article{Kedzierski2010,
+ author = {Kedzierski, Kamil and Moret{\'{o}}, Miquel and Cazorla, Francisco J and Valero, Mateo},
+ //doi = {10.1109/IPDPS.2010.5470352},
+ journal = {24th IEEE International Symposium on Parallel and Distributed Processing, IPDPS 2010, Atlanta, Georgia, USA, 19-23 April 2010 - Conference Proceedings},
+ title = {{Adapting cache partitioning algorithms to pseudo-LRU replacement policies}},
+ //url = {https://doi.org/10.1109/IPDPS.2010.5470352},
+ year = {2010}
+}
+
 @article{Keim2001,
  author = {Keim, Daniel A.},
  //doi = {10.1145/381641.381656},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Keim{\_}2001{\_}Visual exploration of large data sets.pdf:pdf},
  issn = {00010782},
  journal = {CACM},
  number = {8},
@@ -8325,7 +8514,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Kersten2010,
  address = {Edinburgh, UK},
  author = {Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Kersten{\_}2010{\_}At the column-store shoreline.pdf:pdf},
  journal = {DIR Workshop},
  title = {{At the column-store shoreline}},
  year = {2010}
@@ -8344,7 +8533,6 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Kersten2015,
  author = {Kersten, Martin L.},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Big Data Space Fungus.pdf:pdf},
  journal = {Proceedings of the CIDR, Gong show talk},
  title = {{Big Data Space Fungus}},
  //url = {https://www.monetdbsolutions.com/sites/default/files/CIDR2015Kersten.pdf},
@@ -8395,6 +8583,24 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  journal = {ICDE},
  title = {{A Query Processing Strategy for the Decomposed Storage Model}},
  year = {1987}
+}
+
+@article{Khuri1999,
+ author = {Khuri, Sami and Hsu, Hsiu-Chin},
+ //doi = {10.1145/299649.299764},
+ journal = {SIGCSE},
+ title = {{Visualizing the CPU scheduler and page replacement algorithms}},
+ //url = {https://doi.org/10.1145/299649.299764},
+ year = {1999}
+}
+
+@article{Khuri1999,
+ author = {Khuri, Sami and Hsu, Hsiu-Chin},
+ //doi = {10.1145/299649.299764},
+ journal = {Proceedings of the 30th SIGCSE Technical Symposium on Computer Science Education, SIGCSE 1999, New Orleans, Louisiana, USA, March 14-28, 1999},
+ title = {{Visualizing the CPU scheduler and page replacement algorithms}},
+ //url = {https://doi.org/10.1145/299649.299764},
+ year = {1999}
 }
 
 @article{Kim1984,
@@ -8612,6 +8818,14 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {1983}
 }
 
+@article{Kitsuregawa1989,
+ author = {Kitsuregawa, Masaru and Nakayama, Masaya and Takagi, Mikio},
+ journal = {VLDB},
+ title = {{The Effect of Bucket Size Tuning in the Dynamic Hybrid GRACE Hash Join Method}},
+ //url = {http://www.vldb.org/conf/1989/P257.PDF},
+ year = {1989}
+}
+
 @article{Kittane2021,
  author = {Kittane, Purushotham and Charles, Inika Serah and Kamath, Aaron and Gokhale, Gowree},
  journal = {The National Law Review},
@@ -8775,7 +8989,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Koltsidas2011,
  author = {Koltsidas, Ioannis and Viglas, Stratis D.},
  //doi = {10.1145/1989323.1989455},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Koltsidas, Viglas{\_}2011{\_}Data management over flash memory.pdf:pdf},
  isbn = {9781450306614},
  journal = {SIGMOD},
  keywords = {flash memory,solid state drives,storage},
@@ -8966,7 +9180,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Krishnamurthy2004,
  author = {Krishnamurthy, Sailesh and Franklin, Michael J. and Hellerstein, Joseph M. and Jacobson, Garrett},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Krishnamurthy et al.{\_}2004{\_}The case for precision sharing.pdf:pdf},
  journal = {VLDB},
  keywords = {work sharing},
  mendeley-tags = {work sharing},
@@ -9003,7 +9217,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Kruger2011,
  author = {Kr{\"{u}}ger, Jens and Kim, Changkyu and Grund, Martin and Satish, Nadathur and Schwalb, David and Chhugani, Jatin and Plattner, Hasso and Dubey, Pradeep and Zeier, Alexander and Krueger, Jens and Kim, Changkyu and Grund, Martin and Satish, Nadathur and Schwalb, David and Chhugani, Jatin and Plattner, Hasso and Dubey, Pradeep and Zeier, Alexander},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Krueger et al. - 2011 - Fast updates on read-optimized databases using multi-core CPUs.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Kr{\"{u}}ger et al.{\_}2011{\_}Fast updates on read-optimized databases using multi-core CPUs.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  number = {1},
@@ -9095,7 +9309,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Kuszmaul2014,
  author = {Kuszmaul, Bradley C.},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/A Comparison of Fractal Trees to Log-Structured Merge (LSM) Trees.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Kuszmaul{\_}2014{\_}A Comparison of Fractal Trees to Log-Structured Merge (LSM) Trees.pdf:pdf},
  journal = {Tokutek White Paper},
  title = {{A Comparison of Fractal Trees to Log-Structured Merge (LSM) Trees}},
  year = {2014}
@@ -9152,7 +9366,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Lakshman2010,
  author = {Lakshman, Avinash and Malik, Prashant},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lakshman, Malik{\_}2010{\_}Cassandra - A Decentralized Structured Storage System.pdf:pdf},
  journal = {SIGOPS Op. Sys. Rev.},
  number = {2},
  pages = {35--40},
@@ -9173,7 +9387,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Lamb2012,
  author = {Lamb, Andrew and Fuller, Matt and Varadarajan, Ramakrishna},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Lamb, Fuller, Varadarajan - 2012 - The Vertica Analytic Database C-Store 7 Years Later.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Lamb, Fuller, Varadarajan{\_}2012{\_}The Vertica Analytic Database C-Store 7 Years Later.pdf:pdf},
  journal = {PVLDB},
  number = {12},
  pages = {1790--1801},
@@ -9231,7 +9445,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Lang2016,
  author = {Lang, Harald and M{\"{u}}hlbauer, Tobias and Funke, Florian and Boncz, Peter A. and Neumann, Thomas and Kemper, Alfons},
  //doi = {10.1145/2882903.2882925},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lang et al.{\_}2016{\_}Data Blocks Hybrid OLTP and OLAP on Compressed Storage using both Vectorization and Compilation.pdf:pdf},
  journal = {SIGMOD},
  title = {{Data Blocks: Hybrid OLTP and OLAP on Compressed Storage using both Vectorization and Compilation}},
  //url = {http://oai.cwi.nl/oai/asset/24382/24382B.pdf http://dx.doi.org/10.1145/2882903.2882925},
@@ -9407,7 +9621,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Lee2008a,
  author = {Lee, Sang-Won and Moon, Bongki and Park, Chanik and Kim, Jae-Myung and Kim, Sang-Woo},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lee et al.{\_}2008{\_}A case for flash memory ssd in enterprise database applications.pdf:pdf},
  journal = {SIGMOD},
  keywords = {flash-memory database server,flash-memory ssd},
  title = {{A case for flash memory ssd in enterprise database applications}},
@@ -9505,7 +9719,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Leis2013,
  author = {Leis, Viktor and Kemper, Alfons and Neumann, Thomas},
  //doi = {10.1109/ICDE.2013.6544812},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/The Adaptive Radix Tree.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley/Leis, Kemper, Neumann{\_}2013{\_}The Adaptive Radix Tree ARTful Indexing for Main-Memory Databases.pdf:pdf},
  journal = {ICDE},
  title = {{The Adaptive Radix Tree: ARTful Indexing for Main-Memory Databases}},
  //url = {http://dl.acm.org/citation.cfm?id=2511193},
@@ -9667,7 +9881,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Li2010,
  author = {Li, Yinan and He, Bingsheng and Yang, Jun and Luo, Qiong and Yi, Ke and Yang, Robin Jun},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Li et al.{\_}2010{\_}Tree Indexing on Solid State Drives.pdf:pdf},
  journal = {PVLDB},
  number = {1-2},
  pages = {1195--1206},
@@ -9748,7 +9962,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Li2019a,
  author = {Li, Bingzhe and Du, David H C},
  //doi = {10.1145/3299874.3318016},
- journal = {Proceedings of the 2019 on Great Lakes Symposium on VLSI, GLSVLSI 2019, Tysons Corner, VA, USA, May 9-11, 2019},
+ journal = {GLSVLSI},
  title = {{TASecure: Temperature-Aware Secure Deletion Scheme for Solid State Drives}},
  //url = {https://doi.org/10.1145/3299874.3318016},
  year = {2019}
@@ -9798,7 +10012,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Liarou2012,
  author = {Liarou, Erietta and Idreos, Stratos and Manegold, Stefan and Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Liarou et al.{\_}2012{\_}MonetDBDataCell Online Analytics in a Streaming Column-Store.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  number = {12},
@@ -9872,7 +10086,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Lim2011,
  author = {Lim, Hyeontaek and Fan, Bin and Andersen, David G and Kaminsky, Michael},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Lim et al. - 2011 - SILT A Memory-Efficient, High-Performance Key-Value Store.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Lim et al.{\_}2011{\_}SILT A Memory-Efficient, High-Performance Key-Value Store.pdf:pdf},
  journal = {SOSP},
  keywords = {algorithms,design,flash,measurement,memory efficiency,performance},
  title = {{SILT: A Memory-Efficient, High-Performance Key-Value Store}},
@@ -9995,7 +10209,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Litwin1986,
  author = {Litwin, Witold and Lomet, David B.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Litwin, Lomet{\_}1986{\_}The Bounded Disorder Access Method.pdf:pdf},
  journal = {ICDE},
  title = {{The Bounded Disorder Access Method}},
  //url = {http://dl.acm.org/citation.cfm?id=645471.655390},
@@ -10004,7 +10218,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Liu2008,
  author = {Liu, Zhen and Parthasarathy, Srinivasan and Ranganathan, Anand and Yang, Hao},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Liu et al.{\_}2008{\_}Near-optimal algorithms for shared filter evaluation in data stream systems.pdf:pdf},
  journal = {SIGMOD},
  keywords = {greedy algorithm,query optimization,randomized algorithm,shared filter ordering,stream processing,work sharing},
  mendeley-tags = {stream processing,work sharing},
@@ -10044,6 +10258,15 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  title = {{Automatic Entity-Grouping for OLTP Workloads}},
  //url = {http://dx.doi.org/10.1109/ICDE.2014.6816694},
  year = {2014}
+}
+
+@article{Liu2015,
+ author = {Liu, Feilong and Blanas, Spyros},
+ journal = {CoRR},
+ title = {{Forecasting the cost of processing multi-join queries via hashing for main-memory databases (Extended version)}},
+ //url = {http://arxiv.org/abs/1507.03049},
+ volume = {abs/1507.0},
+ year = {2015}
 }
 
 @article{Liu2016,
@@ -10123,10 +10346,18 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2013}
 }
 
+@article{Lohman2014,
+ author = {Lohman, Guy M.},
+ journal = {ACM SIGMOD Blog},
+ title = {{Is Query Optimization a "Solved" Problem?}},
+ //url = {https://wp.sigmod.org/?p=1075},
+ year = {2014}
+}
+
 @article{Lomet1988,
  author = {Lomet, David B.},
  //doi = {10.1145/49346.50067},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lomet{\_}1988{\_}A simple bounded disorder file organization with good performance.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  number = {4},
@@ -10152,7 +10383,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Lomet2001,
  author = {Lomet, David B.},
  //doi = {10.1145/603867.603878},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lomet{\_}2001{\_}The evolution of effective B-tree.pdf:pdf},
  issn = {01635808},
  journal = {SIGMOD Rec.},
  number = {3},
@@ -10209,7 +10440,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Lu2011,
  abstract = {A Bloom Filter (BF) is a data structure based on probability to compactly represent/record a set of elements (keys). It has wide applications on efficiently identifying a key that has been seen before with minimum amount of recording space used. BF is heavily used in chunking based data de-duplication. Traditionally, a BF is implemented as in-RAM data structure; hence its size is limited by the available RAM space on the machine. For certain applications like data de-duplication that require a big BF beyond the size of available RAM space, it becomes necessary to store a BF into a secondary storage device. Since BF operations are inherently random in nature, magnetic disk provides worse performance for the random read and write operations. It will not be a good fit for storing the large BF. Flash memory based Solid State Drive (SSD) has been considered as an emerging storage device that has superior performance and can potentially replace disks as the preferred secondary storage devices. However, several special characteristics of flash memory make designing a flash memory based BF very challenging. In this paper, our goal is to design an efficient flash memory based BF that is fully aware of these physical characteristics. To this end, we propose a Forest-structured BF design (FBF). FBF uses a combination of RAM and flash memory to design a BF. BF is stored on the flash, while RAM helps to mitigate the impact of slow write performance of flash memory. In addition, in-flash BF is organized in a forest-like structure in order to improve the lookup performance. Our experimental results show that FBF design achieves 2 times faster processing speed with 50{\%} less number of flash write operations when compared with the existing flash memory based BF designs.},
  author = {Lu, Guanlin and Debnath, Biplob and Du, David H. C.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Lu, Debnath, Du{\_}2011{\_}A Forest-structured Bloom Filter with flash memory.pdf:pdf},
  journal = {MSST},
  title = {{A Forest-structured Bloom Filter with flash memory}},
  //url = {http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=5937232},
@@ -10342,7 +10573,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Luo2020b,
  author = {Luo, Chen and Carey, Michael J.},
  //doi = {10.1007/s00778-019-00555-y},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Luo, Carey{\_}2020{\_}LSM-based Storage Techniques A Survey.pdf:pdf},
  journal = {VLDBJ},
  number = {1},
  pages = {393--418},
@@ -10401,6 +10632,23 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2018}
 }
 
+@article{Ma2019,
+ author = {Ma, Qingzhi and Triantafillou, Peter},
+ //doi = {10.1145/3299869.3324958},
+ journal = {SIGMOD},
+ title = {{DBEst: Revisiting Approximate Query Processing Engines with Machine Learning Models}},
+ //url = {https://doi.org/10.1145/3299869.3324958},
+ year = {2019}
+}
+
+@article{Ma2021,
+ author = {Ma, Qingzhi and Shanghooshabad, Ali Mohammadi and Almasi, Mehrdad and Kurmanji, Meghdad and Triantafillou, Peter},
+ journal = {CIDR},
+ title = {{Learned Approximate Query Processing: Make it Light, Accurate and Fast}},
+ //url = {http://cidrdb.org/cidr2021/papers/cidr2021{\_}paper15.pdf},
+ year = {2021}
+}
+
 @article{Machanavajjhala2007,
  author = {Machanavajjhala, Ashwin and Kifer, Daniel and Gehrke, Johannes and Venkitasubramaniam, Muthuramakrishnan},
  //doi = {10.1145/1217299.1217302},
@@ -10438,8 +10686,8 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 }
 
 @article{Madden2002,
- author = {Madden, Sammuel R. and Shah, Mehul A. and Hellerstein, Joseph M. and Raman, Vijayshankar},
- file = {::},
+ author = {Madden, Samuel R. and Shah, Mehul A. and Hellerstein, Joseph M. and Raman, Vijayshankar},
+ file = {:Users/mathan/Documents/Mendeley//Madden et al.{\_}2002{\_}Continuously adaptive continuous queries over streams.pdf:pdf},
  journal = {SIGMOD},
  keywords = {stream processing,work sharing},
  mendeley-tags = {stream processing,work sharing},
@@ -10503,7 +10751,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Majumder2008,
  address = {Vancouver, Canada},
  author = {Majumder, Anirban and Rastogi, Rajeev and Vanama, Sriram},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Majumder, Rastogi, Vanama{\_}2008{\_}Scalable regular expression matching on data streams.pdf:pdf},
  journal = {SIGMOD},
  keywords = {data streams,deep packet inspection,regular expression matching,stream processing,work sharing},
  mendeley-tags = {stream processing,work sharing},
@@ -10586,7 +10834,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Manegold2002,
  abstract = {Accurate prediction of operator execution time is a prerequisite for database query optimization. Although extensively studied for conventional disk-based DBMSs, cost modeling in main-memory DBMSs is still an open issue. Recent database research has demonstrated that memory access is more and more becoming a significant-- if not the major--cost component of database operations. If used properly, fast but small cache memories--usually organized in cascading hierarchy between CPU and main memory--can help to reduce memory access costs. However, they make the cost estimation problem more complex. In this article, we propose a generic technique to create accurate cost functions for database operations. We identify a few basic memory access patterns and provide cost functions that estimate their access costs for each level of the memory hierarchy. The cost functions are parameterized to accommodate various hardware characteristics appropriately. Combining the basic patterns, we can describe the memory access patterns of database operations. The cost functions of database operations can automatically be derived by combining the basic patterns' cost functions accordingly. To validate our approach, we performed experiments using our DBMS prototype Monet. The results presented here confirm the accuracy of our cost models for different operations. Aside from being useful for query optimization, our models provide insight to tune algorithms not only in a main-memory DBMS, but also in a disk-based DBMS with a large main-memory buffer cache.},
  author = {Manegold, Stefan and Boncz, Peter A. and Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Manegold, Boncz, Kersten{\_}2002{\_}Generic Database Cost Models for Hierarchical Memory Systems.pdf:pdf},
  journal = {VLDB},
  title = {{Generic Database Cost Models for Hierarchical Memory Systems}},
  //url = {http://dl.acm.org/citation.cfm?id=1287369.1287387},
@@ -10623,7 +10871,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Manegold2009,
  author = {Manegold, Stefan and Kersten, Martin L. and Boncz, Peter A.},
  //doi = {10.14778/1687553.1687618},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Manegold, Kersten, Boncz{\_}2009{\_}Database architecture evolution.pdf:pdf},
  issn = {21508097},
  journal = {PVLDB},
  number = {2},
@@ -10747,6 +10995,27 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2021}
 }
 
+@article{Marcus2019,
+ author = {Marcus, Ryan C and Negi, Parimarjan and Mao, Hongzi and Zhang, Chi and Alizadeh, Mohammad and Kraska, Tim and Papaemmanouil, Olga and Tatbul, Nesime},
+ //doi = {10.14778/3342263.3342644},
+ journal = {PVLDB},
+ number = {11},
+ pages = {1705--1718},
+ title = {{Neo: A Learned Query Optimizer}},
+ //url = {http://www.vldb.org/pvldb/vol12/p1705-marcus.pdf},
+ volume = {12},
+ year = {2019}
+}
+
+@article{Marcus2021,
+ author = {Marcus, Ryan and Negi, Parimarjan and Mao, Hongzi and Tatbul, Nesime and Alizadeh, Mohammad and Kraska, Tim},
+ //doi = {10.1145/3448016.3452838},
+ journal = {SIGMOD},
+ title = {{Bao: Making Learned Query Optimization Practical}},
+ //url = {https://doi.org/10.1145/3448016.3452838},
+ year = {2021}
+}
+
 @article{Markl2003,
  author = {Markl, Volker and Lohman, Guy M. and Raman, Vijayshankar},
  //doi = {10.1147/sj.421.0098},
@@ -10812,7 +11081,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Matsliach1993,
  author = {Matsliach, Gabriel},
  //doi = {10.1145/151284.151289},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Matsliach{\_}1993{\_}Performance analysis of file organizations that use multibucket data leaves with partial expansions.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  keywords = {bounded disorder files,multibucket data leaves,partial expansion,performance analysis,search structures},
@@ -11010,6 +11279,18 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  title = {{Reference}}
 }
 
+@article{Menon2003,
+ author = {Menon, Jai and Pease, David A and Rees, Robert M and Duyanovich, Linda and Hillsberg, Bruce Light},
+ //doi = {10.1147/sj.422.0250},
+ journal = {IBMSJ},
+ number = {2},
+ pages = {250--267},
+ title = {{IBM Storage Tank - A heterogeneous scalable SAN file system}},
+ //url = {https://doi.org/10.1147/sj.422.0250},
+ volume = {42},
+ year = {2003}
+}
+
 @misc{Metzger2005,
  author = {Metzger, John K. and Zane, Barry M. and Hinshaw, Foster D.},
  title = {{Limiting scans of loosely ordered and/or grouped relations using nearly ordered maps}},
@@ -11066,7 +11347,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Milojicic2016,
  author = {Milojicic, Dejan S and Roscoe, Timothy},
  //doi = {10.1109/MC.2016.19},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Milojicic, Roscoe{\_}2016{\_}Outlook on Operating Systems.pdf:pdf},
  journal = {IEEE Computer},
  number = {1},
  pages = {43--51},
@@ -11314,7 +11595,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{Mozafari2015,
  author = {Mozafari, Barzan and Goh, Eugene Zhen Ye and Yoon, Dong Young},
  //doi = {10.1145/2723372.2749454},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!CliffGuard.pdf:pdf},
+ file = {::},
  journal = {SIGMOD},
  title = {{CliffGuard: A Principled Framework for Finding Robust Database Designs}},
  //url = {http://doi.acm.org/10.1145/2723372.2749454},
@@ -11428,6 +11709,15 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {1980}
 }
 
+@article{Musco2018,
+ author = {Musco, Cameron and Musco, Christopher and Tsourakakis, Charalampos E},
+ //doi = {10.1145/3178876.3186103},
+ journal = {WWW},
+ title = {{Minimizing Polarization and Disagreement in Social Networks}},
+ //url = {https://doi.org/10.1145/3178876.3186103},
+ year = {2018}
+}
+
 @article{Muth2000,
  author = {Muth, Peter and O'Neil, Patrick E. and Pick, Achim and Weikum, Gerhard},
  journal = {VLDBJ},
@@ -11468,6 +11758,14 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  year = {2015}
 }
 
+@article{Nakayama1988,
+ author = {Nakayama, Masaya and Kitsuregawa, Masaru and Takagi, Mikio},
+ journal = {VLDB},
+ title = {{Hash-Partitioned Join Method Using Dynamic Destaging Strategy}},
+ //url = {http://www.vldb.org/conf/1988/P468.PDF},
+ year = {1988}
+}
+
 @article{Nandi2013,
  author = {Nandi, Arnab},
  journal = {Proceedings of the CIDR},
@@ -11481,6 +11779,18 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
  journal = {https://www.napatech.com/support/resources/solution-descriptions/napatech-smartnic-solution-for-hardware-offload/},
  title = {{Napatech SmartNIC solution for hardware offload.}},
  year = {2018}
+}
+
+@article{Narasayya2021,
+ author = {Narasayya, Vivek R and Chaudhuri, Surajit},
+ //doi = {10.1561/1900000060},
+ journal = {Found. Trends Databases},
+ number = {1},
+ pages = {1--107},
+ title = {{Cloud Data Services: Workloads, Architectures and Multi-Tenancy}},
+ //url = {https://doi.org/10.1561/1900000060},
+ volume = {10},
+ year = {2021}
 }
 
 @article{Narayanan2005,
@@ -11648,7 +11958,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 @article{O'Neil1993,
  author = {O'Neil, Elizabeth J. and O'Neil, Patrick E. and Weikum, Gerhard},
  //doi = {10.1145/170035.170081},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/O'Neil, O'Neil, Weikum - 1993 - The LRU-K page replacement algorithm for database disk buffering.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//O'Neil, O'Neil, Weikum{\_}1993{\_}The LRU-K page replacement algorithm for database disk buffering.pdf:pdf},
  journal = {SIGMOD},
  title = {{The LRU-K page replacement algorithm for database disk buffering}},
  //url = {http://dl.acm.org/citation.cfm?id=170035.170081 http://doi.acm.org/10.1145/170035.170081},
@@ -11710,7 +12020,7 @@ BibTeX export options can be customized via Preferences -> BibTeX in Mendeley De
 
 @article{Olson1999,
  author = {Olson, Michael A. and Bostic, Keith and Seltzer, Margo I.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Olson, Bostic, Seltzer{\_}1999{\_}Berkeley DB.pdf:pdf},
  journal = {ATC},
  title = {{Berkeley DB}},
  //url = {http://www.usenix.org/events/usenix99/olson.html},
@@ -11735,7 +12045,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 - O'Neil, Patrick E )
 },
  author = {O'Neil, Patrick E.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//O'Neil{\_}1992{\_}The SB-Tree An Index-Sequential Structure for High-Performance Sequential Access.pdf:pdf},
  journal = {Acta Informatica},
  number = {3},
  pages = {241--265},
@@ -11758,7 +12068,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{ONeil1997,
  author = {O'Neil, Patrick E. and Quass, Dallan},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//O'Neil, Quass{\_}1997{\_}Improved query performance with variant indexes.pdf:pdf},
  journal = {SIGMOD Rec.},
  number = {2},
  pages = {38--49},
@@ -11781,7 +12091,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @techreport{ONeil2009,
  author = {O'Neil, Patrick E. and O'Neil, Elizabeth J. and Chen, Xuedong},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//O'Neil, O'Neil, Chen{\_}2009{\_}Star Schema Benchmark.pdf:pdf},
  institution = {UMass/Boston},
  title = {{Star Schema Benchmark}},
  //url = {http://www.percona.com/docs/wiki/{\_}media/benchmark:ssb:starschemab.pdf},
@@ -12241,7 +12551,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Pavlo2011,
  author = {Pavlo, Andrew and Jones, Evan P. C. and Zdonik, Stanley},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Pavlo, Jones, Zdonik{\_}2011{\_}On predictive modeling for optimizing transaction execution in parallel OLTP systems.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  number = {2},
@@ -12321,7 +12631,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Perl1978,
  author = {Perl, Yehoshua and Itai, Alon and Avni, Haim},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Perl, Itai, Avni{\_}1978{\_}Interpolation Search---A log logN Search.pdf:pdf},
  journal = {CACM},
  keywords = {average number of accesses,binary search,database,interpolation search,retrieval,searching,uniform distribution},
  number = {7},
@@ -12431,7 +12741,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Pirk2016,
  author = {Pirk, Holger and Moll, Oscar and Zaharia, Matei and Madden, Sam},
  issn = {2150-8097},
- journal = {VLDB},
+ journal = {PVLDB},
  number = {14},
  pages = {1707--1718},
  title = {{Voodoo - a Vector Algebra for Portable Database Performance on Modern Hardware}},
@@ -12576,6 +12886,20 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  title = {{PostgreSQL: The World's Most Advanced Open Source Relational Database}}
 }
 
+@article{PostgreSQL2015,
+ author = {PostgreSQL},
+ journal = {http://www.interdb.jp/pg/pgsql08.html},
+ title = {{The Internals of PostgreSQL}},
+ year = {2015}
+}
+
+@article{PostgreSQL2016,
+ author = {PostgreSQL},
+ journal = {https://www.postgresql.org/docs/current/pgprewarm.html},
+ title = {{PostgreSQL: pg{\_}prewarm}},
+ year = {2016}
+}
+
 @article{Presto,
  author = {Presto},
  journal = {https://prestosql.io/},
@@ -12593,7 +12917,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Psaroudakis2013,
  author = {Psaroudakis, Iraklis and Athanassoulis, Manos and Ailamaki, Anastasia},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Psaroudakis, Athanassoulis, Ailamaki - 2013 - Sharing Data and Work Across Concurrent Analytical Queries.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Psaroudakis, Athanassoulis, Ailamaki{\_}2013{\_}Sharing Data and Work Across Concurrent Analytical Queries.pdf:pdf},
  journal = {PVLDB},
  number = {9},
  pages = {637--648},
@@ -12653,7 +12977,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Qiao2008,
  author = {Qiao, Lin and Raman, Vijayshankar and Reiss, Frederick and Haas, Peter J. and Lohman, Guy M.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Qiao et al.{\_}2008{\_}Main-memory Scan Sharing for Multi-core CPUs.pdf:pdf},
  journal = {PVLDB},
  number = {1},
  pages = {610--621},
@@ -12711,7 +13035,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Raducanu2013,
  author = {Raducanu, Bogdan and Boncz, Peter A. and Zukowski, Marcin},
  //doi = {10.1145/2463676.2465292},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Raducanu, Boncz, Zukowski{\_}2013{\_}Micro adaptivity in Vectorwise.pdf:pdf},
  isbn = {9781450320375},
  journal = {SIGMOD},
  keywords = {adaptive,query processing,self tuning},
@@ -12740,7 +13064,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Ramakrishna1988,
  author = {Ramakrishna, M. V. and Mukhopadhyay, P.},
  //doi = {10.1145/308386.308424},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Ramakrishna, Mukhopadhyay - 1988 - Analysis of bounded disorder file organization.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Ramakrishna, Mukhopadhyay{\_}1988{\_}Analysis of bounded disorder file organization.pdf:pdf},
  isbn = {0897912632},
  journal = {PODS},
  title = {{Analysis of bounded disorder file organization}},
@@ -12750,7 +13074,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @book{Ramakrishnan2002,
  author = {Ramakrishnan, Raghu and Gehrke, Johannes},
- file = {::;::},
+ file = {:Users/mathan/Documents/Mendeley//Ramakrishnan, Gehrke{\_}2002{\_}Database Management Systems.pdf:pdf;:Users/mathan/Documents/Mendeley//Ramakrishnan, Gehrke{\_}2002{\_}Database Management Systems.pdf:pdf},
  publisher = {McGraw-Hill Higher Education, 3rd edition},
  title = {{Database Management Systems}},
  year = {2002}
@@ -12824,7 +13148,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Rao1998,
  author = {Rao, Jun and Ross, Kenneth A.},
  //doi = {10.1145/276305.276309},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Rao, Ross{\_}1998{\_}Reusing invariants.pdf:pdf},
  isbn = {0-89791-995-5},
  issn = {01635808},
  journal = {SIGMOD Rec.},
@@ -12918,7 +13242,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Regola2012,
  author = {Regola, Nathan and Cieslak, David A. and Chawla, Nitesh V.},
  //doi = {10.1145/2379436.2379437},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Regola, Cieslak, Chawla{\_}2012{\_}The constraints of magnetic versus flash disk capabilities in big data analysis.pdf:pdf},
  isbn = {9781450314442},
  journal = {ASBD},
  keywords = {query performance,solid state disk},
@@ -13104,6 +13428,18 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  year = {2021}
 }
 
+@article{Rodeh2008,
+ author = {Rodeh, Ohad},
+ //doi = {10.1145/1326542.1326544},
+ journal = {ACM Transactions on Storage},
+ number = {4},
+ pages = {2:1----2:27},
+ title = {{B-trees, shadowing, and clones}},
+ //url = {https://doi.org/10.1145/1326542.1326544},
+ volume = {3},
+ year = {2008}
+}
+
 @article{Rodiger2014,
  author = {R{\"{o}}diger, Wolf and M{\"{u}}hlbauer, Tobias and Unterbrunner, Philipp and Reiser, Angelika and Kemper, Alfons and Neumann, Thomas},
  //doi = {10.1109/ICDE.2014.6816684},
@@ -13127,7 +13463,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Roh2010,
  author = {Roh, Hongchan and Lee, Daewook and Park, Sanghyun},
  //doi = {10.1145/1871437.1871617},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Roh, Lee, Park{\_}2010{\_}Yet another write-optimized DBMS layer for flash-based solid state storage.pdf:pdf},
  isbn = {9781450300995},
  journal = {CIKM},
  keywords = {database,flash memory,icl,incremental logging,ssd,write performance},
@@ -13247,7 +13583,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Roussopoulos1982,
  author = {Roussopoulos, Nicholas},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Roussopoulos{\_}1982{\_}View indexing in relational databases.pdf:pdf},
  journal = {TODS},
  keywords = {index selection},
  number = {2},
@@ -13260,7 +13596,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Roy2000,
  author = {Roy, Prasan and Seshadri, Sridhar and Sudarshan, S. and Bhobe, Siddhesh},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Roy et al.{\_}2000{\_}Efficient and Extensible Algorithms for Multi Query Optimization.pdf:pdf},
  journal = {SIGMOD Rec.},
  keywords = {work sharing},
  mendeley-tags = {work sharing},
@@ -13319,6 +13655,15 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  year = {2012}
 }
 
+@article{Sabek2021,
+ author = {Sabek, Ibrahim and Kraska, Tim},
+ journal = {CoRR},
+ title = {{The Case for Learned In-Memory Joins}},
+ //url = {https://arxiv.org/abs/2111.08824},
+ volume = {abs/2111.0},
+ year = {2021}
+}
+
 @article{Sacca1985,
  author = {Sacc{\`{a}}, Domenico and Wiederhold, Gio},
  //doi = {10.1145/3148.3161},
@@ -13341,7 +13686,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Sacco1986,
  author = {Sacco, Giovanni Maria and Schkolnick, Mario},
  //doi = {10.1145/7239.7336},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Sacco, Schkolnick{\_}1986{\_}Buffer management in relational database systems.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  number = {4},
@@ -13482,6 +13827,20 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  author = {Sarkar, Subhadeep and Athanassoulis, Manos},
  journal = {EDBT},
  title = {{Query Language Support for Timely Data Deletion}},
+ year = {2022}
+}
+
+@article{Sarkar2022a,
+ author = {Sarkar, Subhadeep and Chen, Kaijie and Zhu, Zichen and Athanassoulis, Manos},
+ journal = {SIGMOD},
+ title = {{Compactionary: A Dictionary for LSM Compactions}},
+ year = {2022}
+}
+
+@article{Sarkar2022b,
+ author = {Sarkar, Subhadeep and Athanassoulis, Manos},
+ journal = {SIGMOD},
+ title = {{Dissecting, Designing, and Optimizing LSM-based Data Stores}},
  year = {2022}
 }
 
@@ -13679,6 +14038,15 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  year = {2015}
 }
 
+@article{Schuh2016,
+ author = {Schuh, Stefan and Chen, Xiao and Dittrich, Jens},
+ //doi = {10.1145/2882903.2882917},
+ journal = {SIGMOD},
+ title = {{An Experimental Comparison of Thirteen Relational Equi-Joins in Main Memory}},
+ //url = {https://doi.org/10.1145/2882903.2882917},
+ year = {2016}
+}
+
 @article{Schuhknecht2013,
  author = {Schuhknecht, Felix Martin and Jindal, Alekh and Dittrich, Jens},
  journal = {PVLDB},
@@ -13716,7 +14084,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Schuhknecht2018,
  author = {Schuhknecht, Felix Martin and Dittrich, Jens and Linden, Laurent},
  //doi = {10.1109/ICDE.2018.00066},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/Schuhknecht, Dittrich, Linden - Unknown - Adaptive Adaptive Indexing.pdf:pdf},
+ file = {::},
  journal = {ICDE},
  title = {{Adaptive Adaptive Indexing}},
  year = {2018}
@@ -13827,7 +14195,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Sellis1988,
  author = {Sellis, Timos K.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Sellis{\_}1988{\_}Multiple-Query Optimization.pdf:pdf},
  journal = {TODS},
  number = {1},
  pages = {23--52},
@@ -13913,7 +14281,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Severance1976,
  author = {Severance, Dennis G. and Lohman, Guy M.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Severance, Lohman{\_}1976{\_}Differential files their application to the maintenance of large databases.pdf:pdf},
  journal = {TODS},
  keywords = {backup and recovery,data sharing,database maaintenance,differential files},
  number = {3},
@@ -13926,7 +14294,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Sewall2011,
  author = {Sewall, Jason and Chhugani, Jatin and Kim, Changkyu and Satish, Nadathur and Dubey, Pradeep},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Sewall et al.{\_}2011{\_}PALM Parallel Architecture-Friendly Latch-Free Modifications to B Trees on Many-Core Processors.pdf:pdf},
  journal = {PVLDB},
  number = {11},
  pages = {795--806},
@@ -14090,7 +14458,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Shehabi2016,
  author = {Shehabi, Arman and Smith, Sarah and Sartor, Dale and Brown, Richard and Herrlin, Magnus and Koomey, Jonathan and Masanet, Eric and Horner, Nathaniel and Azevedo, In{\^{e}}s and Lintner, William},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Shehabi et al.{\_}2016{\_}United States Data Center Energy Usage Report.pdf:pdf},
  journal = {Ernest Orlando Lawrence Berkeley National Laboratory},
  title = {{United States Data Center Energy Usage Report}},
  //url = {https://eta.lbl.gov/publications/united-states-data-center-energy},
@@ -14163,7 +14531,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Sidirourgos2013,
  author = {Sidirourgos, Lefteris and Kersten, Martin L.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Sidirourgos, Kersten{\_}2013{\_}Column Imprints A Secondary Index Structure.pdf:pdf},
  journal = {SIGMOD},
  keywords = {columnar databases,secondary index},
  title = {{Column Imprints: A Secondary Index Structure}},
@@ -14228,7 +14596,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Simitsis2009,
  author = {Simitsis, Alkis and Wilkinson, Kevin and Castellanos, Malu and Dayal, Umeshwar},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Simitsis et al.{\_}2009{\_}QoX-driven ETL design reducing the cost of ETL consulting engagements.pdf:pdf},
  journal = {SIGMOD},
  keywords = {data warehouses,etl,metrics,modeling,qox,quality},
  title = {{QoX-driven ETL design: reducing the cost of ETL consulting engagements}},
@@ -14509,8 +14877,8 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 }
 
 @article{Stonebraker2005,
- author = {Stonebraker, Michael and Abadi, Daniel J and Batkin, Adam and Chen, Xuedong and Cherniack, Mitch and Ferreira, Miguel and Lau, Edmond and Lin, Amerson and Madden, Sammuel R and O'Neil, Elizabeth J and O'Neil, Patrick E and Rasin, Alex and Tran, Nga and Zdonik, Stan},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!C-Store.pdf:pdf},
+ author = {Stonebraker, Michael and Abadi, Daniel J. and Batkin, Adam and Chen, Xuedong and Cherniack, Mitch and Ferreira, Miguel and Lau, Edmond and Lin, Amerson and Madden, Samuel R. and O'Neil, Elizabeth J. and O'Neil, Patrick E. and Rasin, Alex and Tran, Nga and Zdonik, Stan},
+ file = {:Users/mathan/Documents/Mendeley//Stonebraker et al.{\_}2005{\_}C-Store A Column-oriented DBMS.pdf:pdf},
  journal = {VLDB},
  title = {{C-Store: A Column-oriented DBMS}},
  //url = {http://dl.acm.org/citation.cfm?id=1083592.1083658},
@@ -14567,7 +14935,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Suchanek2013,
  author = {Suchanek, Fabian M. and Hoffart, Johannes and Kuzey, Erdal and Lewis-kelham, Edwin},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Suchanek et al.{\_}2013{\_}YAGO2s Modular High-Quality Information Extraction with an Application to Flight Planning.pdf:pdf},
  title = {{YAGO2s : Modular High-Quality Information Extraction with an Application to Flight Planning}},
  year = {2013}
 }
@@ -14642,6 +15010,14 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  year = {1998}
 }
 
+@article{Sweeney1996,
+ author = {Sweeney, Adam and Doucette, Doug and Hu, Wei and Anderson, Curtis and Nishimoto, Mike and Peck, Geoff},
+ journal = {ATC},
+ title = {{Scalability in the XFS File System}},
+ //url = {http://www.usenix.org/publications/library/proceedings/sd96/sweeney.html},
+ year = {1996}
+}
+
 @article{Sweeney2002,
  author = {Sweeney, Latanya},
  //doi = {10.1142/S0218488502001648},
@@ -14696,6 +15072,14 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  title = {{Diff-Index: Differentiated Index in Distributed Log-Structured Data Stores}},
  //url = {https://doi.org/10.5441/002/edbt.2014.76},
  year = {2014}
+}
+
+@book{Tanenbaum1992,
+ author = {Tanenbaum, Andrew S},
+ isbn = {0-13-588187-0},
+ publisher = {Prentice-Hall},
+ title = {{Modern Operating Systems}},
+ year = {1992}
 }
 
 @article{Tang2015,
@@ -14779,6 +15163,15 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  year = {1997}
 }
 
+@article{Teixeira2018,
+ author = {Teixeira, Elvis Marques and Amora, Paulo Roberto Pessoa and Machado, Javam C},
+ //doi = {10.5441/002/edbt.2018.53},
+ journal = {EDBT},
+ title = {{MetisIDX - From Adaptive to Predictive Data Indexing}},
+ //url = {https://doi.org/10.5441/002/edbt.2018.53},
+ year = {2018}
+}
+
 @article{Teng2017,
  author = {Teng, Dejun and Guo, Lei and Lee, Rubao and Chen, Feng and Ma, Siyuan and Zhang, Yanfeng and Zhang, Xiaodong},
  //doi = {10.1109/ICDCS.2017.70},
@@ -14818,7 +15211,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  address = {London},
  author = {{The Mendeley Support Team}},
  booktitle = {Mendeley Desktop},
- file = {:Users/subhadeep/Library/Application Support/Mendeley Desktop/Downloaded/The Mendeley Support Team - 2011 - Getting Started with Mendeley.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//The Mendeley Support Team{\_}2011{\_}Getting Started with Mendeley.pdf:pdf},
  keywords = {Mendeley,how-to,user manual},
  pages = {1--16},
  publisher = {Mendeley Ltd.},
@@ -14842,7 +15235,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Thonangi2012,
  author = {Thonangi, Risi and Babu, Shivnath and Yang, Jun},
  //doi = {10.1145/2396761.2398437},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Thonangi, Babu, Yang{\_}2012{\_}A Practical Concurrent Index for Solid-State Drives.pdf:pdf},
  isbn = {9781450311564},
  journal = {CIKM},
  keywords = {concurrency control,performance evaluation,ssd indexes},
@@ -14977,7 +15370,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{Tryfonopoulos2005,
  author = {Tryfonopoulos, Christos and Idreos, Stratos and Koubarakis, Manolis},
  //doi = {10.1145/1076034.1076090},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Tryfonopoulos, Idreos, Koubarakis{\_}2005{\_}Publishsubscribe functionality in IR environments using structured overlay networks.pdf:pdf},
  isbn = {1595930345},
  journal = {SIGIR},
  keywords = {P2P overlay networks,distributed hash tables,publish/subscribe protocols},
@@ -15031,7 +15424,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Tsirogiannis2009,
  author = {Tsirogiannis, Dimitris and Harizopoulos, Stavros and Shah, Mehul A. and Wiener, Janet L. and Graefe, Goetz},
- file = {:Users/subhadeep/Dropbox/! Post Doctorate Research - BU !/Research/Bibliography/!Query Processing Techniques for Solid State Drives.pdf:pdf},
+ file = {:Users/mathan/Documents/Mendeley//Tsirogiannis et al.{\_}2009{\_}Query processing techniques for solid state drives.pdf:pdf},
  journal = {SIGMOD},
  keywords = {columnar storage,flash memory,join index,late materialization,semi-join reduction,ssd},
  title = {{Query processing techniques for solid state drives}},
@@ -15048,6 +15441,15 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
  year = {2010}
 }
 
+@article{Tsourakakis2015,
+ author = {Tsourakakis, Charalampos E},
+ //doi = {10.1145/2736277.2741128},
+ journal = {WWW},
+ title = {{Provably Fast Inference of Latent Features from Networks: with Applications to Learning Social Circles and Multilabel Classification}},
+ //url = {https://doi.org/10.1145/2736277.2741128},
+ year = {2015}
+}
+
 @article{Turing1950,
  author = {Turing, Alan M},
  journal = {Mind},
@@ -15061,7 +15463,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Tzoumas2010,
  author = {Tzoumas, Kostas and Deshpande, Amol and Jensen, Christian S.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Tzoumas, Deshpande, Jensen{\_}2010{\_}Sharing-Aware Horizontal Partitioning for Exploiting Correlations During Query Processing.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  keywords = {work sharing},
@@ -15081,7 +15483,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 
 @article{Unterbrunner2009,
  author = {Unterbrunner, Philipp and Giannikis, Georgios and Alonso, Gustavo and Fauser, Dietmar and Kossmann, Donald},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Unterbrunner et al.{\_}2009{\_}Predictable Performance for Unpredictable Workloads.pdf:pdf},
  journal = {PVLDB},
  number = {1},
  pages = {706--717},
@@ -15146,7 +15548,7 @@ The SB-Tree: An Index-Sequential Structure for High-Performance Sequential Acces
 @article{VanLeeuwen1980,
  author = {van Leeuwen, Jan and Wood, Derick},
  //doi = {10.1016/S0020-0190(80)90073-3},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/van Leeuwen, Wood{\_}1980{\_}Dynamization of Decomposable Searching Problems.pdf:pdf},
  journal = {Information Processing Letters},
  number = {2},
  pages = {51--56},
@@ -15299,7 +15701,7 @@ External Memory Algorithms and Data Structures
 },
  author = {Vitter, Jeffrey Scott},
  //doi = {10.1145/384192.384193},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Vitter{\_}2001{\_}External Memory Algorithms and Data Structures.pdf:pdf},
  issn = {03600300},
  journal = {Comp. Surv.},
  keywords = {B-tree,I/O,batched,block,disk,dynamic,extendible hashing,external memory,hierarchical memory,multidimensional access methods,multilevel memory,online,out-of-core,secondary storage,sorting},
@@ -15337,7 +15739,7 @@ External Memory Algorithms and Data Structures
 
 @techreport{Wang2012,
  author = {Wang, Daniel Liwei and Becla, Jacek and Lim, Kian-Tat and Park, Menlo},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Wang et al.{\_}2012{\_}Report from the 6th Workshop on Extremely Large Databases.pdf:pdf},
  keywords = {analytics,big data,database,exascale,extreme-scale,petascale,xldb},
  title = {{Report from the 6th Workshop on Extremely Large Databases}},
  year = {2012}
@@ -15419,6 +15821,17 @@ External Memory Algorithms and Data Structures
  year = {2019}
 }
 
+@article{Wang2021,
+ author = {Wang, Xiaoying and Qu, Changbo and Wu, Weiyuan and Wang, Jiannan and Zhou, Qingqing},
+ journal = {PVLDB},
+ number = {9},
+ pages = {1640--1654},
+ title = {{Are We Ready For Learned Cardinality Estimation?}},
+ //url = {http://www.vldb.org/pvldb/vol14/p1640-wang.pdf},
+ volume = {14},
+ year = {2021}
+}
+
 @article{Wasay2015,
  author = {Wasay, Abdul and Athanassoulis, Manos and Idreos, Stratos},
  //doi = {10.1109/BigDataCongress.2015.116},
@@ -15443,6 +15856,15 @@ External Memory Algorithms and Data Structures
  title = {{Rapid Training of Very Large Ensembles of Diverse Neural Networks}},
  volume = {abs/1809.0},
  year = {2018}
+}
+
+@article{Wasay2021,
+ author = {Wasay, Abdul and Chatterjee, Subarna and Idreos, Stratos},
+ //doi = {10.1145/3448016.3457541},
+ journal = {SIGMOD},
+ title = {{Deep Learning: Systems and Responsibility}},
+ //url = {https://doi.org/10.1145/3448016.3457541},
+ year = {2021}
 }
 
 @article{Wassenberg2011,
@@ -15728,7 +16150,7 @@ External Memory Algorithms and Data Structures
  abstract = {As scientific instruments and computer simulations produce more and more data, the task of locating the essential information to gain insight becomes increasingly difficult. FastBit is an efficient software tool to address this challenge. In this article, we present a summary of the key underlying technologies, namely bitmap compression, encoding, and binning. Together these techniques enable FastBit to answer structured (SQL) queries orders of magnitude faster than popular database systems. To illustrate how FastBit is used in applications, we present three examples involving a high-energy physics experiment, a combustion simulation, and an accelerator simulation. In each case, FastBit significantly reduces the response time and enables interactive exploration on terabytes of data.},
  author = {Wu, Kesheng and Ahern, S and Bethel, E W and Chen, J and Childs, H and Cormier-Michel, E and Geddes, C and Gu, J and Hagen, H and Hamann, B and Koegler, W and Lauret, J and Meredith, J and Messmer, P and Otoo, Ekow J. and Perevoztchikov, V and Poskanzer, A and R{\"{u}}bel, O and Shoshani, Arie and Sim, A and Stockinger, Kurt and Weber, G and Zhang, W-M},
  //doi = {10.1088/1742-6596/180/1/012053},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Wu et al.{\_}2009{\_}FastBit interactively searching massive data.pdf:pdf},
  isbn = {doi:10.1088/1742-6596/180/1/012053},
  issn = {1742-6596},
  journal = {Journal of Physics: Conference Series},
@@ -15746,7 +16168,7 @@ External Memory Algorithms and Data Structures
 @article{Wu2010,
  author = {Wu, Kesheng and Shoshani, Arie and Stockinger, Kurt},
  //doi = {10.1145/1670243.1670245},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Wu, Shoshani, Stockinger{\_}2010{\_}Analyses of multi-level and multi-component compressed bitmap indexes.pdf:pdf},
  issn = {03625915},
  journal = {TODS},
  keywords = {Multi-component bitmap index,bitmaps,compression,multi-level bitmap index,performance analysis},
@@ -15789,7 +16211,7 @@ External Memory Algorithms and Data Structures
 
 @article{Wu2012,
  author = {Wu, Lili and Sumbaly, Roshan and Riccomini, Chris and Koo, Gordon},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Wu et al.{\_}2012{\_}Avatara OLAP for web-scale analytics products.pdf:pdf},
  journal = {PVLDB},
  number = {12},
  pages = {1874--1877},
@@ -16048,6 +16470,15 @@ External Memory Algorithms and Data Structures
  year = {2020}
 }
 
+@article{Yang2020a,
+ author = {Yang, Zongheng and Chandramouli, Badrish and Wang, Chi and Gehrke, Johannes and Li, Yinan and Minhas, Umar Farooq and Larson, Per-{\AA}ke and Kossmann, Donald and Acharya, Rajeev},
+ //doi = {10.1145/3318464.3389770},
+ journal = {SIGMOD},
+ title = {{Qd-tree: Learning Data Layouts for Big Data Analytics}},
+ //url = {https://doi.org/10.1145/3318464.3389770},
+ year = {2020}
+}
+
 @article{Yao1975,
  author = {Yao, S. Bing and Merten, Alan G.},
  isbn = {978-1-4503-3920-9},
@@ -16102,7 +16533,7 @@ External Memory Algorithms and Data Structures
 @article{Yao1982,
  author = {Yao, Andrew C.},
  //doi = {10.1145/800070.802185},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley/Yao{\_}1982{\_}Space-Time Tradeoff for Answering Range Queries (Extended Abstract).pdf:pdf},
  journal = {STOC},
  title = {{Space-Time Tradeoff for Answering Range Queries (Extended Abstract)}},
  //url = {http://doi.acm.org/10.1145/800070.802185},
@@ -16291,7 +16722,7 @@ External Memory Algorithms and Data Structures
 
 @article{Zhang2011,
  author = {Zhang, Ning and Tatemura, Junichi and Patel, Jignesh M. and Hacig{\"{u}}m{\"{u}}ş, Hakan},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Zhang et al.{\_}2011{\_}Towards cost-effective storage provisioning for DBMSs.pdf:pdf},
  issn = {2150-8097},
  journal = {PVLDB},
  number = {4},
@@ -16431,6 +16862,14 @@ External Memory Algorithms and Data Structures
  year = {2018}
 }
 
+@article{Zhong2021,
+ author = {Zhong, Wenshao and Chen, Chen and Wu, Xingbo and Jiang, Song},
+ journal = {FAST},
+ title = {{REMIX: Efficient Range Query for LSM-trees}},
+ //url = {https://www.usenix.org/conference/fast21/presentation/zhong},
+ year = {2021}
+}
+
 @phdthesis{Zhou1999,
  author = {Zhou, Ming},
  school = {University of Waterloo},
@@ -16492,7 +16931,7 @@ External Memory Algorithms and Data Structures
 @article{Zhou2007a,
  author = {Zhou, Jingren and Larson, Per-Ake and Freytag, Johann-Christoph and Lehner, Wolfgang},
  //doi = {10.1145/1247480.1247540},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Zhou et al.{\_}2007{\_}Efficient exploitation of similar subexpressions for query processing.pdf:pdf},
  isbn = {9781595936868},
  journal = {SIGMOD},
  keywords = {query optimization,query processing,similar subexpressions,work sharing},
@@ -16627,7 +17066,7 @@ External Memory Algorithms and Data Structures
 
 @article{Zukowski2007,
  author = {Zukowski, Marcin and H{\'{e}}man, S{\'{a}}ndor and Nes, Niels J. and Boncz, Peter A.},
- file = {::},
+ file = {:Users/mathan/Documents/Mendeley//Zukowski et al.{\_}2007{\_}Cooperative Scans Dynamic Bandwidth Sharing in a DBMS.pdf:pdf},
  journal = {VLDB},
  title = {{Cooperative Scans: Dynamic Bandwidth Sharing in a DBMS}},
  //url = {http://dl.acm.org/citation.cfm?id=1325851.1325934},

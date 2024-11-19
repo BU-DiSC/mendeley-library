@@ -340,24 +340,13 @@ def main():
     try:
         # Check and navigate to the appropriate folder
         current_folder = os.path.basename(os.getcwd())
-        if current_folder == "bibfiles":
-            os.chdir("../scripts")
-        elif os.path.isdir("scripts"):
+        if current_folder != "scripts":
             os.chdir("scripts")
         else:
             raise Exception("scripts folder not found.")
 
         # Ensure a valid access token
         access_token = ensure_access_token()
-
-        # Check and navigate to the appropriate folder
-        current_folder = os.path.basename(os.getcwd())
-        if current_folder == "scripts":
-            os.chdir("../bibfiles")
-        elif os.path.isdir("bibfiles"):
-            os.chdir("bibfiles")
-        else:
-            raise Exception("bibfiles folder not found.")
 
         # Fetch groups
         groups = fetch_groups(access_token)

@@ -3,10 +3,19 @@ import requests
 import json
 
 # Mendeley API Credentials
-CLIENT_ID = 'ID'
-CLIENT_SECRET = 'SECRET'
+CLIENT_ID = ''
+CLIENT_SECRET = ''
 REDIRECT_URI = "http://localhost"
 TOKEN_FILE = "tokens.json"
+
+# Load Mendeley API credentials from a JSON file
+def load_api_credentials():
+    credentials_file = "credentials.json"
+    if os.path.exists(credentials_file):
+        with open(credentials_file, "r") as f:
+            return json.load(f)
+    else:
+        raise Exception(f"Credentials file '{credentials_file}' not found.")
 
 # Save tokens to a file
 def save_tokens(tokens):
@@ -344,6 +353,16 @@ def main():
             os.chdir("scripts")
         else:
             raise Exception("scripts folder not found.")
+
+        credentials = load_api_credentials()
+        global CLIENT_ID, CLIENT_SECRET
+        CLIENT_ID = credentials.get("CLIENT_ID")
+        CLIENT_SECRET = credentials.get("CLIENT_SECRET")
+        if not CLIENT_ID or not CLIENT_SECRET:
+            raise Exception("CLIENT_ID or CLIENT_SECRET not found in credentials file.")
+
+        print(f"CLIENT_ID: {CLIENT_ID}")
+        print(f"CLIENT_SECRET: {CLIENT_SECRET}")
 
         # Ensure a valid access token
         access_token = ensure_access_token()

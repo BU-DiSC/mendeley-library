@@ -277,7 +277,8 @@ def to_bibtex(entry):
         "patent": "misc",
         "generic": "misc"
     }
-    bibtex_type = bibtex_type_map.get(entry.get("type", "misc"), "misc")
+    entry_type = entry.get("type", "misc")
+    bibtex_type = bibtex_type_map.get(entry_type, "misc")
 
     # Use citation key if available, fallback to ID
     citation_key = entry.get("citation_key", entry.get("id", "unknown"))
@@ -301,8 +302,14 @@ def to_bibtex(entry):
     if "doi" in entry:
         fields.append(f"  doi = {{{entry['doi']}}}")
 
-    if "websites" in entry and entry["websites"]:
-        fields.append(f"  url = {{{entry['websites'][0]}}}")
+    if entry_type != "web_page":
+        if "websites" in entry and entry["websites"]:
+            fields.append(f"  url = {{{entry['websites'][0]}}}")
+    elif entry_type == "web_page":
+        if "websites" in entry and entry["websites"]:
+            fields.append(f"  howpublished = {{\\url{{{entry['websites'][0]}}}}}")
+        if "accessed" in entry:
+            fields.append(f"  note = {{(Accessed: {entry['accessed']})}}")
 
     # Type-specific fields
     if bibtex_type == "article":
@@ -361,8 +368,8 @@ def main():
         if not CLIENT_ID or not CLIENT_SECRET:
             raise Exception("CLIENT_ID or CLIENT_SECRET not found in credentials file.")
 
-        print(f"CLIENT_ID: {CLIENT_ID}")
-        print(f"CLIENT_SECRET: {CLIENT_SECRET}")
+        # print(f"CLIENT_ID: {CLIENT_ID}")
+        # print(f"CLIENT_SECRET: {CLIENT_SECRET}")
 
         # Ensure a valid access token
         access_token = ensure_access_token()
@@ -373,17 +380,22 @@ def main():
             print("No groups found.")
             return
 
-        print("\nAvailable Groups:")
-        for i, group in enumerate(groups, start=1):
-            print(f"{i}. {group['name']} (ID: {group['id']})")
+        ## if you want to allow trying out multiple groups use that
+        # print("\nAvailable Groups:")
+        # for i, group in enumerate(groups, start=1):
+        #     print(f"{i}. {group['name']} (ID: {group['id']})")
 
-        # Prompt user to select a group
-        group_number = int(input("\nEnter the number of the group to fetch documents: "))
-        if group_number < 1 or group_number > len(groups):
-            print("Invalid group number.")
-            return
+        # # Prompt user to select a group
+        # group_number = int(input("\nEnter the number of the group to fetch documents: "))
+        # if group_number < 1 or group_number > len(groups):
+        #     print("Invalid group number.")
+        #     return
+        
+        # group_id = groups[group_number - 1]["id"]
 
-        group_id = groups[group_number - 1]["id"]
+        ## this is to always select the DiSC library group
+        group_id = 'c40c69e8-f198-3ed3-9843-25c8b605eed5'
+        
 
         # Get total document count
         total_documents = get_document_count(access_token, group_id)
@@ -401,7 +413,8 @@ def main():
 
         # Save BibTeX
         bibtex_entries = [to_bibtex(doc) for doc in documents]
-        bibtex_filename = f"group_{group_id}_library.bib"
+        # bibtex_filename = f"group_{group_id}_library.bib"
+        bibtex_filename = f"../group_{group_id}_library.bib"
         with open(bibtex_filename, "w") as f:
             f.writelines(bibtex_entries)
         print(f"Library converted to BibTeX and saved to '{bibtex_filename}'")

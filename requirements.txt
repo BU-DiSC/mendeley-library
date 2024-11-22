@@ -1,3 +1,4 @@
 requests
 fuzzywuzzy
 bibtexparser
+python-Levenshtein

@@ -414,7 +414,8 @@ def main():
         # Save BibTeX
         bibtex_entries = [to_bibtex(doc) for doc in documents]
         # bibtex_filename = f"group_{group_id}_library.bib"
-        bibtex_filename = f"../group_{group_id}_library.bib"
+        # bibtex_filename = f"../group_{group_id}_library.bib"
+        bibtex_filename = f"../library.bib"
         with open(bibtex_filename, "w") as f:
             f.writelines(bibtex_entries)
         print(f"Library converted to BibTeX and saved to '{bibtex_filename}'")

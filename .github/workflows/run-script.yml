@@ -32,11 +32,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Run the script
+      # Step 4: Configure Git
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Step 5: Run the script
       - name: Run bash script with secrets
         env: # Pass secrets as environment variables
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
+          date > .last-update-date
+          git add .last-automatic-update
           ./update_all_libs.sh $CLIENT_ID $CLIENT_SECRET $ACCESS_TOKEN

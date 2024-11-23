@@ -1,4 +1,4 @@
-name: Run Script Periodically with Python Dependencies
+name: Update library.bib periodically
 
 on:
   schedule:

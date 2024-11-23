@@ -50,7 +50,7 @@ MSG=`$PYTHON --version 2>&1`
 echo "Using $MSG ..."
 
 echo "Saving normal recipes:"
-scripts/find_long_names.sh > scripts/short_names 
+scripts/find_long_names.sh > scripts/short_names.tmp 
 
 $PYTHON scripts/shorten_papers.py -f
 # TMP_FILE=`mktemp library.temp.XXXXXXXXXX`

@@ -53,7 +53,7 @@ def replaceUsingDictionary(filename,dictionary):
 
 
 
-short_names_file = 'scripts/short_names'
+short_names_file = 'scripts/short_names.tmp'
 additional_recipies_file = 'scripts/additional_recipes'
 input_library_file = 'library.bib'
 output_library_file = 'library-short.bib'

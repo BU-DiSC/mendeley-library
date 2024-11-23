@@ -55,6 +55,8 @@ git pull
 git add library.bib
 git commit -m "Making sure we have the last library"
 git push
+echo "[ok]"
+echo
 
 $PYTHON scripts/prepare_bibtex.py "${NEW_BIB_FILE}" -f
 

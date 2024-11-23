@@ -5,7 +5,7 @@ PYTHON_VERSION=`$PYTHON --version 2>&1  | awk '{print substr($2,1,1)}'`
 
 $PYTHON --version 2>&1 >  /dev/null
 if [ $? -ne 0 ]; then
-    echo "Unkown python version, or python does not exist"
+    echo "Unknown python version, or python does not exist"
     exit
 fi
 
@@ -49,14 +49,18 @@ fi
 MSG=`$PYTHON --version 2>&1`
 echo "Using $MSG ..."
 
-echo "Downloading latest library ... "
-$PYTHON scripts/get_mendeley_library.py
-git pull
-git add library.bib
-git commit -m "Making sure we have the last library"
-git push
-echo "[ok]"
-echo
+# echo "##########################################"
+# echo "Ensuring we have the latest library  ... "
+# echo "##########################################"
+# $PYTHON scripts/get_mendeley_library.py
+# git pull
+# git add library.bib
+# git commit -m "Making sure we have the last library"
+# git push
+# echo "##########################################"
+# echo "[ok]"
+# echo "##########################################"
+# echo
 
 $PYTHON scripts/prepare_bibtex.py "${NEW_BIB_FILE}" -f
 

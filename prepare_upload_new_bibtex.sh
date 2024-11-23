@@ -49,5 +49,12 @@ fi
 MSG=`$PYTHON --version 2>&1`
 echo "Using $MSG ..."
 
+echo "Downloading latest library ... "
+$PYTHON scripts/get_mendeley_library.py
+git pull
+git add library.bib
+git commit -m "Making sure we have the last library"
+git push
+
 $PYTHON scripts/prepare_bibtex.py "${NEW_BIB_FILE}" -f
 

@@ -2,10 +2,17 @@
 
 git pull
 
+MESSAGE="Updating all libraries through a manual call"
+
 echo "#########################"
 echo "# Updating Main Library #"
 echo "#########################"
-python3 ./scripts/get_mendeley_library.py
+if [ "$#" -eq 3 ]; then
+    python3 ./scripts/get_mendeley_library.py "$1" "$2" "$3"
+    MESSAGE="Updating all libraries through a GitHub workflow"
+else
+    python3 ./scripts/get_mendeley_library.py
+fi
 echo "[ok]"
 echo 
 
@@ -40,6 +47,6 @@ echo "[ok]"
 echo 
 
 git add -f library-no-url.bib library-no-doi.bib library.bib library-no-url-short.bib library-short.bib
-git commit -m "auto updating bib library"
+git commit -m "${MESSAGE}"
 git push
 

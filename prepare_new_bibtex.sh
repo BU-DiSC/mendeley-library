@@ -30,7 +30,7 @@ CUR_PATH=`pwd`
 >&2 echo "Executing from \"$CUR_PATH\""
 
 if [ -f "${NEW_BIB_FILE}" ]; then
-    >&2 echo "Found find new.bib to prepare!" 
+    >&2 echo "Found new.bib to prepare!" 
 else
     cd ..
     CUR_PATH=`pwd`
@@ -44,13 +44,6 @@ else
 fi
 #Now we know we can find bibtex.bib
 
-
-
-
-#LEGACY
-# if [ $# -eq 1 ]; then
-#     PYTHON="python$1"   
-# fi
 
     
 MSG=`$PYTHON --version 2>&1`

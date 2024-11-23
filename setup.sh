@@ -50,6 +50,6 @@ echo "For new.bib preparation"
 echo "##############################"
 touch new.bib
 echo "By giving:"
-echo "./prepare_new_bibtex.sh" 
+echo "./prepare_upload_new_bibtex.sh" 
 echo "you get a clean version of the new.bib to insert to Mendeley."
 echo

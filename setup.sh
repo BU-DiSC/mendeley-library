@@ -43,3 +43,13 @@ echo "##############################"
 echo "Just give:"
 echo "./update_all_libs.sh" 
 echo "to retrieve all updated libraries from Mendeley and push to the root folder of the repository."
+echo 
+
+echo "##############################"
+echo "For new.bib preparation"
+echo "##############################"
+touch new.bib
+echo "By giving:"
+echo "./prepare_new_bibtex.sh" 
+echo "you get a clean version of the new.bib to insert to Mendeley."
+echo

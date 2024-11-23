@@ -2,6 +2,7 @@
 import sys
 import os
 import json
+import requests
 #import shutil
 import bibtexparser
 #import os
@@ -9,6 +10,8 @@ import bibtexparser
 #optionally python-Levenshtein
 #pip install fuzzywuzzy python-Levenshtein 
 from fuzzywuzzy import fuzz
+from get_mendeley_library import refresh_access_token, load_api_credentials, ensure_access_token
+import get_mendeley_library
 
 #this covers up to now
 #SIGMOD
@@ -26,9 +29,37 @@ def yes_or_no(question):
     else:
         return yes_or_no(question)
 
+def add_entry_to_mendeley(access_token, bibtex_data):
+    """
+    Add a new document to Mendeley using BibTeX metadata.
+    
+    Parameters:
+    - access_token: Your Mendeley API access token.
+    - bibtex_data: The BibTeX string containing the entry.
+    
+    Returns:
+    - Response from the Mendeley API.
+    """
+    url = "https://api.mendeley.com/documents"
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Content-Type": "application/x-bibtex",
+        "Content-Disposition": 'attachment; filename="entry.bib"'  # Required header
+    }
+    
+    # Make the POST request to add the document
+    response = requests.post(url, headers=headers, data=bibtex_data)
+    
+    if response.status_code == 201:
+        print("Entry successfully added to Mendeley.")
+    else:
+        print(f"Failed to add entry. Status code: {response.status_code}")
+        print(f"Response: {response.text}")
+    
+    return response
 
 recipes_file = 'scripts/dblp2disc.recipes'
-library_file = sys.argv[1]
+new_library_file = sys.argv[1]
 big_library_file = "./library.bib"
 max_score_threshold = 80 #for capturing duplicates
 replacements = {}
@@ -60,9 +91,9 @@ existing_entries = existing_bibtex_database.entries
 print("[ok]\n")
 
 #make sure that if we have entries with no key we add a dummy key to avoid having them turned into comments
-print("Ensuring entries \""+library_file+"\" all have a dummy key to avoid data corruption ...")
+print("Ensuring entries \""+new_library_file+"\" all have a dummy key to avoid data corruption ...")
 #read input file
-fin = open(library_file, "rt")
+fin = open(new_library_file, "rt")
 #read file contents to string
 library_file_contents = fin.read()
 #replace all occurrences of the required string
@@ -70,7 +101,7 @@ library_file_contents = library_file_contents.replace('{,', '{dummy_key,')
 #close the input file
 fin.close()
 #open the input file in write mode
-fin = open(library_file, "wt")
+fin = open(new_library_file, "wt")
 #overrite the input file with the resulting data
 fin.write(library_file_contents)
 #close the file
@@ -78,8 +109,8 @@ fin.close()
 print("[ok]\n")
 
 
-print("Opening new library \""+library_file+"\"...")
-with open(library_file) as new_bibtex_file:
+print("Opening new library \""+new_library_file+"\"...")
+with open(new_library_file) as new_bibtex_file:
     new_bibtex_database = bibtexparser.load(new_bibtex_file)    
 # print (new_bibtex_database.entries)
 # sys.exit()
@@ -109,7 +140,7 @@ for e in new_bibtex_database.entries:
         positions = [i for i, j in enumerate(scores) if j == max_score]
         print ("***************************************")
         print ("WARNING!! Potential DUPLICATE FOUND WITH " + str(max_score) + "%.")
-        print ("\"" + e['title'] + "\" from \""+library_file+"\" with details:")
+        print ("\"" + e['title'] + "\" from \""+new_library_file+"\" with details:")
         print ("\t"+"\n\t".join(map(str, zip(e.keys(), e.values())))) 
         print ("MATCHES EXISTING ENTRY (ENTRIES): ")
         print (positions)
@@ -117,7 +148,7 @@ for e in new_bibtex_database.entries:
             print ("\t" + str(p)+": ", existing_entries[p]['title'])
             print ("\t"+"\n\t".join(map(str, zip(existing_entries[p].keys(), existing_entries[p].values())))) 
         print ("***************************************")
-        e['to_delete'] = yes_or_no("Do you want to delete this NEW entry from \""+library_file+"\"?")
+        e['to_delete'] = yes_or_no("Do you want to delete this NEW entry from \""+new_library_file+"\"?")
         print ("***************************************")
     else:
         e['to_delete'] = False
@@ -183,7 +214,7 @@ for e in new_bibtex_database.entries:
             print("   ==> New unique key: " + candidate_key)
         e['ID'] = candidate_key
 
-output_library_file_final = library_file
+output_library_file_final = new_library_file
 # for debug reasons write to another file
 # os.system("touch ./temp.bib")
 # output_library_file_final = "./temp.bib"
@@ -220,6 +251,20 @@ for e in new_bibtex_database.entries:
 
 with open(output_library_file_final,'wb') as bibtex_output:
     bibtex_output.write(bibtexparser.dumps(new_bibtex_database_clean).encode('UTF-8'))
- 
 
+print(output_library_file_final+" is now updated.")
+if yes_or_no("Do you want to upload to Mendeley?"):
+    os.chdir("scripts")
+    credentials = load_api_credentials()
+    get_mendeley_library.CLIENT_ID = credentials.get("CLIENT_ID")
+    get_mendeley_library.CLIENT_SECRET = credentials.get("CLIENT_SECRET")
+    access_token = ensure_access_token()
+
+    print("\nIterating over all BibTeX entries:\n")
+    for entry in new_bibtex_database_clean.entries:
+        db = bibtexparser.bibdatabase.BibDatabase()
+        db.entries = [entry]
+        bibtex_entry=bibtexparser.dumps(db)
+        print("\nAdding entry: "+bibtex_entry+"...")
+        add_entry_to_mendeley(access_token,bibtex_entry)
 

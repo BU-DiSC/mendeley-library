@@ -45,6 +45,6 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
-          date > .last-update-date
+          date > .last-automatic-update
           git add .last-automatic-update
           ./update_all_libs.sh $CLIENT_ID $CLIENT_SECRET $ACCESS_TOKEN

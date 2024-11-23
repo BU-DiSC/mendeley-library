@@ -280,18 +280,26 @@ def main():
         else:
             raise Exception("scripts folder not found.")
 
-        credentials = load_api_credentials()
         global CLIENT_ID, CLIENT_SECRET
-        CLIENT_ID = credentials.get("CLIENT_ID")
-        CLIENT_SECRET = credentials.get("CLIENT_SECRET")
-        if not CLIENT_ID or not CLIENT_SECRET:
-            raise Exception("CLIENT_ID or CLIENT_SECRET not found in credentials file.")
+        if len(os.sys.argv) == 1:
+            credentials = load_api_credentials()
+            CLIENT_ID = credentials.get("CLIENT_ID")
+            CLIENT_SECRET = credentials.get("CLIENT_SECRET")
+            if not CLIENT_ID or not CLIENT_SECRET:
+                raise Exception("CLIENT_ID or CLIENT_SECRET not found in credentials file.")
+        elif len(os.sys.argv) == 4:
+            CLIENT_ID = os.sys.argv[1]
+            CLIENT_SECRET = os.sys.argv[2]
+
 
         # print(f"CLIENT_ID: {CLIENT_ID}")
         # print(f"CLIENT_SECRET: {CLIENT_SECRET}")
 
         # Ensure a valid access token
-        access_token = ensure_access_token()
+        if len(os.sys.argv) == 4:
+            access_token = os.sys.argv[3]
+        else:
+            access_token = ensure_access_token()
 
         # Fetch groups
         groups = fetch_groups(access_token)

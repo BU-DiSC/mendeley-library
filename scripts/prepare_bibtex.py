@@ -29,14 +29,77 @@ def yes_or_no(question):
     else:
         return yes_or_no(question)
 
-def upload_bibtex_to_group(access_token, group_id, bibtex_data):
+def convert_to_mendeley_json(json_entry, group_id):
     """
-    Upload a BibTeX entry to a specific Mendeley group.
+    Converts a single BibTeX entry into Mendeley JSON format, excluding empty fields.
+
+    Parameters:
+    - json_entry: Dictionary representing a single BibTeX entry.
+    - group_id: The Mendeley group ID to associate the entry with.
+
+    Returns:
+    - Dictionary in Mendeley JSON format with non-empty fields.
+    """
+    # Map BibTeX types to Mendeley types
+    bibtex_type_map = {
+        "inproceedings": "conference_proceedings",
+        "article": "journal",
+        "book": "book",
+        "incollection": "book_section",
+        "phdthesis": "thesis",
+        "techreport": "report"
+    }
+
+    if "ID" not in json_entry:
+        raise ValueError("The key 'ID' is missing in the json_entry.")
+    # Convert the json entry
+    mendeley_json = {
+        "type": bibtex_type_map.get(json_entry.get("ENTRYTYPE", ""), "generic"),
+        "title": json_entry.get("title", "").strip(),
+        "authors": [
+            {
+                "first_name": " ".join(name.split(" ")[:-1]).strip() if len(name.split(" ")) == 3 and ", " not in name else (name.split(", ")[1].strip() if ", " in name else name.split(" ")[0].strip()),
+                "last_name": name.split(", ")[0].strip() if ", " in name else name.split(" ")[-1].strip()
+            } for name in json_entry.get("author", "").split(" and ") if name.strip()
+        ],
+        "year": json_entry.get("year", "").strip(),
+        "websites": [
+            json_entry.get("url", "").strip()
+        ],
+        "identifiers": {
+            "doi": json_entry.get("doi", "").strip(),
+            "isbn": json_entry.get("isbn", "").strip(),
+            "issn": json_entry.get("issn", "").strip()
+        },
+        "source": json_entry.get("journal", json_entry.get("booktitle", "")).strip(),
+        "pages": json_entry.get("pages", "").strip(),
+        "volume": json_entry.get("volume", "").strip(),
+        "issue": json_entry.get("number", "").strip(),
+        "abstract": json_entry.get("abstract", "").strip(),
+        "keywords": [keyword.strip() for keyword in json_entry.get("keywords", "").split(", ") if keyword.strip()],
+        "group_id": group_id,
+        "citation_key": json_entry.get("ID", "").strip(),
+    }
+
+    # Remove empty fields from the top-level and nested dictionaries
+    def remove_empty_fields(data):
+        if isinstance(data, dict):
+            return {k: remove_empty_fields(v) for k, v in data.items() if v}
+        elif isinstance(data, list):
+            return [remove_empty_fields(v) for v in data if v]
+        return data
+
+    return remove_empty_fields(mendeley_json)
+
+
+def upload_document_json(access_token, group_id, document_data):
+    """
+    Upload a document to Mendeley in JSON format.
 
     Parameters:
     - access_token: Your Mendeley API access token.
-    - group_id: The ID of the Mendeley group where the document will be uploaded.
-    - bibtex_data: The BibTeX string containing the entry.
+    - group_id: The Mendeley group ID to associate the document with.
+    - document_data: Dictionary representing the document in Mendeley JSON format.
 
     Returns:
     - Response from the Mendeley API.
@@ -44,20 +107,22 @@ def upload_bibtex_to_group(access_token, group_id, bibtex_data):
     url = f"https://api.mendeley.com/documents?group_id={group_id}"
     headers = {
         "Authorization": f"Bearer {access_token}",
-        "Content-Type": "application/x-bibtex",
-        "Content-Disposition": 'attachment; filename="entry.bib"'
+        "Content-Type": "application/vnd.mendeley-document.1+json"
     }
-    
-    # Make the POST request to upload the document to the group
-    response = requests.post(url, headers=headers, data=bibtex_data)
-    
+
+    # Make the POST request
+    response = requests.post(url, headers=headers, json=document_data)
+
     if response.status_code == 201:
-        print("Entry successfully uploaded to the group.")
+        print("Document successfully uploaded.")
     else:
-        print(f"Failed to upload entry. Status code: {response.status_code}")
+        print(f"Failed to upload document. Status code: {response.status_code}")
         print(f"Response: {response.text}")
-    
+
     return response
+
+#########
+
 
 recipes_file = 'scripts/dblp2disc.recipes'
 new_library_file = sys.argv[1]
@@ -260,19 +325,21 @@ if yes_or_no("Do you want to upload to Mendeley?"):
     get_mendeley_library.CLIENT_ID = credentials.get("CLIENT_ID")
     get_mendeley_library.CLIENT_SECRET = credentials.get("CLIENT_SECRET")
     access_token = ensure_access_token()
-    ## this is to always select the DiSC library group
-    group_id = 'c40c69e8-f198-3ed3-9843-25c8b605eed5'
-
-    print("\nIterating over all BibTeX entries:\n")
+    # print("\nIterating over all entries in JSON format:\n")
     for entry in new_bibtex_database_clean.entries:
-        db = bibtexparser.bibdatabase.BibDatabase()
-        db.entries = [entry]
-        bibtex_entry=bibtexparser.dumps(db)
-        print("\nAdding entry: "+bibtex_entry+"...")
-        response = upload_bibtex_to_group(access_token, group_id, bibtex_entry)
+        # print(entry)
+        mendeley_json=convert_to_mendeley_json(entry,get_mendeley_library.GROUP_ID)
+        print("\nAdding entry ...")
+        # print(mendeley_json)
+        # json_entry_str = json.dumps(mendeley_json, indent=4)
+        # print(json_entry_str)
+        # continue
+        response = upload_document_json(access_token, get_mendeley_library.GROUP_ID, mendeley_json)
         # Check the response
         if response.status_code == 201:
             print("Entry added successfully to the group:", response.json())
+            # print("Response Text:", response.text)
         else:
             print("Error adding entry to the group:", response.text)
+
 

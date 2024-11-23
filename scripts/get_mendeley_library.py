@@ -7,6 +7,7 @@ CLIENT_ID = ''
 CLIENT_SECRET = ''
 REDIRECT_URI = "http://localhost"
 TOKEN_FILE = "tokens.json"
+GROUP_ID="c40c69e8-f198-3ed3-9843-25c8b605eed5"
 
 # Load Mendeley API credentials from a JSON file
 def load_api_credentials():
@@ -312,7 +313,7 @@ def main():
         # group_id = groups[group_number - 1]["id"]
 
         ## this is to always select the DiSC library group
-        group_id = 'c40c69e8-f198-3ed3-9843-25c8b605eed5'
+        group_id = GROUP_ID
         
 
         # Get total document count

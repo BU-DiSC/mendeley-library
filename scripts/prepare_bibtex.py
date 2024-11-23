@@ -29,31 +29,32 @@ def yes_or_no(question):
     else:
         return yes_or_no(question)
 
-def add_entry_to_mendeley(access_token, bibtex_data):
+def upload_bibtex_to_group(access_token, group_id, bibtex_data):
     """
-    Add a new document to Mendeley using BibTeX metadata.
-    
+    Upload a BibTeX entry to a specific Mendeley group.
+
     Parameters:
     - access_token: Your Mendeley API access token.
+    - group_id: The ID of the Mendeley group where the document will be uploaded.
     - bibtex_data: The BibTeX string containing the entry.
-    
+
     Returns:
     - Response from the Mendeley API.
     """
-    url = "https://api.mendeley.com/documents"
+    url = f"https://api.mendeley.com/documents?group_id={group_id}"
     headers = {
         "Authorization": f"Bearer {access_token}",
         "Content-Type": "application/x-bibtex",
-        "Content-Disposition": 'attachment; filename="entry.bib"'  # Required header
+        "Content-Disposition": 'attachment; filename="entry.bib"'
     }
     
-    # Make the POST request to add the document
+    # Make the POST request to upload the document to the group
     response = requests.post(url, headers=headers, data=bibtex_data)
     
     if response.status_code == 201:
-        print("Entry successfully added to Mendeley.")
+        print("Entry successfully uploaded to the group.")
     else:
-        print(f"Failed to add entry. Status code: {response.status_code}")
+        print(f"Failed to upload entry. Status code: {response.status_code}")
         print(f"Response: {response.text}")
     
     return response
@@ -259,6 +260,8 @@ if yes_or_no("Do you want to upload to Mendeley?"):
     get_mendeley_library.CLIENT_ID = credentials.get("CLIENT_ID")
     get_mendeley_library.CLIENT_SECRET = credentials.get("CLIENT_SECRET")
     access_token = ensure_access_token()
+    ## this is to always select the DiSC library group
+    group_id = 'c40c69e8-f198-3ed3-9843-25c8b605eed5'
 
     print("\nIterating over all BibTeX entries:\n")
     for entry in new_bibtex_database_clean.entries:
@@ -266,5 +269,10 @@ if yes_or_no("Do you want to upload to Mendeley?"):
         db.entries = [entry]
         bibtex_entry=bibtexparser.dumps(db)
         print("\nAdding entry: "+bibtex_entry+"...")
-        add_entry_to_mendeley(access_token,bibtex_entry)
+        response = upload_bibtex_to_group(access_token, group_id, bibtex_entry)
+        # Check the response
+        if response.status_code == 201:
+            print("Entry added successfully to the group:", response.json())
+        else:
+            print("Error adding entry to the group:", response.text)
 

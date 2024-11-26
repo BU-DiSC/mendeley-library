@@ -2,8 +2,8 @@ name: Update library.bib periodically
 
 on:
   schedule:
-    # Runs every 30 minutes
-    - cron: "*/30 * * * *"
+    # Runs every 2 hours
+    - cron: "0 */2 * * *"
   workflow_dispatch: # Allow manual triggering of the workflow
     inputs:
       run_message:

@@ -190,7 +190,8 @@ for e in new_bibtex_database.entries:
         else:
             temparray=first_author.split(" ")
             lastname=temparray[len(temparray)-1].strip()
-        title_words = e['title'].split()
+        common_words = {'a', 'an', 'the', 'and', 'or', 'but', 'if', 'then', 'else', 'when', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now', 'case'}
+        title_words = [word for word in e['title'].split() if word.lower() not in common_words][:3]
         lastname = ''.join(filter(str.isalpha, lastname))
         title_words[0] = ''.join(filter(str.isalpha, title_words[0]))
         candidate_key = lastname + e['year'] + title_words[0].capitalize()

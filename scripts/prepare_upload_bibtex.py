@@ -60,17 +60,17 @@ replacements = {}
 duplicate_keys_map = {}
 
 if (len(sys.argv) == 0):
-    print ("Do not run me as a standalone script! Use ./prepare_bibtex.sh")
+    print ("Do not run me as a standalone script! Use ./prepare_upload_new_bibtex.sh")
     exit(-1)
 
 if (len(sys.argv) == 3):
     if (sys.argv[2]=="-f"):
-        print ("Running prepare_bibtex from ./prepare_bibtex.sh.\n")
+        print ("Running prepare_upload_new_bibtex from ./prepare_upload_new_bibtex.sh.\n")
     else:
-        print ("Do not run me as a standalone script! Use ./prepare_bibtex.sh")
+        print ("Do not run me as a standalone script! Use ./prepare_upload_new_bibtex.sh")
         exit(-1)
 else:
-    print ("Do not run me as a standalone script! Use ./prepare_bibtex.sh")
+    print ("Do not run me as a standalone script! Use ./prepare_upload_new_bibtex.sh")
     exit(-1)
 
 with open(recipes_file) as df:
@@ -123,8 +123,8 @@ for e in new_bibtex_database.entries:
         e['title']=e['title'].replace("{", "")
         e['title']=e['title'].replace("}", "")
         e['title']=e['title'].replace("\n", " ")
-    print(e['author'])
-    print(format_authors(format_authors(e['author'])))
+    # print(e['author'])
+    # print(format_authors(format_authors(e['author'])))
     scores = list(map(lambda x: fuzz.ratio(x.get('title','') + x.get('author', ''), e['title'] + format_authors(e.get('author', ''))), existing_entries))
     max_score = max(scores)
     max_score_title = existing_entries[scores.index(max_score)]['title'] if max_score > 0 else "None"
@@ -191,11 +191,19 @@ for e in new_bibtex_database.entries:
             temparray=first_author.split(" ")
             lastname=temparray[len(temparray)-1].strip()
         common_words = {'a', 'an', 'the', 'and', 'or', 'but', 'if', 'then', 'else', 'when', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now', 'case'}
-        title_words = [word for word in e['title'].split() if word.lower() not in common_words][:3]
+        title = e['title']
+        if ':' in e['title']:
+            title_before_colon = e['title'].split(':')[0]
+            title = title_before_colon            
+        title = title.replace("-", " ")
+        #capitalize only if all letters are small (e.g., keep all capitals if used by the title)
+        title_words = [word.capitalize() if word.islower() else word for word in title.split() if word.lower() not in common_words][:4]
         lastname = ''.join(filter(str.isalpha, lastname))
         title_words[0] = ''.join(filter(str.isalpha, title_words[0]))
-        candidate_key = lastname + e['year'] + title_words[0].capitalize()
-        for word in title_words[1:]:
+        print(title_words)
+        print(''.join(title_words[0:2]))
+        candidate_key = lastname + e['year'] + ''.join(title_words[0:2])
+        for word in title_words[2:]:
             candidate_key += word[0].upper()
         print (" ==> Proposed key for \""+ e['title'] +"\": \"" + candidate_key + "\"")
         key_exists = any(ex_e['ID'] == candidate_key for ex_e in existing_entries)

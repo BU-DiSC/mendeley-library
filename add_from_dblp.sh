@@ -1,5 +1,17 @@
 #!/bin/bash
 
+NEW_BIB_FILE=""
+function ctrl_c() {
+    echo "******************************"
+    echo "\nCleaning up ... \nDeleting ${NEW_BIB_FILE}."
+    if [ -f "$NEW_BIB_FILE" ]; then 
+        rm ${NEW_BIB_FILE}
+    fi
+    # Perform cleanup or other actions here
+    echo "******************************"
+    exit 0
+}
+
 PYTHON="python3"
 PYTHON_VERSION=`$PYTHON --version 2>&1  | awk '{print substr($2,1,1)}'`
 
@@ -19,26 +31,25 @@ fi
 # pip3 install bibtexparser fuzzywuzzy python-Levenshtein
 
 
-NEW_BIB_FILE=./new.bib
+NEW_BIB_FILE=`mktemp temp_library.bib.XXXXXXXXX`
+trap ctrl_c INT
 
-if [ $# -eq 1 ]; then
-    NEW_BIB_FILE=$1
-fi
+$PYTHON scripts/get_bibtex_from_dblp.py --output ${NEW_BIB_FILE}
 
 
 CUR_PATH=`pwd`
 >&2 echo "Executing from \"$CUR_PATH\""
 
 if [ -f "${NEW_BIB_FILE}" ]; then
-    >&2 echo "Found new.bib to prepare!" 
+    >&2 echo "Found ${NEW_BIB_FILE} to prepare!" 
 else
     cd ..
     CUR_PATH=`pwd`
     >&2 echo "Swithcing to \"$CUR_PATH\""
     if [ -f "${NEW_BIB_FILE}" ]; then
-        >&2 echo "Found new.bib!" 
+        >&2 echo "Found ${NEW_BIB_FILE}!" 
     else
-        >&2 echo "Failed to find new.bib. Exiting ..."
+        >&2 echo "Failed to find ${NEW_BIB_FILE}. Exiting ..."
         exit
     fi
 fi
@@ -62,5 +73,28 @@ echo "Using $MSG ..."
 # echo "##########################################"
 # echo
 
+echo "##########################################"
+echo "Prepare and upload ${NEW_BIB_FILE}  ... "
+echo "##########################################"
 $PYTHON scripts/prepare_upload_bibtex.py "${NEW_BIB_FILE}" -f
+echo "[ok]"
+echo
+
+echo "##########################################"
+echo "Cleaning up ${NEW_BIB_FILE}  ... "
+echo "##########################################"
+rm $NEW_BIB_FILE
+echo "[ok]"
+echo
+
+read -p "Do you want to run ./update_all_libs.sh? (y/n): " response
+
+echo "##########################################"
+echo "Updating main library ... "
+echo "##########################################"
+if [[ "$response" == "y" ]]; then
+    ./update_all_libs.sh
+fi
+echo "[ok]"
+echo
 

@@ -271,9 +271,13 @@ elif yes_or_no("Do you want to upload to Mendeley?"):
         response = upload_document_json(access_token, get_mendeley_library.GROUP_ID, mendeley_json)
         # Check the response
         if response.status_code == 201:
+            print ("***************************************")
             print("Entry added successfully to the group:", response.json())
             # print("Response Text:", response.text)
+            print ("***************************************")
         else:
+            print ("***************************************")
             print("Error adding entry to the group:", response.text)
+            print ("***************************************")
 
 

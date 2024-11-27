@@ -170,6 +170,9 @@ for e in bibtex_database.entries:
 				print (e['ID'] + ": " + e['title'])
 
 
+print ("************************************************")
+print
+
 input_library_file = 'to-be-added.bib'
 try:
 	with open(input_library_file) as bibtex_file:

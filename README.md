@@ -1,10 +1,5 @@
 # mendeley-library
 
-## Automation
-A github workflow is updating all libraries every 2 hours. You can also manually run the workflow by going to [Actions](https://github.com/BU-DiSC/mendeley-library/actions). 
-
-## Working locally
-
 ### Setting up
 Run `./setup.sh` to get things going.
 Once python3 and all packages are installed, make sure you have the credentials from https://github.com/BU-DiSC/main/wiki/Mendeley into the file ./scripts/credentials.json (do not commit this file)
@@ -21,3 +16,6 @@ Just give `./update_all_libs.sh` and all library files will be updated from the 
   * You will select one of the matching dblp entries
   * The script will check if paper exists
   * You will have the option to upload directly to Mendeley
+
+# Automation
+A github workflow is updating all libraries every 2 hours. You can also manually run the workflow by going to [Actions](https://github.com/BU-DiSC/mendeley-library/actions). 

@@ -7,8 +7,8 @@ MESSAGE="Updating all libraries through a manual call"
 echo "#########################"
 echo "# Updating Main Library #"
 echo "#########################"
-if [ "$#" -eq 3 ]; then
-    python3 ./scripts/get_mendeley_library.py "$1" "$2" "$3"
+if [ "$#" -eq 4 ]; then
+    python3 ./scripts/get_mendeley_library.py "$1" "$2" "$3" "$4"
     MESSAGE="Updating all libraries through a GitHub workflow"
 else
     python3 ./scripts/get_mendeley_library.py

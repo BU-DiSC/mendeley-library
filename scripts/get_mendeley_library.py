@@ -301,8 +301,8 @@ def main():
         else:
             raise Exception("scripts folder not found.")
 
-        print("Number of arguments: "+len(os.sys.argv))
-        
+        # print("Number of arguments: "+str(len(os.sys.argv)))
+
         global CLIENT_ID, CLIENT_SECRET
         if len(os.sys.argv) == 1:
             credentials = load_api_credentials()

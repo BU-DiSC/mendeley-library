@@ -47,6 +47,27 @@ def refresh_access_token(refresh_token):
     save_tokens(tokens)
     return tokens["access_token"]
 
+# Ensure that refresh token is updated
+def ensure_refresh_token(refresh_token):
+    """
+    Refreshes the Mendeley access token using the refresh token.
+    """
+    url = "https://api.mendeley.com/oauth/token"
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    data = {
+        "grant_type": "refresh_token",
+        "refresh_token": refresh_token,
+        "client_id": CLIENT_ID,
+        "client_secret": CLIENT_SECRET
+    }
+
+    response = requests.post(url, headers=headers, data=data)
+    if response.status_code == 200:
+        token_data = response.json()
+        return token_data.get("access_token"), token_data.get("expires_in")
+    else:
+        raise ValueError(f"Failed to refresh token: {response.status_code}, {response.text}")
+
 # Perform the initial OAuth flow
 def get_access_token():
     auth_url = (
@@ -287,7 +308,7 @@ def main():
             CLIENT_SECRET = credentials.get("CLIENT_SECRET")
             if not CLIENT_ID or not CLIENT_SECRET:
                 raise Exception("CLIENT_ID or CLIENT_SECRET not found in credentials file.")
-        elif len(os.sys.argv) == 4:
+        elif len(os.sys.argv) == 4 or len(os.sys.argv) == 5:
             CLIENT_ID = os.sys.argv[1]
             CLIENT_SECRET = os.sys.argv[2]
 
@@ -297,7 +318,13 @@ def main():
 
         # Ensure a valid access token
         if len(os.sys.argv) == 4:
+            ## This is now deprecated
             access_token = os.sys.argv[3]
+        if len(os.sys.argv) == 5:
+            ## this is used by the automatic workflow. The idea is to refresh the token before accessing Mendeley
+            access_token = os.sys.argv[3]
+            refresh_token = os.sys.argv[4]
+            access_token, expires_in = ensure_refresh_token(refresh_token)
         else:
             access_token = ensure_access_token()
 

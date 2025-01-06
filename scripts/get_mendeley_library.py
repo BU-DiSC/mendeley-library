@@ -206,7 +206,7 @@ def to_bibtex(entry):
 
     # Common fields
     if "title" in entry:
-        fields.append(f"  title = {{{entry['title']}}}")
+        fields.append(f"  title = {{{{{entry['title']}}}}}")
 
     if "authors" in entry and entry["authors"]:
         authors = " and ".join(

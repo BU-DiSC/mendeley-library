@@ -17,5 +17,11 @@ Just give `./update_all_libs.sh` and all library files will be updated from the 
   * The script will check if paper exists
   * You will have the option to upload directly to Mendeley
 
+### Deploy
+Use this URL for direct access: 
+```
+https://raw.githubusercontent.com/BU-DiSC/mendeley-library/refs/heads/master/library.bib
+```
+
 # Automation
 A github workflow is updating all libraries every 2 hours. You can also manually run the workflow by going to [Actions](https://github.com/BU-DiSC/mendeley-library/actions). 

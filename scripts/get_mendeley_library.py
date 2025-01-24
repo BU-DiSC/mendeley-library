@@ -201,6 +201,35 @@ def parse_link_header(link_header):
         links[rel] = url
     return links
 
+def clean_up_string(input_string):
+    """
+    Cleans up an input string by replacing certain characters with their escaped versions.
+    """
+    greek_letters = {
+        "α": r"$\alpha$", "β": r"$\beta$", "γ": r"$\gamma$", "δ": r"$\delta$",
+        "ε": r"$\epsilon$", "ζ": r"$\zeta$", "η": r"$\eta$", "θ": r"$\theta$",
+        "ι": r"$\iota$", "κ": r"$\kappa$", "λ": r"$\lambda$", "μ": r"$\mu$",
+        "ν": r"$\nu$", "ξ": r"$\xi$", "ο": r"$\omicron$", "π": r"$\pi$",
+        "ρ": r"$\rho$", "σ": r"$\sigma$", "τ": r"$\tau$", "υ": r"$\upsilon$",
+        "φ": r"$\phi$", "χ": r"$\chi$", "ψ": r"$\psi$", "ω": r"$\omega$",
+        "Α": r"$\Alpha$", "Β": r"$\Beta$", "Γ": r"$\Gamma$", "Δ": r"$\Delta$",
+        "Ε": r"$\Epsilon$", "Ζ": r"$\Zeta$", "Η": r"$\Eta$", "Θ": r"$\Theta$",
+        "Ι": r"$\Iota$", "Κ": r"$\Kappa$", "Λ": r"$\Lambda$", "Μ": r"$\Mu$",
+        "Ν": r"$\Nu$", "Ξ": r"$\Xi$", "Ο": r"$\Omicron$", "Π": r"$\Pi$",
+        "Ρ": r"$\Rho$", "Σ": r"$\Sigma$", "Τ": r"$\Tau$", "Υ": r"$\Upsilon$",
+        "Φ": r"$\Phi$", "Χ": r"$\Chi$", "Ψ": r"$\Psi$", "Ω": r"$\Omega$"
+    }
+    for greek, latex in greek_letters.items():
+        input_string = input_string.replace(greek, latex)
+    return input_string.replace("&", "{\&}")
+
+def clean_up_url(input_string):
+    """
+    Cleans up an input string by replacing certain characters with their escaped versions.
+    """
+    return input_string.replace("#", "\#")
+
+
 def to_bibtex(entry):
     """
     Converts a document entry to a BibTeX formatted string based on its type.
@@ -227,7 +256,8 @@ def to_bibtex(entry):
 
     # Common fields
     if "title" in entry:
-        fields.append(f"  title = {{{{{entry['title']}}}}}")
+        temp_title = clean_up_string(entry['title'])
+        fields.append(f"  title = {{{{{temp_title}}}}}")
 
     if "authors" in entry and entry["authors"]:
         authors = " and ".join(
@@ -247,14 +277,14 @@ def to_bibtex(entry):
             fields.append(f"  url = {{{entry['websites'][0]}}}")
     elif entry_type == "web_page":
         if "websites" in entry and entry["websites"]:
-            fields.append(f"  howpublished = {{\\url{{{entry['websites'][0]}}}}}")
+            fields.append(f"  howpublished = {{\\url{{{clean_up_url(entry['websites'][0])}}}}}")
         if "accessed" in entry:
             fields.append(f"  note = {{(Accessed: {entry['accessed']})}}")
 
     # Type-specific fields
     if bibtex_type == "article":
         if "source" in entry:
-            fields.append(f"  journal = {{{entry['source']}}}")
+            fields.append(f"  journal = {{{clean_up_string(entry['source'])}}}")
         if "volume" in entry:
             fields.append(f"  volume = {{{entry['volume']}}}")
         if "issue" in entry:
@@ -263,23 +293,23 @@ def to_bibtex(entry):
             fields.append(f"  pages = {{{entry['pages']}}}")
     elif bibtex_type == "inproceedings":
         if "source" in entry:
-            fields.append(f"  booktitle = {{{entry['source']}}}")
+            fields.append(f"  booktitle = {{{clean_up_string(entry['source'])}}}")
         if "pages" in entry:
             fields.append(f"  pages = {{{entry['pages']}}}")
     elif bibtex_type == "book":
         if "publisher" in entry:
-            fields.append(f"  publisher = {{{entry['publisher']}}}")
+            fields.append(f"  publisher = {{{clean_up_string(entry['publisher'])}}}")
     elif bibtex_type == "incollection":
         if "source" in entry:
-            fields.append(f"  booktitle = {{{entry['source']}}}")
+            fields.append(f"  booktitle = {{{clean_up_string(entry['source'])}}}")
         if "publisher" in entry:
-            fields.append(f"  publisher = {{{entry['publisher']}}}")
+            fields.append(f"  publisher = {{{clean_up_string(entry['publisher'])}}}")
     elif bibtex_type == "techreport":
         if "institution" in entry:
-            fields.append(f"  institution = {{{entry['institution']}}}")
+            fields.append(f"  institution = {{{clean_up_string(entry['institution'])}}}")
     elif bibtex_type == "phdthesis":
         if "school" in entry:
-            fields.append(f"  school = {{{entry['school']}}}")
+            fields.append(f"  school = {{{clean_up_string(entry['school'])}}}")
 
     # Join fields and ensure no trailing comma
     bibtex_entry = f"@{bibtex_type}{{{citation_key},\n"

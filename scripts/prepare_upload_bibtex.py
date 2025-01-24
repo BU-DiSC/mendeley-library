@@ -196,6 +196,7 @@ for e in new_bibtex_database.entries:
             title_before_colon = e['title'].split(':')[0]
             title = title_before_colon            
         title = title.replace("-", " ")
+        title = title.replace(",", " ")
         #capitalize only if all letters are small (e.g., keep all capitals if used by the title)
         title_words = [word.capitalize() if word.islower() else word for word in title.split() if word.lower() not in common_words][:4]
         lastname = ''.join(filter(str.isalpha, lastname))

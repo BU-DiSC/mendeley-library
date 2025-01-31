@@ -35,12 +35,12 @@ def replaceUsingDictionary(filename,dictionary):
 		    if line:
 		        conf_name = line.split('|')
 		        if len(conf_name) > 1:
-		            #print conf_name[1] #short name
-		            #print conf_name[0] #full name of the conference
-		            #msg = "Replacing all instances of \"" + conf_name[0] + "\" with \"" + conf_name[1] + "\"."
-		            #msg = "\"" + conf_name[0] + "\" --> \"" + conf_name[1] + "\""
-		            #print msg
-		            #print "."
+		            # print (conf_name[1]) #short name
+		            # print (conf_name[0]) #full name of the conference
+		            # msg = "Replacing all instances of \"" + conf_name[0] + "\" with \"" + conf_name[1] + "\"."
+		            # msg = "\"" + conf_name[0] + "\" --> \"" + conf_name[1] + "\""
+		            # print (msg)
+		            # print (".")
 		            replaceAll(filename,conf_name[0],conf_name[1])
 		            short+=1
 		        else:

@@ -20,7 +20,7 @@ else
 fi
 #Now we know we are in the path of the library.bib
 
-cat library.bib  | grep -E "journal =|booktitle =" | sort | uniq | awk -F " = " '{print $2}' | sed 's/{//g' | sed 's/},//g'  | grep -v http | awk '
+cat library.bib  | grep -E "journal =|booktitle =" | sort | uniq | awk -F " = " '{print $2}' | grep -v http | sed 's/},/}/g' | sed 's/{//g' | sed 's/}//g' | awk '
 {if (match($0,/\(.+\)/)) 
 	printf("%s|%s\n",$0,substr($0,RSTART+1,RLENGTH-2)); 
  else 

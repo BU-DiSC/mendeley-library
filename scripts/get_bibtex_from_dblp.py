@@ -1,6 +1,16 @@
 import argparse
 import requests
 
+global BASE_DBLP_URL
+global DBLP_MIRROR_URL
+global DBLP_URL
+global USE_MIRROR 
+
+BASE_DBLP_URL="dblp.org"
+DBLP_MIRROR_URL="dblp.uni-trier.de"
+DBLP_URL=""
+USE_MIRROR = False
+
 def search_dblp(title_keywords, author_keywords, venue_keywords):
     """
     Searches DBLP for papers matching title and author keywords.
@@ -12,7 +22,10 @@ def search_dblp(title_keywords, author_keywords, venue_keywords):
     Returns:
     - A list of search results (each result is a dictionary with metadata).
     """
-    url = "https://dblp.org/search/publ/api"
+    # url = "https://dblp.org/search/publ/api"
+    # url = "https://dblp.uni-trier.de/search/publ/api"
+    global DBLP_URL
+    url = f"https://{DBLP_URL}/search/publ/api"
     query = f"{title_keywords} {author_keywords} {venue_keywords}".strip()
     params = {
         "q": query,
@@ -82,6 +95,34 @@ def main():
     author_keywords = input("Enter author keywords (optional): ").strip()
     venue_keywords = input("Enter venue keywords (optional): ").strip()
     
+    global BASE_DBLP_URL
+    global DBLP_URL
+    global DBLP_MIRROR_URL
+    global USE_MIRROR
+
+    # Test if BASE DBLP URL is working
+    test_url = f"https://{BASE_DBLP_URL}"
+    try:
+        response = requests.get(test_url, timeout=2)
+        response.raise_for_status()
+        print(f"Successfully connected to {BASE_DBLP_URL}")
+        DBLP_URL = BASE_DBLP_URL
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to connect to {BASE_DBLP_URL}: {e}")
+        print(f"Reverting to mirror URL {DBLP_MIRROR_URL}")
+        test_url = f"https://{DBLP_MIRROR_URL}"
+        try:
+            response = requests.get(test_url, timeout=2)
+            response.raise_for_status()
+            print(f"Successfully connected to {DBLP_MIRROR_URL}")
+            DBLP_URL = DBLP_MIRROR_URL
+            USE_MIRROR = True
+        except requests.exceptions.RequestException as e:
+            print(f"Failed to connect to {DBLP_MIRROR_URL}: {e}")
+            exit(1)
+
+
+
     # Search DBLP
     print("\nSearching DBLP...")
     results = search_dblp(title_keywords, author_keywords, venue_keywords)
@@ -113,6 +154,8 @@ def main():
 
     # Download the BibTeX entry
     bibtex_url = selected_result.get("bibtex_url")
+    if bibtex_url and USE_MIRROR:
+        bibtex_url = bibtex_url.replace(BASE_DBLP_URL, DBLP_MIRROR_URL)
     if not bibtex_url:
         print("No BibTeX URL available for the selected result.")
         return

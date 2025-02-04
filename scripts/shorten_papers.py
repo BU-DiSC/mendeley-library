@@ -80,13 +80,13 @@ with open(output_library_file) as bibtex_file:
 
 #Removes pages from conference proceedings
 print ("Removing pages from conference proceedings ... ")
-print ("Allowing up to two authors ... ")
+print ("Allowing up to five authors ... ")
 print ("Converting conference proceedings to articles only for the short version ...")
 for e in bibtex_database.entries:
 	if 'author' in e:
 		# print (e['author'])
 		# print (e['author'].count('and'))
-		if e['author'].count('and') > 100:
+		if e['author'].count('and') > 5:
 			# print(e['author'].find(' and'))
 			# print(e['author'][0:e['author'].find(' and')]+" and others")
 			# print("\n")

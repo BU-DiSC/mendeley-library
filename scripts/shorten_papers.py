@@ -80,7 +80,7 @@ with open(output_library_file) as bibtex_file:
 
 #Removes pages from conference proceedings
 print ("Removing pages from conference proceedings ... ")
-print ("Allowing up to five authors ... ")
+print ("Allowing up to two authors ... ")
 print ("Converting conference proceedings to articles only for the short version ...")
 for e in bibtex_database.entries:
 	if 'author' in e:

@@ -86,7 +86,7 @@ for e in bibtex_database.entries:
 	if 'author' in e:
 		# print (e['author'])
 		# print (e['author'].count('and'))
-		if e['author'].count('and') > 5:
+		if e['author'].count('and') > 2:
 			# print(e['author'].find(' and'))
 			# print(e['author'][0:e['author'].find(' and')]+" and others")
 			# print("\n")

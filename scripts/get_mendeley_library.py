@@ -221,13 +221,13 @@ def clean_up_string(input_string):
     }
     for greek, latex in greek_letters.items():
         input_string = input_string.replace(greek, latex)
-    return input_string.replace("&", "{\&}")
+    return input_string.replace("&", "{\\&}")
 
 def clean_up_url(input_string):
     """
     Cleans up an input string by replacing certain characters with their escaped versions.
     """
-    return input_string.replace("#", "\#")
+    return input_string.replace("#", "\\#")
 
 
 def to_bibtex(entry):

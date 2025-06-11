@@ -289,5 +289,5 @@ elif yes_or_no("Do you want to upload to Mendeley?"):
             print ("***************************************")
             print("Error adding entry to the group:", response.text)
             print ("***************************************")
-
+    exit(1)
 

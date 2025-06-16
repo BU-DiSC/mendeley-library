@@ -85,13 +85,6 @@ do
         total_entries=$((total_entries + entried_added))
         echo "[ok]"
         echo
-
-        echo "##########################################"
-        echo "Cleaning up ${NEW_BIB_FILE}  ... "
-        echo "##########################################"
-        rm $NEW_BIB_FILE
-        echo "[ok]"
-        echo
     else
         echo "##########################################"
         echo "No entries found in ${NEW_BIB_FILE}  ... "
@@ -99,6 +92,13 @@ do
         echo "[ok]"
         echo
     fi
+
+    echo "##########################################"
+    echo "Cleaning up ${NEW_BIB_FILE}  ... "
+    echo "##########################################"
+    rm $NEW_BIB_FILE
+    echo "[ok]"
+    echo
 
 
     read -p "Do you want to add another entry? (y/n): " more_entries

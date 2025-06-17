@@ -61,12 +61,14 @@ ACM International Conference on Systems and Storage, SYSTOR|Proceedings of the A
 ACM International Conference on Systems and Storage|Proceedings of the ACM International Conference on Systems and Storage (SYSTOR)
 ACM/IEEE Annual International Symposium on Computer Architecture|Proceedings of the ACM/IEEE Annual International Symposium on Computer Architecture (ISCA)
 Annual International Symposium on Computer Architecture|Proceedings of the ACM/IEEE Annual International Symposium on Computer Architecture (ISCA)
-International Conference on Machine Learning|Proceedings of the International Conference on Machine Learning (ICML)
+International Conference on Machine Learning, ICML|Proceedings of the International Conference on Machine Learning (ICML)
+International Conference on Machine Learning and Applications, ICMLA|Proceedings of the International Conference on Machine Learning and Applications (ICMLA)
 Proceedings of Machine Learning and Systems|Proceedings of Machine Learning and Systems (MLSys)
 IEEE International Symposium on Parallel and Distributed Processing, IPDPS|Proceedings of the IEEE International Symposium on Parallel and Distributed Processing (IPDPS)
 IEEE Annual International Symposium on Field-Programmable Custom Computing Machines, FCCM|Proceedings of the IEEE Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM)
 Annual ACM Symposium on the Theory of Computing|Proceedings of the Annual ACM Symposium on the Theory of Computing (STOC)
 EuroSys Conference|Proceedings of the EuroSys Conference (EuroSys)
+European Conference on Computer Systems, EuroSys|Proceedings of the European Conference on Computer Systems (EuroSys)
 J. Syst. Archit.|Journal of Systems Architecture
 ACM Trans. Database Syst.|ACM Transactions on Database Systems (TODS)
 International Database Engineering \& Applications Symposium|Proceedings of the International Symposium on Database Engineering & Applications (IDEAS)
@@ -99,6 +101,7 @@ International Colloquium, ICALP|Proceedings of the International Colloquium on A
 IEEE Trans. Computers|IEEE Transactions on Computers
 Expert Syst. Appl.|Expert Systems with Applications
 SIGMETRICS Perform. Evaluation Rev.|SIGMETRICS Performance Evaluation Review
+Proceedings of the International Conference on Measurements and Modeling of Computer Systems, SIGMETRICS|Proceedings of the International Conference on Measurements and Modeling of Computer Systems (SIGMETRICS)
 International Conference on Cloud Engineering|Proceedings of the IEEE International Conference on Cloud Engineering (IC2E)
 International Conference on Cloud Computing|Proceedings of the IEEE International Conference on Cloud Computing (CLOUD)
 IEEE J. Sel. Areas Commun.|IEEE Journal of Selected Areas in Communications
@@ -108,3 +111,4 @@ International Conference on Autonomic Computing|Proceedings of the International
 IEEE Trans. Autom. Control.|IEEE Transactions on Automatic Control
 Conference on Learning Theory|Conference on Learning Theory (COLT)
 ACM SIGKDD International Conference on Knowledge Discovery|Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD)
+ACM SIGOPS Oper. Syst. Rev.|ACM SIGOPS: Operating Systems Review

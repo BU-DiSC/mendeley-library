@@ -1,6 +1,7 @@
 #import fileinput
 import sys
 import os
+import re
 import json
 import requests
 #import shutil
@@ -111,7 +112,7 @@ with open(new_library_file) as new_bibtex_file:
 print("[ok]\n")
 
 
-print("Inspecting all new entries ...")
+print("Inspecting all new entries for similarity and corrections ...")
 for e in new_bibtex_database.entries:
     if 'author' not in e and 'title' not in e:
         print("Please include at least author or title")
@@ -129,7 +130,8 @@ for e in new_bibtex_database.entries:
     max_score = max(scores)
     max_score_title = existing_entries[scores.index(max_score)]['title'] if max_score > 0 else "None"
     max_score_author = existing_entries[scores.index(max_score)]['author'] if max_score > 0 else "None"
-    print ("For entry \"" + e['title'] + "\" similarity score: " + str(max_score))
+    print ("For entry \"" + e['title'] + "\" max similarity score is: " + str(max_score))
+    print ("")
     if max_score >= max_score_threshold:
         # print (f"\tMost similar entry has title: \"{max_score_title}\"")
         # print (f"\tBy: \"{max_score_author}\"")
@@ -163,7 +165,21 @@ for e in new_bibtex_database.entries:
         e['booktitle']=e['booktitle'].replace("}", "")
         e['booktitle']=e['booktitle'].replace("\n", " ")
         for r in replacements:
-            if r in e['booktitle']:
+            # don't forget to update both replacements in inproceedings and journal below
+            replace=False
+            if "*" in r: #this is a wildcard
+                safe = r.replace('(', r'\(').replace(')', r'\)')
+                pattern = re.compile(safe)
+                if pattern.search(e['booktitle']):
+                    replace=True
+            else: # exact match
+                if r in e['booktitle']:
+                    replace=True
+            if replace:
+                print ("********************************")
+                print ("Replacing booktitle \n\""+e['booktitle']+"\"\n with \n\""+replacements[r]+"\"")
+                print ("********************************")
+                print ()
                 e['booktitle'] = replacements[r]
                 break
         if 'editor' in e:
@@ -175,7 +191,21 @@ for e in new_bibtex_database.entries:
         e['journal']=e['journal'].replace("}", "")
         e['journal']=e['journal'].replace("\n", " ")
         for r in replacements:
-            if r in e['journal']:
+            # don't forget to update both replacements in journal and inproceedings above
+            replace=False
+            if "*" in r: #this is a wildcard
+                safe = r.replace('(', r'\(').replace(')', r'\)')
+                pattern = re.compile(safe)
+                if pattern.search(e['journal']):
+                    replace=True
+            else: # exact match
+                if r in e['journal']:
+                    replace=True
+            if replace:
+                print ("********************************")
+                print ("Replacing journal \n\""+e['journal']+"\"\n with \n\""+replacements[r]+"\"")
+                print ("********************************")
+                print ()
                 e['journal'] = replacements[r]
                 break
     if 'ID' in e:
@@ -202,6 +232,9 @@ for e in new_bibtex_database.entries:
         title_words = [word.capitalize() if word.islower() else word for word in title.split() if word.lower() not in common_words][:4]
         lastname = ''.join(filter(str.isalpha, lastname))
         title_words[0] = ''.join(filter(str.isalpha, title_words[0]))
+        print("********************************")
+        print("Proposing key:")
+        print("Title words:")
         print(title_words)
         print(''.join(title_words[0:2]))
         candidate_key = lastname + e['year'] + ''.join(title_words[0:2])
@@ -219,6 +252,7 @@ for e in new_bibtex_database.entries:
             new_candidate_key = candidate_key + str(counter)
             candidate_key = new_candidate_key
             print("   ==> New unique key: " + candidate_key)
+        print("********************************")
         e['ID'] = candidate_key
 
 output_library_file_final = new_library_file

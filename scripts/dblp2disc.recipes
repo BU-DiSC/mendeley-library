@@ -3,7 +3,7 @@ SIGMOD International Conference|Proceedings of the ACM SIGMOD International Conf
 International Conference on Management of Data|Proceedings of the ACM SIGMOD International Conference on Management of Data
 USENIX Annual Technical Conference|Proceedings of the USENIX Annual Technical Conference (ATC)
 International Conference on Extending Database|Proceedings of the International Conference on Extending Database Technology (EDBT)
-International Conference on Very Large Data|Proceedings of the International Conference on Very Large Data Bases (VLDB)
+Proceedings of the .* International Conference on Very Large Data.*|Proceedings of the International Conference on Very Large Data Bases (VLDB)
 International Conference on Data Engineering|Proceedings of the IEEE International Conference on Data Engineering (ICDE)
 Biennial Conference on Innovative Data Systems|Proceedings of the Biennial Conference on Innovative Data Systems Research (CIDR)
 USENIX Symposium on Operating Systems Design and Implementation|Proceedings of the USENIX Symposium on Operating Systems Design and Implementation (OSDI)
@@ -117,3 +117,4 @@ ACM SIGOPS Oper. Syst. Rev.|ACM SIGOPS: Operating Systems Review
 Euromicro Conference on Real-Time Systems|Proceedings of the Euromicro Conference on Real-Time Systems (ECRTS)
 Annual Design Automation Conference|Proceedings of the Annual Design Automation Conference (DAC)
 Proceedings of the International Conference on Computer-Aided Design|Proceedings of the International Conference on Computer-Aided Design (ICCAD)
+Proceedings of Workshops at the .* International Conference on Very Large Data Bases.*|Proceedings of Workshops at the International Conference on Very Large Data Bases (VLDB Workshops)

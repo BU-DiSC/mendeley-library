@@ -119,6 +119,10 @@ if [ $total_entries -gt 0 ]; then
     fi
     echo "[ok]"
     echo
+    echo "##########################################"
+    echo "If you are working using Overleaf, please refresh the bibliography file there."
+    echo "##########################################"
+    echo
 
 
 else

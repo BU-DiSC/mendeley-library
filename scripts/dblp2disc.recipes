@@ -85,6 +85,7 @@ Proc. ACM Manag. Data|Proceedings of the ACM on Management of Data (PACMMOD)
 ACM Trans. Embed. Comput. Syst.|ACM Transactions on Embedded Computing Systems (TECS)
 International Workshop on Data Management for End-to-End Machine Learning|Proceedings of the International Workshop on Data Management for End-to-End Machine Learning (DEEM)
 ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming|Proceedings of the ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (PPoPP)
+ACM SIGPLAN Symposium on Principles \& Practice of Parallel Programming|Proceedings of the ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (PPoPP)
 ACM Trans. Program. Lang. Syst.|ACM Transactions on Programming Languages and Systems (TOPLAS)
 Theory Comput. Syst.|Theory of Computing Systems
 Annual ACM Symposium on Principles of Distributed Computing|Proceedings of the Annual ACM Symposium on Principles of Distributed Computing (PODC)
@@ -118,3 +119,4 @@ Euromicro Conference on Real-Time Systems|Proceedings of the Euromicro Conferenc
 Annual Design Automation Conference|Proceedings of the Annual Design Automation Conference (DAC)
 Proceedings of the International Conference on Computer-Aided Design|Proceedings of the International Conference on Computer-Aided Design (ICCAD)
 Proceedings of Workshops at the .* International Conference on Very Large Data Bases.*|Proceedings of Workshops at the International Conference on Very Large Data Bases (VLDB Workshops)
+IEEE Trans. Parallel Distributed Syst.|IEEE Transactions on Parallel and Distributed Systems

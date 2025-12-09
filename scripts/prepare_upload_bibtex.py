@@ -182,6 +182,12 @@ for e in new_bibtex_database.entries:
                 print ()
                 e['booktitle'] = replacements[r]
                 break
+        print ("Proceedings after replacement: \"" + e['booktitle'] + "\"")
+        if not e['to_delete']:
+            keep = yes_or_no("Do you want to keep it? (y/n) [If you want to change it give \"n\" and provide the proceedings name next]")
+            if not keep:
+                e['booktitle'] = input("New proceedings (booktitle) name: ").strip()
+                print ("Final proceedings after manual entry: \"" + e['booktitle'] + "\"")
         if 'editor' in e:
             del e['editor']
         if 'publisher' in e:
@@ -208,6 +214,12 @@ for e in new_bibtex_database.entries:
                 print ()
                 e['journal'] = replacements[r]
                 break
+        print ("Journal after replacement: \"" + e['journal'] + "\"")
+        if not e['to_delete']:
+            keep = yes_or_no("Do you want to keep it? (y/n) [If you want to change it give \"n\" and provide the journal name next]")
+            if not keep:
+                e['journal'] = input("New journal name: ").strip()
+                print ("Final journal after manual entry: \"" + e['journal'] + "\"")
     if 'ID' in e:
         e['ID']=''
     if 'publisher' in e:    

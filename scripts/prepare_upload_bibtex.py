@@ -244,28 +244,29 @@ for e in new_bibtex_database.entries:
         title_words = [word.capitalize() if word.islower() else word for word in title.split() if word.lower() not in common_words][:4]
         lastname = ''.join(filter(str.isalpha, lastname))
         title_words[0] = ''.join(filter(str.isalpha, title_words[0]))
-        print("********************************")
-        print("Proposing key:")
-        print("Title words:")
-        print(title_words)
-        print(''.join(title_words[0:2]))
-        candidate_key = lastname + e['year'] + ''.join(title_words[0:2])
-        for word in title_words[2:]:
-            candidate_key += word[0].upper()
-        print (" ==> Proposed key for \""+ e['title'] +"\": \"" + candidate_key + "\"")
-        key_exists = any(ex_e['ID'] == candidate_key for ex_e in existing_entries)
-        if key_exists:
-            print("   !!! Proposed key exists already")
-            # Generate a unique key by appending a number
-            counter = 1
-            new_candidate_key = candidate_key + str(counter)
-            while any(ex_e['ID'] == new_candidate_key for ex_e in existing_entries):
-                counter += 1
-            new_candidate_key = candidate_key + str(counter)
-            candidate_key = new_candidate_key
-            print("   ==> New unique key: " + candidate_key)
-        print("********************************")
-        e['ID'] = candidate_key
+        if not e['to_delete']:
+            print("********************************")
+            print("Proposing key:")
+            print("Title words:")
+            print(title_words)
+            print(''.join(title_words[0:2]))
+            candidate_key = lastname + e['year'] + ''.join(title_words[0:2])
+            for word in title_words[2:]:
+                candidate_key += word[0].upper()
+            print (" ==> Proposed key for \""+ e['title'] +"\": \"" + candidate_key + "\"")
+            key_exists = any(ex_e['ID'] == candidate_key for ex_e in existing_entries)
+            if key_exists:
+                print("   !!! Proposed key exists already")
+                # Generate a unique key by appending a number
+                counter = 1
+                new_candidate_key = candidate_key + str(counter)
+                while any(ex_e['ID'] == new_candidate_key for ex_e in existing_entries):
+                    counter += 1
+                new_candidate_key = candidate_key + str(counter)
+                candidate_key = new_candidate_key
+                print("   ==> New unique key: " + candidate_key)
+            print("********************************")
+            e['ID'] = candidate_key
 
 output_library_file_final = new_library_file
 # for debug reasons write to another file

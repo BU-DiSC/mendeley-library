@@ -111,19 +111,20 @@ if [ $total_entries -gt 0 ]; then
 
     read -p "Do you want to run ./update_all_libs.sh? (y/n): " response
 
-    echo "##########################################"
-    echo "Updating main library ... "
-    echo "##########################################"
     if [[ "$response" == "y" ]]; then
+        echo "##########################################"
+        echo "Updating main library ... "
+        echo "##########################################"
         ./update_all_libs.sh
+        echo "[ok]"
+        echo
+        echo "##########################################"
+        echo "If you are working using Overleaf, please refresh the bibliography file there."
+        echo "##########################################"
+        echo
+    else
+        echo "[ok]"
     fi
-    echo "[ok]"
-    echo
-    echo "##########################################"
-    echo "If you are working using Overleaf, please refresh the bibliography file there."
-    echo "##########################################"
-    echo
-
 
 else
     echo "##########################################"

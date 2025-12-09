@@ -40,6 +40,6 @@ fi
 	
 MSG=`$PYTHON --version 2>&1`
 echo "Using $MSG ..."
-
-$PYTHON scripts/search_author.py $@ 
-
+	
+# Pass through args preserving quoted strings
+$PYTHON scripts/search_author.py "$@" 

@@ -4,6 +4,7 @@ International Conference on Management of Data|Proceedings of the ACM SIGMOD Int
 USENIX Annual Technical Conference|Proceedings of the USENIX Annual Technical Conference (ATC)
 International Conference on Extending Database|Proceedings of the International Conference on Extending Database Technology (EDBT)
 Proceedings of the .* International Conference on Very Large Data.*|Proceedings of the International Conference on Very Large Data Bases (VLDB)
+Proceedings of .* International Conference on Very Large Data.*|Proceedings of the International Conference on Very Large Data Bases (VLDB)
 International Conference on Data Engineering|Proceedings of the IEEE International Conference on Data Engineering (ICDE)
 Biennial Conference on Innovative Data Systems|Proceedings of the Biennial Conference on Innovative Data Systems Research (CIDR)
 USENIX Symposium on Operating Systems Design and Implementation|Proceedings of the USENIX Symposium on Operating Systems Design and Implementation (OSDI)

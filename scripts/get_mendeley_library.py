@@ -7,7 +7,8 @@ CLIENT_ID = ''
 CLIENT_SECRET = ''
 REDIRECT_URI = "http://localhost"
 TOKEN_FILE = "tokens.json"
-GROUP_ID="c40c69e8-f198-3ed3-9843-25c8b605eed5"
+#GROUP_ID="c40c69e8-f198-3ed3-9843-25c8b605eed5" #this group got deleted and I am trying to revive it
+GROUP_ID="688645bc-0ada-31c7-89a1-1e2891324fb3" #this is the new group to which I loaded all files from the library.bib
 
 # Load Mendeley API credentials from a JSON file
 def load_api_credentials():

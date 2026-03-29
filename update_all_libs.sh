@@ -51,10 +51,18 @@ echo "# Updating No-URL No-PAGES short Library #"
 echo "##########################################"
 scripts/create-no-url-no-pages-short.sh
 echo "[ok]"
-echo 
+echo
 
 
-git add -f library-no-url.bib library-no-doi.bib library.bib library-no-url-short.bib library-no-url-no-pages-short.bib library-short.bib
+echo "##############################################"
+echo "# Updating No-URL No-PAGES Clean Library     #"
+echo "##############################################"
+scripts/create-no-url-no-pages-clean.sh
+echo "[ok]"
+echo
+
+
+git add -f library-no-url.bib library-no-doi.bib library.bib library-no-url-short.bib library-no-url-no-pages-short.bib library-short.bib library-no-url-no-pages-clean.bib
 git commit -m "${MESSAGE}"
 git push
 

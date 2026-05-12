@@ -270,8 +270,11 @@ def to_bibtex(entry):
     if "year" in entry:
         fields.append(f"  year = {{{entry['year']}}}")
 
-    if "doi" in entry:
-        fields.append(f"  doi = {{{entry['doi']}}}")
+    # Mendeley stores DOI nested under "identifiers", not as a top-level field
+    doi = entry.get("doi") or entry.get("identifiers", {}).get("doi")
+    if doi:
+        fields.append(f"  doi = {{{doi}}}")
+
 
     if entry_type != "web_page":
         if "websites" in entry and entry["websites"]:

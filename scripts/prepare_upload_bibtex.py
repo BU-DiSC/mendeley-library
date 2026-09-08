@@ -126,11 +126,11 @@ for e in new_bibtex_database.entries:
         e['title']=e['title'].replace("\n", " ")
     # print(e['author'])
     # print(format_authors(format_authors(e['author'])))
-    scores = list(map(lambda x: fuzz.ratio(x.get('title','') + x.get('author', ''), e['title'] + format_authors(e.get('author', ''))), existing_entries))
+    scores = list(map(lambda x: fuzz.ratio(x.get('title','') + x.get('author', ''), e.get('title','') + format_authors(e.get('author', ''))), existing_entries))
     max_score = max(scores)
     max_score_title = existing_entries[scores.index(max_score)]['title'] if max_score > 0 else "None"
     max_score_author = existing_entries[scores.index(max_score)]['author'] if max_score > 0 else "None"
-    print ("For entry \"" + e['title'] + "\" max similarity score is: " + str(max_score))
+    print ("For entry \"" + e.get('title','(no title)') + "\" max similarity score is: " + str(max_score))
     print ("")
     if max_score >= max_score_threshold:
         # print (f"\tMost similar entry has title: \"{max_score_title}\"")
@@ -336,5 +336,5 @@ elif yes_or_no("Do you want to upload to Mendeley?"):
             print ("***************************************")
             print("Error adding entry to the group:", response.text)
             print ("***************************************")
-    exit(1)
+    exit(new_entries)
 

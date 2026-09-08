@@ -10,10 +10,11 @@ def format_authors(authors_string):
     - A list of formatted author names.
     """
     formatted_authors = []
-    
+    formatted_authors_string = authors_string
+
     # Split the authors string by "and"
     authors = authors_string.split(" and ")
-    
+
     # Check if authors already have commas
     if all("," in author for author in authors):
         return authors_string

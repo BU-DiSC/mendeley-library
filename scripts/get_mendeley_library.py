@@ -230,6 +230,13 @@ def clean_up_url(input_string):
     """
     return input_string.replace("#", "\\#")
 
+def is_url(input_string):
+    """
+    Checks whether a string looks like a URL (used to flag journal/source fields
+    that actually contain a URL instead of a journal name).
+    """
+    return isinstance(input_string, str) and input_string.startswith(("http://", "https://"))
+
 
 def to_bibtex(entry):
     """
@@ -409,6 +416,15 @@ def main():
         with open(bibtex_filename, "w") as f:
             f.writelines(bibtex_entries)
         print(f"Library converted to BibTeX and saved to '{bibtex_filename}'")
+
+        # Informational stats about entries that may need manual attention
+        webpage_count = sum(1 for doc in documents if doc.get("type") == "web_page")
+        article_url_count = sum(
+            1 for doc in documents
+            if doc.get("type") == "journal" and is_url(doc.get("source"))
+        )
+        print(f"Info: {webpage_count} web page entries saved as @misc.")
+        print(f"Info: {article_url_count} article entries have a URL in the journal field.")
     except Exception as e:
         print(f"Error: {e}")
 

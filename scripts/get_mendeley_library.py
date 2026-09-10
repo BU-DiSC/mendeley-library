@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+from datetime import datetime
 
 # Mendeley API Credentials
 CLIENT_ID = ''
@@ -237,6 +238,16 @@ def is_url(input_string):
     """
     return isinstance(input_string, str) and input_string.startswith(("http://", "https://"))
 
+def format_accessed_date(date_string):
+    """
+    Converts Mendeley's 'accessed' date (YYYY-MM-DD) into "Month Day, Year"
+    (e.g. "September 9, 2026"). Falls back to the raw string if parsing fails.
+    """
+    try:
+        return datetime.strptime(date_string, "%Y-%m-%d").strftime("%B %-d, %Y")
+    except (ValueError, TypeError):
+        return date_string
+
 
 def to_bibtex(entry):
     """
@@ -290,7 +301,7 @@ def to_bibtex(entry):
         if "websites" in entry and entry["websites"]:
             fields.append(f"  howpublished = {{\\url{{{clean_up_url(entry['websites'][0])}}}}}")
         if "accessed" in entry:
-            fields.append(f"  note = {{(Accessed: {entry['accessed']})}}")
+            fields.append(f"  note = {{(Accessed: {format_accessed_date(entry['accessed'])})}}")
 
     # Type-specific fields
     if bibtex_type == "article":

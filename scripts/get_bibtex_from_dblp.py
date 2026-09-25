@@ -5,6 +5,7 @@ import xml.etree.ElementTree as ET
 import requests
 from fuzzywuzzy import fuzz
 
+DBLP_SPARQL  = "https://sparql.dblp.org/sparql"
 CROSSREF_API = "https://api.crossref.org/works"
 DATACITE_API = "https://api.datacite.org/dois"
 ARXIV_API    = "https://export.arxiv.org/api/query"
@@ -25,10 +26,140 @@ DATACITE_VENUES = {
     "dolap": "Proceedings of the International Workshop on Design, Optimization, Languages and Analytical Processing of Big Data (DOLAP)",
 }
 
+# Shown in the search progress, result headers and per-result tags.
+SOURCE_LABELS = {
+    "dblp":     "dblp (through SPARQL)",
+    "crossref": "CrossRef",
+    "datacite": "DataCite",
+    "arxiv":    "arXiv",
+}
+
+# Lowercase surname particles kept with the family name ("van Dam, Wim").
+NAME_PARTICLES = {"van", "von", "de", "der", "den", "del", "della", "di", "da", "du", "la", "le", "dos", "das"}
+
 
 # ---------------------------------------------------------------------------
 # Search
 # ---------------------------------------------------------------------------
+
+def _dblp_last_first(name):
+    """'Ting Yao 0001' -> 'Yao, Ting'; 'Wim van Dam' -> 'van Dam, Wim'.
+
+    dblp appends a 4-digit number to disambiguate homonymous authors.
+    """
+    parts = re.sub(r"\s+\d{4}$", "", name).split()
+    if len(parts) < 2:
+        return " ".join(parts)
+    i = len(parts) - 1
+    while i > 1 and parts[i - 1].lower() in NAME_PARTICLES:
+        i -= 1
+    return f"{' '.join(parts[i:])}, {' '.join(parts[:i])}"
+
+
+def search_dblp(title_keywords, author_keywords):
+    """Query dblp's SPARQL endpoint; returns raw results tagged source='dblp'.
+
+    dblp.org's search API and BibTeX pages sit behind the Anubis bot check,
+    but sparql.dblp.org (QLever) does not. Titles are matched through QLever's
+    word index (fast); every word must appear. Hyphenated and punctuated words
+    are split because the index stores them as separate words. An author-only
+    search falls back to a substring match on author names, which is slower.
+    """
+    title_words  = re.findall(r"[^\W_]+", title_keywords.lower())
+    author_words = re.findall(r"[^\W_]+", author_keywords.lower())
+    if title_words:
+        match = "?text ql:contains-entity ?t . " + " ".join(
+            f'?text ql:contains-word "{w}" .' for w in title_words
+        ) + " ?p dblp:title ?t ."
+    elif author_words:
+        match = "?p dblp:hasSignature ?ms . ?ms dblp:signatureDblpName ?mn . FILTER(" + " && ".join(
+            f'CONTAINS(LCASE(?mn), "{w}")' for w in author_words
+        ) + ")"
+    else:
+        return []
+
+    query = f"""
+PREFIX dblp: <https://dblp.org/rdf/schema#>
+PREFIX ql: <http://qlever.cs.uni-freiburg.de/builtin-functions/>
+SELECT ?p ?title ?type ?year ?doi ?pages ?ee ?venue ?volume ?number ?booktitle ?ord ?name WHERE {{
+  {{ SELECT DISTINCT ?p WHERE {{ {match} }} LIMIT 50 }}
+  ?p dblp:title ?title ; dblp:bibtexType ?type .
+  OPTIONAL {{ ?p dblp:yearOfPublication ?year }}
+  OPTIONAL {{ ?p dblp:doi ?doi }}
+  OPTIONAL {{ ?p dblp:pagination ?pages }}
+  OPTIONAL {{ ?p dblp:primaryDocumentPage ?ee }}
+  OPTIONAL {{ ?p dblp:publishedIn ?venue }}
+  OPTIONAL {{ ?p dblp:publishedInJournalVolume ?volume }}
+  OPTIONAL {{ ?p dblp:publishedInJournalVolumeIssue ?number }}
+  OPTIONAL {{ ?p dblp:publishedAsPartOf ?proc . ?proc dblp:title ?booktitle }}
+  OPTIONAL {{ ?p dblp:hasSignature ?s . ?s dblp:signatureOrdinal ?ord ; dblp:signatureDblpName ?name }}
+}}"""
+
+    # sparql.dblp.org answers bursts of queries with HTTP 429; wait and retry.
+    for attempt in range(3):
+        try:
+            response = requests.get(
+                DBLP_SPARQL,
+                params={"query": query},
+                headers={**HEADERS, "Accept": "application/sparql-results+json"},
+                timeout=60,
+            )
+        except requests.exceptions.RequestException as e:
+            print(f"dblp SPARQL search error: {e.__class__.__name__}")
+            return []
+        if response.status_code != 429:
+            break
+        retry_after = response.headers.get("Retry-After", "")
+        wait = int(retry_after) if retry_after.isdigit() else 5 * (attempt + 1)
+        print(f"dblp SPARQL rate limit hit; retrying in {wait}s...")
+        time.sleep(wait)
+    else:
+        print("dblp SPARQL rate limit persists after retries.")
+        return []
+
+    try:
+        response.raise_for_status()
+        rows = response.json()["results"]["bindings"]
+    except (requests.exceptions.RequestException, ValueError, KeyError) as e:
+        # The request URL embeds the whole query, so print only the status.
+        print(f"dblp SPARQL search error: HTTP {response.status_code}")
+        return []
+
+    # One row per (publication, author, ...) combination: fold them back up.
+    pubs = {}
+    for row in rows:
+        v   = {k: b["value"] for k, b in row.items()}
+        pub = pubs.setdefault(v["p"], {"fields": {}, "authors": {}})
+        for k, val in v.items():
+            pub["fields"].setdefault(k, val)
+        if "ord" in v:
+            pub["authors"][int(v["ord"])] = _dblp_last_first(v["name"])
+
+    results = []
+    for pub in pubs.values():
+        f     = pub["fields"]
+        kind  = f["type"].rsplit("#", 1)[-1].lower()     # Inproceedings -> inproceedings
+        doi   = f.get("doi", "")
+        doi   = re.sub(r"^https?://(dx\.)?doi\.org/", "", doi) or None
+        # dblp ends titles with a period; keep ? and ! which are part of the title.
+        title = re.sub(r"\.$", "", f["title"])
+        venue = f.get("booktitle") if kind in ("inproceedings", "incollection") else None
+        results.append({
+            "title":    title,
+            "authors":  [pub["authors"][i] for i in sorted(pub["authors"])],
+            "year":     f.get("year", ""),
+            "venue":    venue or f.get("venue", ""),
+            "doi":      doi,
+            "arxiv_id": None,
+            "source":   "dblp",
+            "kind":     kind,
+            "pages":    f.get("pages", ""),
+            "volume":   f.get("volume", ""),
+            "number":   f.get("number", ""),
+            "url":      f.get("ee") or (f"{DOI_BASE}/{doi}" if doi else ""),
+        })
+    return results
+
 
 def search_crossref(title_keywords, author_keywords):
     """Query CrossRef; returns raw results tagged source='crossref'.
@@ -338,13 +469,47 @@ def make_datacite_bibtex(result):
     return f"@{entry_type}{{dummy_key,\n" + ",\n".join(fields) + "\n}\n"
 
 
+def make_dblp_bibtex(result):
+    """Generate a BibTeX entry from a dblp SPARQL result.
+
+    Mirrors what dblp's own BibTeX export contained (dblp booktitle/journal
+    names, which the dblp2disc recipes are written for), so it also works
+    for papers without a DOI such as USENIX ones.
+    """
+    kind = result["kind"]
+    fields = [
+        f"  title = {{{{{result['title']}}}}}",
+        f"  author = {{{' and '.join(result['authors'])}}}",
+        f"  year = {{{result['year']}}}",
+    ]
+    if result["doi"]:
+        fields.append(f"  doi = {{{result['doi']}}}")
+    if result["url"]:
+        fields.append(f"  url = {{{result['url']}}}")
+    if kind == "article":
+        fields.append(f"  journal = {{{result['venue']}}}")
+        if result["volume"]:
+            fields.append(f"  volume = {{{result['volume']}}}")
+        if result["number"]:
+            fields.append(f"  number = {{{result['number']}}}")
+    elif result["venue"]:
+        fields.append(f"  booktitle = {{{result['venue']}}}")
+    if result["pages"]:
+        fields.append(f"  pages = {{{result['pages']}}}")
+    return f"@{kind}{{dummy_key,\n" + ",\n".join(fields) + "\n}\n"
+
+
 def fetch_bibtex(result):
     """Return the BibTeX string for a result.
 
+    - dblp result: generate the entry locally from its dblp metadata.
     - DataCite result: generate the entry locally from its metadata.
     - Any other result with a DOI: content negotiation via doi.org (CrossRef or publisher).
     - arXiv result without a DOI: generate CoRR @article locally.
     """
+    if result["source"] == "dblp":
+        return make_dblp_bibtex(result)
+
     if result["source"] == "datacite":
         return make_datacite_bibtex(result)
 
@@ -378,7 +543,7 @@ def _print_results(results):
         if len(r["authors"]) > 3:
             author_str += " et al."
         score_tag  = f" [similarity: {r['score']}%]" if r["score"] is not None else ""
-        source_tag = f"[{r['source'].upper()}]"
+        source_tag = f"[{SOURCE_LABELS[r['source']]}]"
         print(f"\nResult {i}{score_tag} {source_tag}:")
         print(f"  Title:   {r['title']}")
         print(f"  Authors: {author_str}")
@@ -392,10 +557,11 @@ def _print_results(results):
 # ---------------------------------------------------------------------------
 
 def main():
-    print("CrossRef + DataCite + arXiv Search and BibTeX Downloader")
+    print("dblp (through SPARQL) + CrossRef + DataCite + arXiv Search and BibTeX Downloader")
 
     parser = argparse.ArgumentParser(
-        description="Search CrossRef and DataCite (arXiv as fallback), then download BibTeX entries."
+        description="Search dblp (through SPARQL), then CrossRef, then DataCite (arXiv as "
+                    "fallback), and download BibTeX entries."
     )
     parser.add_argument("--output", type=str, help="Output filename for the BibTeX entry.")
     args = parser.parse_args()
@@ -408,9 +574,11 @@ def main():
         print("Please provide at least one search term.")
         return
 
-    # --- Phase 1: CrossRef, falling back to DataCite ---
+    # --- Phase 1: dblp, falling back to CrossRef, then DataCite ---
     doi_results = []
-    for name, search in (("CrossRef", search_crossref), ("DataCite", search_datacite)):
+    for source, search in (("dblp", search_dblp), ("crossref", search_crossref),
+                           ("datacite", search_datacite)):
+        name = SOURCE_LABELS[source]
         print(f"\nSearching {name}...")
         doi_results = rank_and_cap(
             apply_filters(search(title_keywords, author_keywords),

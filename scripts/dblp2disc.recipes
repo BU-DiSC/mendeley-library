@@ -16,6 +16,7 @@ TOS|ACM Transactions on Storage (TOS)
 International Symposium on Microarchitecture|Proceedings of the Annual IEEE/ACM International Symposium on Microarchitecture (MICRO)
 International Symposium on Modeling, Analysis and Simulation of Computer and Telecommunication Systems|Proceedings of the International Symposium on Modeling, Analysis, and Simulation of Computer and Telecommunication Systems (MASCOTS)
 International Conference on Architectural Support for Programming Languages and Operating Systems|Proceedings of the International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)
+Architectural Support for Programming Languages and Operating Systems|Proceedings of the International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)
 SIGMOD Record|ACM SIGMOD Record
 SIGMOD Rec.|ACM SIGMOD Record
 J. Comput. Syst. Sci.|Journal of Computer and System Sciences (JCSS)
@@ -127,6 +128,7 @@ IEEE Trans. Parallel Distributed Syst.|IEEE Transactions on Parallel and Distrib
 IEEE High Performance Extreme Computing Conference|Proceedings of the IEEE High Performance Extreme Computing Conference (HPEC)
 IEEE Real-Time Systems Symposium|Proceedings of the IEEE Real-Time Systems Symposium (RTSS)
 IEEE International Conference on Parallel and Distributed Systems|Proceedings of the IEEE International Conference on Parallel and Distributed Systems (ICPADS)
+IEEE .* International Conference on Parallel and Distributed Systems (ICPADS)|Proceedings of the IEEE International Conference on Parallel and Distributed Systems (ICPADS)
 IEEE International Conference on Computer Design|Proceedings of the IEEE International Conference on Computer Design (ICCD)
 ACM Trans. Graph.|ACM Transactions on Graphics (TOG)
 ACM SIGPLAN International Workshop on Libraries, Languages, and Compilers for Array Programming|Proceedings of the ACM SIGPLAN International Workshop on Libraries, Languages, and Compilers for Array Programming (ARRAY@PLDI)
@@ -140,3 +142,5 @@ J. Data Intell.|Journal of Data Intelligence
 IEEE Symposium on Security and Privacy|Proceedings of the IEEE Symposium on Security and Privacy (SP)
 International Conference on Information Systems Security and Privacy|Proceedings of the International Conference on Information Systems Security and Privacy (ICISSP)
 ACM/SIGAPP Symposium on Applied Computing|Proceedings of the ACM SIGAPP Symposium on Applied Computing
+ACM International Conference on Distributed and Event-based Systems, DEBS|Proceedings of the ACM International Conference on Distributed and Event-based Systems (DEBS)
+IEEE International Symposium on High Performance Computer Architecture, HPCA|Proceedings of the IEEE International Symposium on High-Performance Computer Architecture (HPCA)

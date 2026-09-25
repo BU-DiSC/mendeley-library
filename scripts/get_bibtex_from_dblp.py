@@ -6,6 +6,7 @@ import requests
 from fuzzywuzzy import fuzz
 
 CROSSREF_API = "https://api.crossref.org/works"
+DATACITE_API = "https://api.datacite.org/dois"
 ARXIV_API    = "https://export.arxiv.org/api/query"
 DOI_BASE     = "https://doi.org"
 POLITE_MAILTO = "manos.athanassoulis@gmail.com"
@@ -14,19 +15,34 @@ HEADERS = {
     "User-Agent": f"mendeley-library-tool/1.0 (mailto:{POLITE_MAILTO})"
 }
 
+# Venues whose DOIs are registered with DataCite rather than CrossRef, keyed by
+# the acronym that appears in their DOIs (10.5441/002/edbt.2018.64,
+# 10.4230/LIPIcs.ICDT.2015.76). OpenProceedings records carry no container
+# title, so the acronym in the DOI is the only reliable source of the venue.
+DATACITE_VENUES = {
+    "edbt":  "Proceedings of the International Conference on Extending Database Technology (EDBT)",
+    "icdt":  "Proceedings of the International Conference on Database Theory (ICDT)",
+    "dolap": "Proceedings of the International Workshop on Design, Optimization, Languages and Analytical Processing of Big Data (DOLAP)",
+}
+
 
 # ---------------------------------------------------------------------------
 # Search
 # ---------------------------------------------------------------------------
 
 def search_crossref(title_keywords, author_keywords):
-    """Query CrossRef; returns raw results tagged source='crossref'."""
+    """Query CrossRef; returns raw results tagged source='crossref'.
+
+    Uses query.bibliographic rather than query.title: ACM often splits titles
+    at the colon (title='Monkey', subtitle='Optimal Navigable Key-Value Store'),
+    and query.title then fails to rank such papers in the top 50 at all.
+    """
     params = {
         "rows": 50,
-        "select": "title,author,published,DOI,type,container-title",
+        "select": "title,subtitle,author,published,DOI,type,container-title",
     }
     if title_keywords:
-        params["query.title"] = title_keywords
+        params["query.bibliographic"] = title_keywords
     if author_keywords:
         params["query.author"] = author_keywords
 
@@ -45,14 +61,82 @@ def search_crossref(title_keywords, author_keywords):
             f"{a.get('family', '')}, {a.get('given', '')}".strip(", ")
             for a in item.get("author", [])
         ]
+        title = (item.get("title") or ["(no title)"])[0]
+        if item.get("subtitle"):
+            title = f"{title}: {item['subtitle'][0]}"
         results.append({
-            "title":    (item.get("title") or ["(no title)"])[0],
+            "title":    title,
             "authors":  authors,
             "year":     str(year) if year else "",
             "venue":    (item.get("container-title") or [""])[0],
             "doi":      item.get("DOI"),
             "arxiv_id": None,
             "source":   "crossref",
+        })
+    return results
+
+
+def _datacite_venue(doi, attrs):
+    """Best-effort venue name for a DataCite record (see DATACITE_VENUES)."""
+    match = re.search(r"\b(" + "|".join(DATACITE_VENUES) + r")\.\d{4}\b", doi.lower())
+    if match:
+        return DATACITE_VENUES[match.group(1)]
+    return (attrs.get("container") or {}).get("title") or attrs.get("publisher") or ""
+
+
+def search_datacite(title_keywords, author_keywords):
+    """Query DataCite; returns raw results tagged source='datacite'.
+
+    DataCite registers DOIs that CrossRef never sees, notably OpenProceedings
+    (EDBT/ICDT/DOLAP, prefix 10.5441) and Dagstuhl LIPIcs (prefix 10.4230).
+    Tokens are AND-ed because DataCite also indexes millions of datasets,
+    which would otherwise flood the results.
+    """
+    def tokens(text):
+        # Elasticsearch syntax: '/' starts a regex, '<>=' are range operators.
+        return [t for t in (re.sub(r"[/<>=]", "", t) for t in _arxiv_tokens(text)) if t]
+
+    parts = []
+    if title_keywords and tokens(title_keywords):
+        parts.append("titles.title:(" + " AND ".join(tokens(title_keywords)) + ")")
+    if author_keywords and tokens(author_keywords):
+        parts.append("creators.name:(" + " AND ".join(tokens(author_keywords)) + ")")
+    if not parts:
+        return []
+
+    try:
+        response = requests.get(
+            DATACITE_API,
+            params={"query": " AND ".join(parts), "page[size]": 50},
+            headers=HEADERS,
+            timeout=15,
+        )
+        response.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        print(f"DataCite search error: {e}")
+        return []
+
+    results = []
+    for item in response.json().get("data", []):
+        attrs     = item.get("attributes", {})
+        doi       = attrs.get("doi") or item.get("id")
+        container = attrs.get("container") or {}
+        authors = [
+            f"{c['familyName']}, {c.get('givenName', '')}".strip(", ")
+            if c.get("familyName") else c.get("name", "")
+            for c in attrs.get("creators", [])
+        ]
+        pages = "-".join(p for p in (container.get("firstPage"), container.get("lastPage")) if p)
+        results.append({
+            "title":    (attrs.get("titles") or [{"title": "(no title)"}])[0]["title"],
+            "authors":  authors,
+            "year":     str(attrs.get("publicationYear") or ""),
+            "venue":    _datacite_venue(doi, attrs),
+            "doi":      doi,
+            "arxiv_id": None,
+            "source":   "datacite",
+            "is_article": (attrs.get("types") or {}).get("resourceTypeGeneral") == "JournalArticle",
+            "pages":    pages,
         })
     return results
 
@@ -169,9 +253,11 @@ def apply_filters(results, title_keywords, author_keywords, venue_keywords):
     - title:   every keyword must appear (case-insensitive substring) in the title
     - authors: every keyword must appear in at least one author name
     - venue:   every keyword must appear in the venue string
-    Falls back to the unfiltered list if nothing survives.
-    Note: venue uses the full CrossRef container-title for CrossRef results and
-    'CoRR' for arXiv results; use words from the full name for CrossRef venues
+    Returns an empty list if nothing survives, rather than padding the output
+    with loosely related papers.
+    Note: venue uses the full CrossRef container-title for CrossRef results,
+    the DATACITE_VENUES name for DataCite results, and 'CoRR' for arXiv
+    results; use words from the full name for CrossRef venues
     (e.g. 'Management of Data' for SIGMOD, 'VLDB Endowment' for PVLDB).
     """
     filtered = results
@@ -186,10 +272,6 @@ def apply_filters(results, title_keywords, author_keywords, venue_keywords):
     if venue_keywords:
         kws = venue_keywords.lower().split()
         filtered = [r for r in filtered if all(kw in r["venue"].lower() for kw in kws)]
-
-    if not filtered and results:
-        print("(No results matched all criteria; showing broader matches.)")
-        return results
     return filtered
 
 
@@ -234,12 +316,38 @@ def make_arxiv_bibtex(result):
     )
 
 
+def make_datacite_bibtex(result):
+    """Generate an @inproceedings (or @article) BibTeX entry for a DataCite result.
+
+    doi.org content negotiation returns @misc with publisher=OpenProceedings.org
+    for these DOIs, so the entry is built locally with a proper booktitle that
+    the dblp2disc recipes in prepare_upload_bibtex.py can match.
+    """
+    entry_type  = "article" if result["is_article"] else "inproceedings"
+    venue_field = "journal" if result["is_article"] else "booktitle"
+    fields = [
+        f"  title = {{{{{result['title']}}}}}",
+        f"  author = {{{' and '.join(result['authors'])}}}",
+        f"  year = {{{result['year']}}}",
+        f"  doi = {{{result['doi']}}}",
+        f"  url = {{{DOI_BASE}/{result['doi']}}}",
+        f"  {venue_field} = {{{result['venue']}}}",
+    ]
+    if result["pages"]:
+        fields.append(f"  pages = {{{result['pages']}}}")
+    return f"@{entry_type}{{dummy_key,\n" + ",\n".join(fields) + "\n}\n"
+
+
 def fetch_bibtex(result):
     """Return the BibTeX string for a result.
 
-    - Any result with a DOI: content negotiation via doi.org (CrossRef or publisher).
+    - DataCite result: generate the entry locally from its metadata.
+    - Any other result with a DOI: content negotiation via doi.org (CrossRef or publisher).
     - arXiv result without a DOI: generate CoRR @article locally.
     """
+    if result["source"] == "datacite":
+        return make_datacite_bibtex(result)
+
     if result["doi"]:
         response = requests.get(
             f"{DOI_BASE}/{result['doi']}",
@@ -284,10 +392,10 @@ def _print_results(results):
 # ---------------------------------------------------------------------------
 
 def main():
-    print("CrossRef + arXiv Search and BibTeX Downloader")
+    print("CrossRef + DataCite + arXiv Search and BibTeX Downloader")
 
     parser = argparse.ArgumentParser(
-        description="Search CrossRef and arXiv, then download BibTeX entries."
+        description="Search CrossRef and DataCite (arXiv as fallback), then download BibTeX entries."
     )
     parser.add_argument("--output", type=str, help="Output filename for the BibTeX entry.")
     args = parser.parse_args()
@@ -300,33 +408,38 @@ def main():
         print("Please provide at least one search term.")
         return
 
-    # --- Phase 1: CrossRef ---
-    print("\nSearching CrossRef...")
-    cr_raw   = search_crossref(title_keywords, author_keywords)
-    cr_results = rank_and_cap(
-        apply_filters(cr_raw, title_keywords, author_keywords, venue_keywords),
-        title_keywords,
-    )
+    # --- Phase 1: CrossRef, falling back to DataCite ---
+    doi_results = []
+    for name, search in (("CrossRef", search_crossref), ("DataCite", search_datacite)):
+        print(f"\nSearching {name}...")
+        doi_results = rank_and_cap(
+            apply_filters(search(title_keywords, author_keywords),
+                          title_keywords, author_keywords, venue_keywords),
+            title_keywords,
+        )
+        if doi_results:
+            print(f"\n{name} Results:")
+            _print_results(doi_results)
+            break
+        print(f"Not found in {name}.")
 
-    if cr_results:
-        print("\nCrossRef Results:")
-        _print_results(cr_results)
+    if doi_results:
+        try:
+            choice = int(input(
+                "\nEnter number to download BibTeX, 0 to cancel, -1 to search arXiv: "
+            ))
+        except ValueError:
+            print("Invalid selection. Exiting.")
+            return
     else:
-        print("No CrossRef results found.")
-
-    try:
-        choice = int(input(
-            "\nEnter number to download BibTeX, 0 to cancel, -1 to search arXiv: "
-        ))
-    except ValueError:
-        print("Invalid selection. Exiting.")
-        return
+        print("Falling back to arXiv.")
+        choice = -1
 
     if choice == 0:
         print("Exiting without downloading.")
         return
 
-    # --- Phase 2: arXiv (on demand) ---
+    # --- Phase 2: arXiv (fallback, or on demand) ---
     if choice == -1:
         print("\nSearching arXiv...")
         ax_raw     = search_arxiv(title_keywords, author_keywords)
@@ -359,7 +472,7 @@ def main():
             return
     else:
         try:
-            selected = cr_results[choice - 1]
+            selected = doi_results[choice - 1]
         except IndexError:
             print("Invalid selection. Exiting.")
             return

@@ -50,6 +50,101 @@ def upload_document_json(access_token, group_id, document_data):
 
     return response
 
+
+# Event numbering that changes every year: 2017, '17, 38th, Fifth, Twenty-Fifth ...
+NUMBER_TOKEN = re.compile(
+    r"'?\b(?:\d+(?:st|nd|rd|th)?"
+    r"|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"
+    r"|eleventh|twelfth|thirteenth|fourteenth|fifteenth|sixteenth|seventeenth"
+    r"|eighteenth|nineteenth|twentieth|thirtieth|fortieth|fiftieth"
+    r"|twenty|thirty|forty|fifty)\b",
+    re.IGNORECASE)
+
+
+def strip_paren_year(name):
+    """Drop a year inside the acronym parentheses: "(ICDE 2022)" -> "(ICDE)"."""
+    return re.sub(r"\s+'?\d{2,4}\s*\)", ")", name)
+
+
+def propose_recipe_match(name):
+    """Propose the matching part of a recipe for a venue name.
+
+    Recipes match by substring, so the year or event number must not be part
+    of it. Drops a year inside the acronym parentheses ("(ICDE 2022)" ->
+    "(ICDE)"), splits at every number token, and proposes the longest
+    remaining segment, e.g.
+    "2022 IEEE 38th International Conference on Data Engineering (ICDE)"
+    -> "International Conference on Data Engineering (ICDE)".
+    """
+    name = strip_paren_year(name)
+    segments = [s.strip(" ,.:;-'") for s in NUMBER_TOKEN.split(name)]
+    return max(segments, key=len).replace("|", "")
+
+
+def find_recipe(name):
+    """Return the recipe key matching name, or None.
+
+    Also tries the name without a year in the acronym parentheses, so a
+    recipe for "... (ICDT)" matches "... (ICDT 2023)".
+    """
+    for candidate in dict.fromkeys((name, strip_paren_year(name))):
+        for r in replacements:
+            if "*" in r: #this is a wildcard
+                safe = r.replace('(', r'\(').replace(')', r'\)')
+                if re.compile(safe).search(candidate):
+                    return r
+            elif r in candidate: # exact match
+                return r
+    return None
+
+
+def add_recipe(match, replacement):
+    """Append a recipe to recipes_file and to the in-memory replacements."""
+    with open(recipes_file, "rb") as f:
+        content = f.read()
+    with open(recipes_file, "a") as f:
+        if content and not content.endswith(b"\n"):
+            f.write("\n")
+        f.write(match + "|" + replacement + "\n")
+    replacements[match] = replacement
+    print ("Added recipe \"" + match + "|" + replacement + "\" to " + recipes_file)
+
+
+def normalize_venue(e, field, label):
+    """Apply a recipe to e[field] (booktitle or journal); ask only if none matches.
+
+    When the user types a new name, offer to save it as a recipe so the same
+    venue is handled automatically next time.
+    """
+    e[field]=e[field].replace("{", "")
+    e[field]=e[field].replace("}", "")
+    e[field]=e[field].replace("\n", " ")
+    original = e[field]
+    r = find_recipe(original)
+    if r is not None:
+        e[field] = replacements[r]
+        print ("********************************")
+        print ("Recipe found for " + label + " name")
+        print ("  from BibTeX:    \"" + original + "\"")
+        print ("  matched recipe: \"" + r + "\"")
+        print ("  using:          \"" + e[field] + "\"")
+        print ("********************************")
+        print ()
+        return
+    print ("No recipe found for " + label + " name: \"" + original + "\"")
+    if e['to_delete']:
+        return
+    keep = yes_or_no("Do you want to keep it? (y/n) [If you want to change it give \"n\" and provide the " + label + " name next]")
+    if keep:
+        return
+    e[field] = input("New " + label + " name: ").strip()
+    print ("Final " + label + " after manual entry: \"" + e[field] + "\"")
+    if yes_or_no("Add a recipe so that future entries from this venue are renamed to \"" + e[field] + "\"?"):
+        proposed = propose_recipe_match(original)
+        print ("Proposed matching part (names containing it will be renamed): \"" + proposed + "\"")
+        match = input("Press Enter to accept, or type a different matching part: ").strip().replace("|", "") or proposed
+        add_recipe(match, e[field])
+
 #########
 
 
@@ -161,65 +256,13 @@ for e in new_bibtex_database.entries:
     if 'author' in e:
         e['author']=e['author'].replace("\n", " ")
     if (e['ENTRYTYPE'] == "inproceedings") and ('booktitle' in e):
-        e['booktitle']=e['booktitle'].replace("{", "")
-        e['booktitle']=e['booktitle'].replace("}", "")
-        e['booktitle']=e['booktitle'].replace("\n", " ")
-        for r in replacements:
-            # don't forget to update both replacements in inproceedings and journal below
-            replace=False
-            if "*" in r: #this is a wildcard
-                safe = r.replace('(', r'\(').replace(')', r'\)')
-                pattern = re.compile(safe)
-                if pattern.search(e['booktitle']):
-                    replace=True
-            else: # exact match
-                if r in e['booktitle']:
-                    replace=True
-            if replace:
-                print ("********************************")
-                print ("Replacing booktitle \n\""+e['booktitle']+"\"\n with \n\""+replacements[r]+"\"")
-                print ("********************************")
-                print ()
-                e['booktitle'] = replacements[r]
-                break
-        print ("Proceedings after replacement: \"" + e['booktitle'] + "\"")
-        if not e['to_delete']:
-            keep = yes_or_no("Do you want to keep it? (y/n) [If you want to change it give \"n\" and provide the proceedings name next]")
-            if not keep:
-                e['booktitle'] = input("New proceedings (booktitle) name: ").strip()
-                print ("Final proceedings after manual entry: \"" + e['booktitle'] + "\"")
+        normalize_venue(e, 'booktitle', 'proceedings')
         if 'editor' in e:
             del e['editor']
         if 'publisher' in e:
             del e['publisher']
-    if (e['ENTRYTYPE'] == "article") and ('journal' in e):    
-        e['journal']=e['journal'].replace("{", "")
-        e['journal']=e['journal'].replace("}", "")
-        e['journal']=e['journal'].replace("\n", " ")
-        for r in replacements:
-            # don't forget to update both replacements in journal and inproceedings above
-            replace=False
-            if "*" in r: #this is a wildcard
-                safe = r.replace('(', r'\(').replace(')', r'\)')
-                pattern = re.compile(safe)
-                if pattern.search(e['journal']):
-                    replace=True
-            else: # exact match
-                if r in e['journal']:
-                    replace=True
-            if replace:
-                print ("********************************")
-                print ("Replacing journal \n\""+e['journal']+"\"\n with \n\""+replacements[r]+"\"")
-                print ("********************************")
-                print ()
-                e['journal'] = replacements[r]
-                break
-        print ("Journal after replacement: \"" + e['journal'] + "\"")
-        if not e['to_delete']:
-            keep = yes_or_no("Do you want to keep it? (y/n) [If you want to change it give \"n\" and provide the journal name next]")
-            if not keep:
-                e['journal'] = input("New journal name: ").strip()
-                print ("Final journal after manual entry: \"" + e['journal'] + "\"")
+    if (e['ENTRYTYPE'] == "article") and ('journal' in e):
+        normalize_venue(e, 'journal', 'journal')
     if 'ID' in e:
         e['ID']=''
     if 'publisher' in e:    

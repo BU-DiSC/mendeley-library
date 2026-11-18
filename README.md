@@ -23,10 +23,37 @@ Use this URL for direct access:
 https://raw.githubusercontent.com/BU-DiSC/mendeley-library/refs/heads/master/library.bib
 ```
 
-### Adding library to overleaf
-1. Copy the above deploy URL
-2. In overleaf, add a new file (use the "upload" option) & paste in the above URL
-3. in the new `library.bib` file, you can click "refresh" to reload it from the remote to get new changes
+### Adding the library to Overleaf
+Link the library to your Overleaf project once; you can then pull in new entries with one click.
+
+1. In your Overleaf project, click **New File** (the file icon at the top of the file tree).
+2. Choose **From external URL** (not "Upload", which only takes files from your computer).
+3. Paste this URL:
+   ```
+   https://raw.githubusercontent.com/BU-DiSC/mendeley-library/refs/heads/master/library.bib
+   ```
+4. Name the file `library.bib` and click **Create**.
+5. Cite from it in your `.tex` file as usual, e.g.:
+   ```latex
+   \bibliographystyle{plain}
+   \bibliography{library}        % BibTeX (no .bib extension)
+   % or, with biblatex:
+   % \addbibresource{library.bib}
+   ```
+
+**Getting new entries:** Overleaf does not update linked files on its own. When the library has changed (the GitHub workflow updates it every 2 hours), open `library.bib` in Overleaf and click **Refresh**.
+
+**Other versions of the library:** to link a different version, use the same URL but replace `library.bib` at the end with one of the file names below:
+
+| File | Contents |
+|------|----------|
+| `library.bib` | Full library (all fields) |
+| `library-no-doi.bib` | DOI fields removed (URLs kept) |
+| `library-no-url.bib` | URL and DOI fields removed |
+| `library-short.bib` | Venue names shortened to their acronyms (e.g., `ICDE`, `FAST`) |
+| `library-no-url-short.bib` | Short venue names; URL and DOI fields removed |
+| `library-no-url-no-pages-short.bib` | Short venue names; URL, DOI, and page fields removed |
+| `library-no-url-no-pages-clean.bib` | Full venue names without the trailing acronym in parentheses; URL, DOI, and page fields removed |
 
 
 # Automation

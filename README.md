@@ -26,8 +26,8 @@ https://raw.githubusercontent.com/BU-DiSC/mendeley-library/refs/heads/master/lib
 ### Adding the library to Overleaf
 Link the library to your Overleaf project once; you can then pull in new entries with one click.
 
-1. In your Overleaf project, click **New File** (the file icon at the top of the file tree).
-2. Choose **From external URL** (not "Upload", which only takes files from your computer).
+1. In your Overleaf project, click **New File** or **Upload** (the icons at the top of the file tree).
+2. Choose **From external URL**.
 3. Paste this URL:
    ```
    https://raw.githubusercontent.com/BU-DiSC/mendeley-library/refs/heads/master/library.bib

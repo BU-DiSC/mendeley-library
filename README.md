@@ -23,5 +23,11 @@ Use this URL for direct access:
 https://raw.githubusercontent.com/BU-DiSC/mendeley-library/refs/heads/master/library.bib
 ```
 
+### Adding library to overleaf
+1. Copy the above deploy URL
+2. In overleaf, add a new file (use the "upload" option) & paste in the above URL
+3. in the new `library.bib` file, you can click "refresh" to reload it from the remote to get new changes
+
+
 # Automation
 A github workflow is updating all libraries every 2 hours. You can also manually run the workflow by going to [Actions](https://github.com/BU-DiSC/mendeley-library/actions). 
